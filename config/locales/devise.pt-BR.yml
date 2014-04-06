@@ -3,7 +3,7 @@
     failure:
       already_authenticated: 'Você já está autenticado.'
       unauthenticated: 'Você precisa se autenticar para acessar o sistema.'
-      invalid: 'E-mail e senha inválidos.'
+      invalid: 'Este usuário não existe ou a senha está incorreta.'
       user:
         not_found_in_database: 'Este usuário não existe.'
     sessions:

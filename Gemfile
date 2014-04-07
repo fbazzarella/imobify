@@ -1,16 +1,20 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.0.4'
+
 gem 'pg'
+gem 'mypg'
+
 gem 'turbolinks'
 gem 'devise'
 
+gem 'shuttle'
 gem 'pry-rails'
 gem 'awesome_print'
+gem 'exception_notification'
+
 gem 'yui-compressor'
 gem 'therubyracer'
-gem 'shuttle'
-gem 'mypg'
 
 group :development do
   gem 'zeus'

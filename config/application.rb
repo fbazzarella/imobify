@@ -27,5 +27,17 @@ module NewApp
 
     # Prevent initializing your application and connecting to the database
     config.assets.initialize_on_precompile = false
+
+    # Authentication configuration for ActionMailer
+    # config.action_mailer.delivery_method = :smtp
+
+    # config.action_mailer.smtp_settings = {
+    #   address:   'smtp.gmail.com',
+    #   port:      587,
+    #   user_name: ENV['SMTP_USERNAME'],
+    #   password:  ENV['SMTP_PASSWORD'],
+    #   authentication: 'plain',
+    #   enable_starttls_auto: true
+    # }
   end
 end

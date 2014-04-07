@@ -39,5 +39,10 @@ module NewApp
     #   authentication: 'plain',
     #   enable_starttls_auto: true
     # }
+
+    # HTML generated for form fields with error
+    config.action_view.field_error_proc = Proc.new do |html_tag|
+      html_tag.html_safe
+    end
   end
 end

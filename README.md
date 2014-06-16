@@ -4,16 +4,17 @@ Este guia destina-se apenas à instalação e execução do sistema em modo dese
 
 ## Instalação
 
-O sistema utiliza a linguagem Ruby em sua versão 2.1.x, o framework Ruby on Rails em sua versão 4.0.x e banco de dados PostgreSQL em sua versão 9.2.x.
+O sistema utiliza a linguagem Ruby em sua versão 2.1.x, o framework Ruby on Rails em sua versão 4.1.x e banco de dados PostgreSQL em sua versão 9.3.x.
 
 Clone o repositório:
 
     $ git clone git@bitbucket.org:fbazzarella/newapp.git
+    $ cd newapp
 
 Instale as dependências:
 
-    $ cd newapp
     newapp$ bundle install
+    newapp$ bower install
 
 ## Configuração
 

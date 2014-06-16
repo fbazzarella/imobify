@@ -10,7 +10,7 @@ if Rails.env.development?
   User.destroy_all
   
   User.create({
-    username: 'fbazzarella',
-    password: '123qwe'
+    username: 'johndoe',
+    password: 'secret'
   })
 end

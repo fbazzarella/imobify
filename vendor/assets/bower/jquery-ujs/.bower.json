@@ -6,23 +6,23 @@
   "main": "src/rails.js",
   "license": "MIT",
   "dependencies": {
-    "jquery": ">1.7.* <2.0.0"
+    "jquery": ">1.8.*"
   },
   "ignore": [
     "**/.*",
     "Gemfile*",
     "Rakefile",
     "bower_components",
+    "script",
     "test"
   ],
-  "_release": "61f0448ee8",
+  "_release": "c7a5b12a3b",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "61f0448ee879b6c942b558376b12812fe5d8224b"
+    "commit": "c7a5b12a3b37c4a20f4e5fb22da843f24ef2d356"
   },
-  "_source": "https://github.com/rails/jquery-ujs.git",
+  "_source": "git://github.com/rails/jquery-ujs.git",
   "_target": "*",
-  "_originalSource": "jquery-ujs",
-  "_direct": true
+  "_originalSource": "jquery-ujs"
 }

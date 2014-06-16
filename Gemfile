@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.0.4'
+gem 'rails', '4.1.1'
 
 gem 'pg'
 gem 'mypg'
@@ -29,6 +29,7 @@ group :development, :test do
 end
 
 group :test do
+  gem 'minitest'
   gem 'shoulda-matchers'
   gem 'factory_girl_rails'
 end

@@ -1,4 +1,13 @@
 'pt-BR':
+  flash:
+    users:
+      create:
+        notice: 'Usuário criado com sucesso.'
+      update:
+        notice: 'Usuário atualizado com sucesso.'
+      destroy:
+        notice: 'Usuário excluído com sucesso.'
+        alert: 'O Usuário não pôde ser excluído.'
   activerecord:
     errors:
       messages:

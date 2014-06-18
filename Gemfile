@@ -1,12 +1,14 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.1.1'
+gem 'responders'
 
 gem 'pg'
 gem 'mypg'
 
 gem 'turbolinks'
 gem 'devise'
+gem 'kaminari'
 
 gem 'shuttle'
 gem 'pry-rails'

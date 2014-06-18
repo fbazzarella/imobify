@@ -1,4 +1,10 @@
 'pt-BR':
+  errors:
+    messages:
+      not_saved:
+        one: "Corrija o erro abaixo antes de continuar:"
+        other: "Corrija os erros abaixo antes de continuar:"
+
   devise:
     failure:
       already_authenticated: 'Você já está autenticado.'

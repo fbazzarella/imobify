@@ -73,6 +73,9 @@ GEM
     hike (1.2.3)
     i18n (0.6.9)
     json (1.8.1)
+    kaminari (0.16.1)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     libnotify (0.8.2)
       ffi (>= 1.0.11)
     libv8 (3.16.14.3)
@@ -126,6 +129,8 @@ GEM
     rb-kqueue (0.2.0)
       ffi (>= 0.5.0)
     ref (1.0.5)
+    responders (1.0.0)
+      railties (>= 3.2, < 5)
     rspec (2.14.1)
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
@@ -188,6 +193,7 @@ DEPENDENCIES
   exception_notification
   factory_girl_rails
   guard-rspec
+  kaminari
   libnotify
   minitest
   mypg
@@ -195,6 +201,7 @@ DEPENDENCIES
   pry-rails
   quiet_assets
   rails (= 4.1.1)
+  responders
   rspec-rails
   shoulda-matchers
   shuttle

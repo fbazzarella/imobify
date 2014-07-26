@@ -1,5 +1,4 @@
 /.bundle
-/.zeus.sock
 /log/*.log
 /tmp
 

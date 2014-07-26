@@ -14,7 +14,6 @@ Clone o repositório:
 Instale as dependências:
 
     newapp$ bundle install
-    newapp$ bower install
 
 ## Configuração
 
@@ -38,16 +37,6 @@ Agora, rode os testes:
 
     newapp$ rspec spec/
 
-### Usando o Guard
-
-Alternativamente, você poderá usar o Guard para rodar os testes automaticamente ao salvar um arquivo. Antes de iniciar o Guard, você deverá iniciar o Zeus em uma janela separada no terminal:
-
-    newapp$ zeus start
-
-Agora, basta iniciar o Guard:
-
-    newapp$ guard
-    
 ### Atenção
 
 É extremamente importante enviar ao repositório somente commits que estejam com todos os testes em verde. Essa atitude evita problemas no futuro, economizando tempo e paciência.

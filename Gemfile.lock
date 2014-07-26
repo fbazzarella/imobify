@@ -71,11 +71,11 @@ GEM
     kaminari (0.16.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
-    less (2.4.0)
+    less (2.5.1)
       commonjs (~> 0.2.7)
-    less-rails (2.4.2)
+    less-rails (2.5.0)
       actionpack (>= 3.1)
-      less (~> 2.4.0)
+      less (~> 2.5.0)
     libv8 (3.16.14.3)
     mail (2.5.4)
       mime-types (~> 1.16)
@@ -181,7 +181,6 @@ DEPENDENCIES
   factory_girl_rails
   kaminari
   less-rails
-  minitest
   mypg
   pg
   pry-rails

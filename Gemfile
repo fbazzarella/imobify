@@ -40,7 +40,6 @@ group :development, :test do
 end
 
 group :test do
-  gem 'minitest'
   gem 'shoulda-matchers'
   gem 'factory_girl_rails'
 end

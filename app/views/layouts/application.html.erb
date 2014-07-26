@@ -5,8 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Nova App</title>
-    <%= stylesheet_link_tag    "application", media: "all" %>
-    <%= javascript_include_tag "application" %>
+    <%= stylesheet_link_tag "application", media: "all" %>
     <%= csrf_meta_tags %>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -31,14 +30,14 @@
         <div class="navbar-collapse collapse">
           <% if current_user.present? %>
             <ul class="nav navbar-nav">
-              <li class="active"><%= link_to 'Usuários', users_path %></li>
+              <%= menu_link_to 'Usuários', users_path %>
             </ul>
           <% end %>
           <ul class="nav navbar-nav navbar-right">
             <% if current_user.present? %>
-              <li><%= link_to 'Sair', destroy_user_session_path, data: {method: :delete} %></li>
+              <%= menu_link_to 'Sair', destroy_user_session_path, data: {method: :delete} %>
             <% else %>
-              <li><%= menu_link_to 'Entrar', new_user_session_path %></li>
+              <%= menu_link_to 'Entrar', new_user_session_path %>
             <% end %>
           </ul>
         </div>
@@ -49,5 +48,7 @@
       <%= bootstrap_flash %>
       <%= yield %>
     </div>
+
+    <%= javascript_include_tag "application" %>
   </body>
 </html>

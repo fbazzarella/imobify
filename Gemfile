@@ -16,19 +16,18 @@ gem 'twitter-bootstrap-rails',
   github: 'seyhunak/twitter-bootstrap-rails',
   branch: 'bootstrap3'
 
+# Assets Features
+gem 'less-rails'
+gem 'sass-rails'
+gem 'uglifier'
+gem 'therubyracer'
+
 # Dev Tools
 gem 'mypg'
 gem 'shuttle'
 gem 'pry-rails'
 gem 'awesome_print'
 gem 'exception_notification'
-
-# Preprocessors
-gem 'less-rails'
-gem 'yui-compressor'
-
-# System Libs
-gem 'therubyracer'
 
 group :development do
   gem 'thin'

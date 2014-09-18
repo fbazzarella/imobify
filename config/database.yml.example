@@ -3,20 +3,18 @@ common: &common
   encoding: utf8
 
 local: &local
+  <<: *common
   username: postgres
 
 development:
-  <<: *common
   <<: *local
   database: newapp_development
 
 test:
-  <<: *common
   <<: *local
   database: newapp_test
 
 staging:
-  <<: *common
   <<: *local
   database: newapp_staging
 

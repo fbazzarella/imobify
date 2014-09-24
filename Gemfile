@@ -1,7 +1,10 @@
 source 'https://rubygems.org'
 source 'https://rails-assets.org'
 
+ruby '2.1.2'
+
 gem 'rails', '4.1.6'
+gem 'thin'
 gem 'pg'
 
 # Backend Features
@@ -27,10 +30,10 @@ gem 'mypg'
 gem 'shuttle'
 gem 'pry-rails'
 gem 'awesome_print'
+gem 'rails_12factor'
 gem 'exception_notification'
 
 group :development do
-  gem 'thin'
   gem 'quiet_assets'
 end
 

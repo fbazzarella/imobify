@@ -9,13 +9,13 @@ RSpec.describe UsersController, type: :controller do
 
       before { get :index }
 
-      it { should respond_with 200 }
+      it { is_expected.to respond_with 200 }
     end
 
     context 'when logged out' do
       before { get :index }
 
-      it { expect(response).to redirect_to(new_user_session_path) }
+      it { is_expected.to redirect_to(new_user_session_path) }
     end
   end
 end

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe UsersController, type: :controller do
+RSpec.describe Admin::UsersController, type: :controller do
   render_views
 
   describe 'GET #index' do
@@ -15,7 +15,7 @@ RSpec.describe UsersController, type: :controller do
     context 'when logged out' do
       before { get :index }
 
-      it { is_expected.to redirect_to(new_user_session_path) }
+      it { is_expected.to redirect_to(new_admin_user_session_path) }
     end
   end
 end

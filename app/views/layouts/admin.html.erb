@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Nova App</title>
-    <%= stylesheet_link_tag "application", media: "all" %>
+    <%= stylesheet_link_tag "admin", media: "all" %>
     <%= csrf_meta_tags %>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -25,19 +25,19 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <%= link_to 'Nova App', root_path, class: 'navbar-brand' %>
+          <%= link_to 'Nova App', admin_root_path, class: 'navbar-brand' %>
         </div>
         <div class="navbar-collapse collapse">
-          <% if current_user.present? %>
+          <% if current_admin_user.present? %>
             <ul class="nav navbar-nav">
-              <%= menu_link_to 'Usuários', users_path %>
+              <%= menu_link_to 'Usuários', admin_users_path %>
             </ul>
           <% end %>
           <ul class="nav navbar-nav navbar-right">
-            <% if current_user.present? %>
-              <%= menu_link_to 'Sair', destroy_user_session_path, data: {method: :delete} %>
+            <% if current_admin_user.present? %>
+              <%= menu_link_to 'Sair', destroy_admin_user_session_path, data: {method: :delete} %>
             <% else %>
-              <%= menu_link_to 'Entrar', new_user_session_path %>
+              <%= menu_link_to 'Entrar', new_admin_user_session_path %>
             <% end %>
           </ul>
         </div>
@@ -49,6 +49,6 @@
       <%= yield %>
     </div>
 
-    <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "admin" %>
   </body>
 </html>

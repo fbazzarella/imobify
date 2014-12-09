@@ -1,7 +1,11 @@
 NewApp::Application.routes.draw do
-  root to: 'users#index'
+  root to: 'admin/users#index'
 
-  devise_for :users
+  namespace :admin do
+    devise_for :users, controllers: {sessions: 'admin/sessions'}
 
-  resources :users, only: :index
+    root to: 'users#index'
+
+    resources :users, only: :index
+  end
 end

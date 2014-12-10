@@ -1,0 +1,29 @@
+<h1>
+  Imóveis
+  <%= link_to new_admin_realty_path, class: 'btn btn-sm btn-primary btn-new' do %>
+    <%= glyph(:plus) %> Cadastrar Novo
+  <% end %>
+</h1>
+
+<% if @realties.any? %>
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Referência (Código do Imóvel)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @realties.each do |p| %>
+          <tr>
+            <td><%= p.reference %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% else %>
+  <p class="alert alert-info">
+    Você ainda não cadastrou nenhum Imóvel. Para cadastrar um, clique no botão azul acima.
+  </p>
+<% end %>

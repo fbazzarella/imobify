@@ -8,9 +8,16 @@
 
 if Rails.env.development?
   User.destroy_all
+  Realty.destroy_all
   
   User.create({
     username: 'johndoe',
     password: 'secret'
   })
+
+  10.times do |i|
+    Realty.create({
+      reference: "key#{i*123}"
+    })
+  end
 end

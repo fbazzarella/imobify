@@ -45,8 +45,45 @@
     </div>
 
     <div class="container">
-      <%= bootstrap_flash %>
-      <%= yield %>
+      <div class="row">
+        <div class="col-md-2">
+          <nav class="sidebar hidden-print hidden-xs hidden-sm">
+            <ul class="nav sidenav">
+              <li>
+                <a href="#">Imóveis</a>
+                <ul class="nav">
+                  <li><a href="#">Cadastrar Novo</a></li>
+                  <li><a href="#">Tipos de Imóveis</a></li>
+                  <li><a href="#">Cidades e Bairros</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#">Páginas</a>
+                <ul class="nav">
+                  <li><a href="#">Cadastrar Nova</a></li>
+                  <li><a href="#">Corretores</a></li>
+                  <li><a href="#">Contato</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#">Ajustes</a>
+                <ul class="nav">
+                  <li><a href="#">No Site</a></li>
+                  <li><a href="#">No Painel</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Minha Conta</a></li>
+              <li><a href="#">Ajuda</a></li>
+              <li><a href="#">Sair</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="col-md-10">
+          <%= bootstrap_flash %>
+          <%= yield %>
+        </div>
+      </div>
     </div>
 
     <%= javascript_include_tag "admin" %>

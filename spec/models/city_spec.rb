@@ -5,6 +5,7 @@ RSpec.describe City, type: :model do
 
   it { should have_many(:realties).dependent(:restrict_with_error) }
 
+  it { should validate_presence_of(:country_id) }
   it { should validate_presence_of(:name) }
   it { should validate_presence_of(:slug) }
 

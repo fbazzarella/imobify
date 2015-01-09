@@ -11,42 +11,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150109154019) do
+ActiveRecord::Schema.define(version: 20150109162639) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "cities", force: true do |t|
+  create_table "cities", force: :cascade do |t|
     t.integer  "country_id"
-    t.string   "name"
-    t.string   "slug"
+    t.string   "name",       limit: 255
+    t.string   "slug",       limit: 255
     t.boolean  "principal"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "countries", force: true do |t|
-    t.string   "initial"
-    t.string   "name"
-    t.string   "slug"
+  create_table "countries", force: :cascade do |t|
+    t.string   "initial",    limit: 255
+    t.string   "name",       limit: 255
+    t.string   "slug",       limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "realties", force: true do |t|
-    t.string   "reference"
+  create_table "realties", force: :cascade do |t|
+    t.string   "reference",  limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "city_id"
   end
 
-  create_table "users", force: true do |t|
-    t.string   "username",           default: "", null: false
-    t.string   "encrypted_password", default: "", null: false
+  create_table "users", force: :cascade do |t|
+    t.string   "username",           limit: 255, default: "", null: false
+    t.string   "encrypted_password", limit: 255, default: "", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
+  add_foreign_key "cities", "countries"
+  add_foreign_key "realties", "cities"
 end

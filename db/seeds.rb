@@ -1,27 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
-if Rails.env.development?
-  User.destroy_all
-  Realty.destroy_all
-  
-  User.create({
-    username: 'johndoe',
-    password: 'secret'
-  })
-
-  10.times do |i|
-    Realty.create({
-      reference: "key#{i*123}"
-    })
-  end
-end
-
 if not Country.any?
   Country.create([
     {id: 1, initial: 'AC', name: 'Acre', slug: 'acre'},
@@ -54,7 +30,6 @@ if not Country.any?
   ])
 
   City.create([
-    {country_id: 1, name: 'Rio Branco', slug: 'rio-branco-ac', principal: true},
     {country_id: 1, name: 'Acrelândia', slug: 'acrelandia-ac'},
     {country_id: 1, name: 'Assis Brasil', slug: 'assis-brasil-ac'},
     {country_id: 1, name: 'Brasiléia', slug: 'brasileia-ac'},
@@ -70,13 +45,13 @@ if not Country.any?
     {country_id: 1, name: 'Plácido de Castro', slug: 'placido-de-castro-ac'},
     {country_id: 1, name: 'Porto Acre', slug: 'porto-acre-ac'},
     {country_id: 1, name: 'Porto Walter', slug: 'porto-walter-ac'},
+    {country_id: 1, name: 'Rio Branco', slug: 'rio-branco-ac', principal: true},
     {country_id: 1, name: 'Rodrigues Alves', slug: 'rodrigues-alves-ac'},
     {country_id: 1, name: 'Santa Rosa do Purus', slug: 'santa-rosa-do-purus-ac'},
     {country_id: 1, name: 'Senador Guiomard', slug: 'senador-guiomard-ac'},
     {country_id: 1, name: 'Sena Madureira', slug: 'sena-madureira-ac'},
     {country_id: 1, name: 'Tarauacá', slug: 'tarauaca-ac'},
     {country_id: 1, name: 'Xapuri', slug: 'xapuri-ac'},
-    {country_id: 2, name: 'Maceió', slug: 'maceio-al', principal: true},
     {country_id: 2, name: 'Água Branca', slug: 'agua-branca-al'},
     {country_id: 2, name: 'Anadia', slug: 'anadia-al'},
     {country_id: 2, name: 'Arapiraca', slug: 'arapiraca-al'},
@@ -122,6 +97,7 @@ if not Country.any?
     {country_id: 2, name: 'Junqueiro', slug: 'junqueiro-al'},
     {country_id: 2, name: 'Lagoa da Canoa', slug: 'lagoa-da-canoa-al'},
     {country_id: 2, name: 'Limoeiro de Anadia', slug: 'limoeiro-de-anadia-al'},
+    {country_id: 2, name: 'Maceió', slug: 'maceio-al', principal: true},
     {country_id: 2, name: 'Major Isidoro', slug: 'major-isidoro-al'},
     {country_id: 2, name: 'Maragogi', slug: 'maragogi-al'},
     {country_id: 2, name: 'Maravilha', slug: 'maravilha-al'},
@@ -177,13 +153,13 @@ if not Country.any?
     {country_id: 2, name: 'Traipu', slug: 'traipu-al'},
     {country_id: 2, name: 'União dos Palmares', slug: 'uniao-dos-palmares-al'},
     {country_id: 2, name: 'Viçosa', slug: 'vicosa-al'},
-    {country_id: 3, name: 'Macapá', slug: 'macapa-ap', principal: true},
     {country_id: 3, name: 'Amapá', slug: 'amapa-ap'},
     {country_id: 3, name: 'Calçoene', slug: 'calcoene-ap'},
     {country_id: 3, name: 'Cutias', slug: 'cutias-ap'},
     {country_id: 3, name: 'Ferreira Gomes', slug: 'ferreira-gomes-ap'},
     {country_id: 3, name: 'Itaubal', slug: 'itaubal-ap'},
     {country_id: 3, name: 'Laranjal do Jari', slug: 'laranjal-do-jari-ap'},
+    {country_id: 3, name: 'Macapá', slug: 'macapa-ap', principal: true},
     {country_id: 3, name: 'Mazagão', slug: 'mazagao-ap'},
     {country_id: 3, name: 'Oiapoque', slug: 'oiapoque-ap'},
     {country_id: 3, name: 'Pedra Branca do Amaparí', slug: 'pedra-branca-do-amapari-ap'},
@@ -193,7 +169,6 @@ if not Country.any?
     {country_id: 3, name: 'Serra do Navio', slug: 'serra-do-navio-ap'},
     {country_id: 3, name: 'Tartarugalzinho', slug: 'tartarugalzinho-ap'},
     {country_id: 3, name: 'Vitória do Jari', slug: 'vitoria-do-jari-ap'},
-    {country_id: 4, name: 'Manaus', slug: 'manaus-am', principal: true},
     {country_id: 4, name: 'Alvarães', slug: 'alvaraes-am'},
     {country_id: 4, name: 'Amaturá', slug: 'amatura-am'},
     {country_id: 4, name: 'Anori', slug: 'anori-am'},
@@ -230,6 +205,7 @@ if not Country.any?
     {country_id: 4, name: 'Lábrea', slug: 'labrea-am'},
     {country_id: 4, name: 'Manacapuru', slug: 'manacapuru-am'},
     {country_id: 4, name: 'Manaquiri', slug: 'manaquiri-am'},
+    {country_id: 4, name: 'Manaus', slug: 'manaus-am', principal: true},
     {country_id: 4, name: 'Manicoré', slug: 'manicore-am'},
     {country_id: 4, name: 'Maraã', slug: 'maraa-am'},
     {country_id: 4, name: 'Maués', slug: 'maues-am'},
@@ -255,7 +231,6 @@ if not Country.any?
     {country_id: 4, name: 'Uarini', slug: 'uarini-am'},
     {country_id: 4, name: 'Urucará', slug: 'urucara-am'},
     {country_id: 4, name: 'Urucurituba', slug: 'urucurituba-am'},
-    {country_id: 5, name: 'Salvador', slug: 'salvador-ba', principal: true},
     {country_id: 5, name: 'Abaíra', slug: 'abaira-ba'},
     {country_id: 5, name: 'Abaré', slug: 'abare-ba'},
     {country_id: 5, name: 'Acajutiba', slug: 'acajutiba-ba'},
@@ -589,6 +564,7 @@ if not Country.any?
     {country_id: 5, name: 'Rodelas', slug: 'rodelas-ba'},
     {country_id: 5, name: 'Ruy Barbosa', slug: 'ruy-barbosa-ba'},
     {country_id: 5, name: 'Salinas da Margarida', slug: 'salinas-da-margarida-ba'},
+    {country_id: 5, name: 'Salvador', slug: 'salvador-ba', principal: true},
     {country_id: 5, name: 'Santa Bárbara', slug: 'santa-barbara-ba'},
     {country_id: 5, name: 'Santa Brígida', slug: 'santa-brigida-ba'},
     {country_id: 5, name: 'Santa Cruz Cabrália', slug: 'santa-cruz-cabralia-ba'},
@@ -670,7 +646,6 @@ if not Country.any?
     {country_id: 5, name: 'Wanderley', slug: 'wanderley-ba'},
     {country_id: 5, name: 'Wenceslau Guimarães', slug: 'wenceslau-guimaraes-ba'},
     {country_id: 5, name: 'Xique-Xique', slug: 'xique-xique-ba'},
-    {country_id: 6, name: 'Fortaleza', slug: 'fortaleza-ce', principal: true},
     {country_id: 6, name: 'Abaiara', slug: 'abaiara-ce'},
     {country_id: 6, name: 'Acarapé', slug: 'acarape-ce'},
     {country_id: 6, name: 'Acaraú', slug: 'acarau-ce'},
@@ -729,6 +704,7 @@ if not Country.any?
     {country_id: 6, name: 'Eusébio', slug: 'eusebio-ce'},
     {country_id: 6, name: 'Farias Brito', slug: 'farias-brito-ce'},
     {country_id: 6, name: 'Forquilha', slug: 'forquilha-ce'},
+    {country_id: 6, name: 'Fortaleza', slug: 'fortaleza-ce', principal: true},
     {country_id: 6, name: 'Fortim', slug: 'fortim-ce'},
     {country_id: 6, name: 'Frecheirinha', slug: 'frecheirinha-ce'},
     {country_id: 6, name: 'General Sampaio', slug: 'general-sampaio-ce'},
@@ -855,7 +831,6 @@ if not Country.any?
     {country_id: 6, name: 'Várzea Alegre', slug: 'varzea-alegre-ce'},
     {country_id: 6, name: 'Viçosa do Ceará', slug: 'vicosa-do-ceara-ce'},
     {country_id: 7, name: 'Brasília', slug: 'brasilia-df', principal: true},
-    {country_id: 8, name: 'Vitória', slug: 'vitoria-es', principal: true},
     {country_id: 8, name: 'Afonso Cláudio', slug: 'afonso-claudio-es'},
     {country_id: 8, name: 'Água Doce do Norte', slug: 'agua-doce-do-norte-es'},
     {country_id: 8, name: 'Águia Branca', slug: 'aguia-branca-es'},
@@ -932,7 +907,7 @@ if not Country.any?
     {country_id: 8, name: 'Vila Pavão', slug: 'vila-pavao-es'},
     {country_id: 8, name: 'Vila Valério', slug: 'vila-valerio-es'},
     {country_id: 8, name: 'Vila Velha', slug: 'vila-velha-es'},
-    {country_id: 9, name: 'Goiânia', slug: 'goiania-go', principal: true},
+    {country_id: 8, name: 'Vitória', slug: 'vitoria-es', principal: true},
     {country_id: 9, name: 'Abadia de Goiás', slug: 'abadia-de-goias-go'},
     {country_id: 9, name: 'Abadiânia', slug: 'abadiania-go'},
     {country_id: 9, name: 'Acreúna', slug: 'acreuna-go'},
@@ -1025,6 +1000,7 @@ if not Country.any?
     {country_id: 9, name: 'Goianápolis', slug: 'goianapolis-go'},
     {country_id: 9, name: 'Goiandira', slug: 'goiandira-go'},
     {country_id: 9, name: 'Goianésia', slug: 'goianesia-go'},
+    {country_id: 9, name: 'Goiânia', slug: 'goiania-go', principal: true},
     {country_id: 9, name: 'Goianira', slug: 'goianira-go'},
     {country_id: 9, name: 'Goiás', slug: 'goias-go'},
     {country_id: 9, name: 'Goiatuba', slug: 'goiatuba-go'},
@@ -1174,7 +1150,6 @@ if not Country.any?
     {country_id: 9, name: 'Vicentinópolis', slug: 'vicentinopolis-go'},
     {country_id: 9, name: 'Vila Boa', slug: 'vila-boa-go'},
     {country_id: 9, name: 'Vila Propício', slug: 'vila-propicio-go'},
-    {country_id: 10, name: 'São Luís', slug: 'sao-luis-ma', principal: true},
     {country_id: 10, name: 'Açailândia', slug: 'acailandia-ma'},
     {country_id: 10, name: 'Afonso Cunha', slug: 'afonso-cunha-ma'},
     {country_id: 10, name: 'Água Doce do Maranhão', slug: 'agua-doce-do-maranhao-ma'},
@@ -1360,6 +1335,7 @@ if not Country.any?
     {country_id: 10, name: 'São João dos Patos', slug: 'sao-joao-dos-patos-ma'},
     {country_id: 10, name: 'São José de Ribamar', slug: 'sao-jose-de-ribamar-ma'},
     {country_id: 10, name: 'São José dos Basílios', slug: 'sao-jose-dos-basilios-ma'},
+    {country_id: 10, name: 'São Luís', slug: 'sao-luis-ma', principal: true},
     {country_id: 10, name: 'São Luís Gonzaga do Maranhão', slug: 'sao-luis-gonzaga-do-maranhao-ma'},
     {country_id: 10, name: 'São Mateus do Maranhão', slug: 'sao-mateus-do-maranhao-ma'},
     {country_id: 10, name: 'São Pedro da Água Branca', slug: 'sao-pedro-da-agua-branca-ma'},
@@ -1391,7 +1367,6 @@ if not Country.any?
     {country_id: 10, name: 'Vitória do Mearim', slug: 'vitoria-do-mearim-ma'},
     {country_id: 10, name: 'Vitorino Freire', slug: 'vitorino-freire-ma'},
     {country_id: 10, name: 'Zé Doca', slug: 'ze-doca-ma'},
-    {country_id: 11, name: 'Cuiabá', slug: 'cuiaba-mt', principal: true},
     {country_id: 11, name: 'Acorizal', slug: 'acorizal-mt'},
     {country_id: 11, name: 'Água Boa', slug: 'agua-boa-mt'},
     {country_id: 11, name: 'Alta Floresta', slug: 'alta-floresta-mt'},
@@ -1426,6 +1401,7 @@ if not Country.any?
     {country_id: 11, name: 'Comodoro', slug: 'comodoro-mt'},
     {country_id: 11, name: 'Confresa', slug: 'confresa-mt'},
     {country_id: 11, name: 'Cotriguaçu', slug: 'cotriguacu-mt'},
+    {country_id: 11, name: 'Cuiabá', slug: 'cuiaba-mt', principal: true},
     {country_id: 11, name: 'Denise', slug: 'denise-mt'},
     {country_id: 11, name: 'Diamantino', slug: 'diamantino-mt'},
     {country_id: 11, name: 'Dom Aquino', slug: 'dom-aquino-mt'},
@@ -1517,7 +1493,6 @@ if not Country.any?
     {country_id: 11, name: 'Vera', slug: 'vera-mt'},
     {country_id: 11, name: 'Vila Bela da Santíssima Trindade', slug: 'vila-bela-da-santissima-trindade-mt'},
     {country_id: 11, name: 'Vila Rica', slug: 'vila-rica-mt'},
-    {country_id: 12, name: 'Campo Grande', slug: 'campo-grande-ms', principal: true},
     {country_id: 12, name: 'Água Clara', slug: 'agua-clara-ms'},
     {country_id: 12, name: 'Alcinópolis', slug: 'alcinopolis-ms'},
     {country_id: 12, name: 'Amambaí', slug: 'amambai-ms'},
@@ -1537,6 +1512,7 @@ if not Country.any?
     {country_id: 12, name: 'Brasilândia', slug: 'brasilandia-ms'},
     {country_id: 12, name: 'Caarapó', slug: 'caarapo-ms'},
     {country_id: 12, name: 'Camapuã', slug: 'camapua-ms'},
+    {country_id: 12, name: 'Campo Grande', slug: 'campo-grande-ms', principal: true},
     {country_id: 12, name: 'Caracol', slug: 'caracol-ms'},
     {country_id: 12, name: 'Cassilândia', slug: 'cassilandia-ms'},
     {country_id: 12, name: 'Chapadão do Sul', slug: 'chapadao-do-sul-ms'},
@@ -1594,7 +1570,6 @@ if not Country.any?
     {country_id: 12, name: 'Terenos', slug: 'terenos-ms'},
     {country_id: 12, name: 'Três Lagoas', slug: 'tres-lagoas-ms'},
     {country_id: 12, name: 'Vicentina', slug: 'vicentina-ms'},
-    {country_id: 13, name: 'Belo Horizonte', slug: 'belo-horizonte-mg', principal: true},
     {country_id: 13, name: 'Abadia dos Dourados', slug: 'abadia-dos-dourados-mg'},
     {country_id: 13, name: 'Abaeté', slug: 'abaete-mg'},
     {country_id: 13, name: 'Abre Campo', slug: 'abre-campo-mg'},
@@ -1660,6 +1635,7 @@ if not Country.any?
     {country_id: 13, name: 'Barroso', slug: 'barroso-mg'},
     {country_id: 13, name: 'Bela Vista de Minas', slug: 'bela-vista-de-minas-mg'},
     {country_id: 13, name: 'Belmiro Braga', slug: 'belmiro-braga-mg'},
+    {country_id: 13, name: 'Belo Horizonte', slug: 'belo-horizonte-mg', principal: true},
     {country_id: 13, name: 'Belo Oriente', slug: 'belo-oriente-mg'},
     {country_id: 13, name: 'Belo Vale', slug: 'belo-vale-mg'},
     {country_id: 13, name: 'Berilo', slug: 'berilo-mg'},
@@ -2447,7 +2423,6 @@ if not Country.any?
     {country_id: 13, name: 'Visconde do Rio Branco', slug: 'visconde-do-rio-branco-mg'},
     {country_id: 13, name: 'Volta Grande', slug: 'volta-grande-mg'},
     {country_id: 13, name: 'Wenceslau Braz', slug: 'wenceslau-braz-mg'},
-    {country_id: 14, name: 'Belém', slug: 'belem-pa', principal: true},
     {country_id: 14, name: 'Abaetetuba', slug: 'abaetetuba-pa'},
     {country_id: 14, name: 'Abel Figueiredo', slug: 'abel-figueiredo-pa'},
     {country_id: 14, name: 'Acará', slug: 'acara-pa'},
@@ -2466,6 +2441,7 @@ if not Country.any?
     {country_id: 14, name: 'Baião', slug: 'baiao-pa'},
     {country_id: 14, name: 'Bannach', slug: 'bannach-pa'},
     {country_id: 14, name: 'Barcarena', slug: 'barcarena-pa'},
+    {country_id: 14, name: 'Belém', slug: 'belem-pa', principal: true},
     {country_id: 14, name: 'Belterra', slug: 'belterra-pa'},
     {country_id: 14, name: 'Benevides', slug: 'benevides-pa'},
     {country_id: 14, name: 'Bom Jesus do Tocantins', slug: 'bom-jesus-do-tocantins-pa'},
@@ -2590,7 +2566,6 @@ if not Country.any?
     {country_id: 14, name: 'Viseu', slug: 'viseu-pa'},
     {country_id: 14, name: 'Vitória do Xingu', slug: 'vitoria-do-xingu-pa'},
     {country_id: 14, name: 'Xinguara', slug: 'xinguara-pa'},
-    {country_id: 15, name: 'João Pessoa', slug: 'joao-pessoa-pb', principal: true},
     {country_id: 15, name: 'Água Branca', slug: 'agua-branca-pb'},
     {country_id: 15, name: 'Aguiar', slug: 'aguiar-pb'},
     {country_id: 15, name: 'Alagoa Grande', slug: 'alagoa-grande-pb'},
@@ -2685,6 +2660,7 @@ if not Country.any?
     {country_id: 15, name: 'Itatuba', slug: 'itatuba-pb'},
     {country_id: 15, name: 'Jacaraú', slug: 'jacarau-pb'},
     {country_id: 15, name: 'Jericó', slug: 'jerico-pb'},
+    {country_id: 15, name: 'João Pessoa', slug: 'joao-pessoa-pb', principal: true},
     {country_id: 15, name: 'Juarez Távora', slug: 'juarez-tavora-pb'},
     {country_id: 15, name: 'Juazeirinho', slug: 'juazeirinho-pb'},
     {country_id: 15, name: 'Junco do Seridó', slug: 'junco-do-serido-pb'},
@@ -2813,7 +2789,6 @@ if not Country.any?
     {country_id: 15, name: 'Vieirópolis', slug: 'vieiropolis-pb'},
     {country_id: 15, name: 'Vista Serrana', slug: 'vista-serrana-pb'},
     {country_id: 15, name: 'Zabelê', slug: 'zabele-pb'},
-    {country_id: 16, name: 'Curitiba', slug: 'curitiba-pr', principal: true},
     {country_id: 16, name: 'Abatiá', slug: 'abatia-pr'},
     {country_id: 16, name: 'Adrianópolis', slug: 'adrianopolis-pr'},
     {country_id: 16, name: 'Agudos do Sul', slug: 'agudos-do-sul-pr'},
@@ -2907,6 +2882,7 @@ if not Country.any?
     {country_id: 16, name: 'Cruzeiro do Sul', slug: 'cruzeiro-do-sul-pr'},
     {country_id: 16, name: 'Cruz Machado', slug: 'cruz-machado-pr'},
     {country_id: 16, name: 'Cruzmaltina', slug: 'cruzmaltina-pr'},
+    {country_id: 16, name: 'Curitiba', slug: 'curitiba-pr', principal: true},
     {country_id: 16, name: 'Curiúva', slug: 'curiuva-pr'},
     {country_id: 16, name: 'Diamante d`Oeste', slug: 'diamante-d-oeste-pr'},
     {country_id: 16, name: 'Diamante do Norte', slug: 'diamante-do-norte-pr'},
@@ -3212,7 +3188,6 @@ if not Country.any?
     {country_id: 16, name: 'Vitorino', slug: 'vitorino-pr'},
     {country_id: 16, name: 'Wenceslau Braz', slug: 'wenceslau-braz-pr'},
     {country_id: 16, name: 'Xambrê', slug: 'xambre-pr'},
-    {country_id: 17, name: 'Recife', slug: 'recife-pe', principal: true},
     {country_id: 17, name: 'Abreu e Lima', slug: 'abreu-e-lima-pe'},
     {country_id: 17, name: 'Afogados da Ingazeira', slug: 'afogados-da-ingazeira-pe'},
     {country_id: 17, name: 'Afrânio', slug: 'afranio-pe'},
@@ -3345,6 +3320,7 @@ if not Country.any?
     {country_id: 17, name: 'Primavera', slug: 'primavera-pe'},
     {country_id: 17, name: 'Quipapá', slug: 'quipapa-pe'},
     {country_id: 17, name: 'Quixaba', slug: 'quixaba-pe'},
+    {country_id: 17, name: 'Recife', slug: 'recife-pe', principal: true},
     {country_id: 17, name: 'Riacho das Almas', slug: 'riacho-das-almas-pe'},
     {country_id: 17, name: 'Ribeirão', slug: 'ribeirao-pe'},
     {country_id: 17, name: 'Rio Formoso', slug: 'rio-formoso-pe'},
@@ -3397,7 +3373,6 @@ if not Country.any?
     {country_id: 17, name: 'Vicência', slug: 'vicencia-pe'},
     {country_id: 17, name: 'Vitória de Santo Antão', slug: 'vitoria-de-santo-antao-pe'},
     {country_id: 17, name: 'Xexéu', slug: 'xexeu-pe'},
-    {country_id: 18, name: 'Teresina', slug: 'teresina-pi', principal: true},
     {country_id: 18, name: 'Acauã', slug: 'acaua-pi'},
     {country_id: 18, name: 'Agricolândia', slug: 'agricolandia-pi'},
     {country_id: 18, name: 'Água Branca', slug: 'agua-branca-pi'},
@@ -3610,6 +3585,7 @@ if not Country.any?
     {country_id: 18, name: 'Sussuapara', slug: 'sussuapara-pi'},
     {country_id: 18, name: 'Tamboril do Piauí', slug: 'tamboril-do-piaui-pi'},
     {country_id: 18, name: 'Tanque do Piauí', slug: 'tanque-do-piaui-pi'},
+    {country_id: 18, name: 'Teresina', slug: 'teresina-pi', principal: true},
     {country_id: 18, name: 'União', slug: 'uniao-pi'},
     {country_id: 18, name: 'Uruçuí', slug: 'urucui-pi'},
     {country_id: 18, name: 'Valença do Piauí', slug: 'valenca-do-piaui-pi'},
@@ -3618,7 +3594,6 @@ if not Country.any?
     {country_id: 18, name: 'Vera Mendes', slug: 'vera-mendes-pi'},
     {country_id: 18, name: 'Vila Nova do Piauí', slug: 'vila-nova-do-piaui-pi'},
     {country_id: 18, name: 'Wall Ferraz', slug: 'wall-ferraz-pi'},
-    {country_id: 19, name: 'Rio de Janeiro', slug: 'rio-de-janeiro-rj', principal: true},
     {country_id: 19, name: 'Angra dos Reis', slug: 'angra-dos-reis-rj'},
     {country_id: 19, name: 'Aperibé', slug: 'aperibe-rj'},
     {country_id: 19, name: 'Araruama', slug: 'araruama-rj'},
@@ -3685,6 +3660,7 @@ if not Country.any?
     {country_id: 19, name: 'Rio Claro', slug: 'rio-claro-rj'},
     {country_id: 19, name: 'Rio das Flores', slug: 'rio-das-flores-rj'},
     {country_id: 19, name: 'Rio das Ostras', slug: 'rio-das-ostras-rj'},
+    {country_id: 19, name: 'Rio de Janeiro', slug: 'rio-de-janeiro-rj', principal: true},
     {country_id: 19, name: 'Santa Maria Madalena', slug: 'santa-maria-madalena-rj'},
     {country_id: 19, name: 'Santo Antônio de Pádua', slug: 'santo-antonio-de-padua-rj'},
     {country_id: 19, name: 'São Fidélis', slug: 'sao-fidelis-rj'},
@@ -3709,7 +3685,6 @@ if not Country.any?
     {country_id: 19, name: 'Varre-Sai', slug: 'varre-sai-rj'},
     {country_id: 19, name: 'Vassouras', slug: 'vassouras-rj'},
     {country_id: 19, name: 'Volta Redonda', slug: 'volta-redonda-rj'},
-    {country_id: 20, name: 'Natal', slug: 'natal-rn', principal: true},
     {country_id: 20, name: 'Acari', slug: 'acari-rn'},
     {country_id: 20, name: 'Açu', slug: 'acu-rn'},
     {country_id: 20, name: 'Afonso Bezerra', slug: 'afonso-bezerra-rn'},
@@ -3796,6 +3771,7 @@ if not Country.any?
     {country_id: 20, name: 'Monte Alegre', slug: 'monte-alegre-rn'},
     {country_id: 20, name: 'Monte das Gameleiras', slug: 'monte-das-gameleiras-rn'},
     {country_id: 20, name: 'Mossoró', slug: 'mossoro-rn'},
+    {country_id: 20, name: 'Natal', slug: 'natal-rn', principal: true},
     {country_id: 20, name: 'Nísia Floresta', slug: 'nisia-floresta-rn'},
     {country_id: 20, name: 'Nova Cruz', slug: 'nova-cruz-rn'},
     {country_id: 20, name: 'Olho-d`Água do Borges', slug: 'olho-d-agua-do-borges-rn'},
@@ -3875,7 +3851,6 @@ if not Country.any?
     {country_id: 20, name: 'Vera Cruz', slug: 'vera-cruz-rn'},
     {country_id: 20, name: 'Viçosa', slug: 'vicosa-rn'},
     {country_id: 20, name: 'Vila Flor', slug: 'vila-flor-rn'},
-    {country_id: 21, name: 'Porto Alegre', slug: 'porto-alegre-rs', principal: true},
     {country_id: 21, name: 'Água Santa', slug: 'agua-santa-rs'},
     {country_id: 21, name: 'Agudo', slug: 'agudo-rs'},
     {country_id: 21, name: 'Ajuricaba', slug: 'ajuricaba-rs'},
@@ -4179,6 +4154,7 @@ if not Country.any?
     {country_id: 21, name: 'Pontão', slug: 'pontao-rs'},
     {country_id: 21, name: 'Ponte Preta', slug: 'ponte-preta-rs'},
     {country_id: 21, name: 'Portão', slug: 'portao-rs'},
+    {country_id: 21, name: 'Porto Alegre', slug: 'porto-alegre-rs', principal: true},
     {country_id: 21, name: 'Porto Lucena', slug: 'porto-lucena-rs'},
     {country_id: 21, name: 'Porto Mauá', slug: 'porto-maua-rs'},
     {country_id: 21, name: 'Porto Vera Cruz', slug: 'porto-vera-cruz-rs'},
@@ -4342,7 +4318,6 @@ if not Country.any?
     {country_id: 21, name: 'Vista Gaúcha', slug: 'vista-gaucha-rs'},
     {country_id: 21, name: 'Vitória das Missões', slug: 'vitoria-das-missoes-rs'},
     {country_id: 21, name: 'Xangri-lá', slug: 'xangri-la-rs'},
-    {country_id: 22, name: 'Porto Velho', slug: 'porto-velho-ro', principal: true},
     {country_id: 22, name: 'Alta Floresta d`Oeste', slug: 'alta-floresta-d-oeste-ro'},
     {country_id: 22, name: 'Alto Alegre dos Parecis', slug: 'alto-alegre-dos-parecis-ro'},
     {country_id: 22, name: 'Alto Paraíso', slug: 'alto-paraiso-ro'},
@@ -4379,6 +4354,7 @@ if not Country.any?
     {country_id: 22, name: 'Parecis', slug: 'parecis-ro'},
     {country_id: 22, name: 'Pimenta Bueno', slug: 'pimenta-bueno-ro'},
     {country_id: 22, name: 'Pimenteiras do Oeste', slug: 'pimenteiras-do-oeste-ro'},
+    {country_id: 22, name: 'Porto Velho', slug: 'porto-velho-ro', principal: true},
     {country_id: 22, name: 'Presidente Médici', slug: 'presidente-medici-ro'},
     {country_id: 22, name: 'Primavera de Rondônia', slug: 'primavera-de-rondonia-ro'},
     {country_id: 22, name: 'Rio Crespo', slug: 'rio-crespo-ro'},
@@ -4394,9 +4370,9 @@ if not Country.any?
     {country_id: 22, name: 'Vale do Anari', slug: 'vale-do-anari-ro'},
     {country_id: 22, name: 'Vale do Paraíso', slug: 'vale-do-paraiso-ro'},
     {country_id: 22, name: 'Vilhena', slug: 'vilhena-ro'},
-    {country_id: 23, name: 'Boa Vista', slug: 'boa-vista-rr', principal: true},
     {country_id: 23, name: 'Alto Alegre', slug: 'alto-alegre-rr'},
     {country_id: 23, name: 'Amajari', slug: 'amajari-rr'},
+    {country_id: 23, name: 'Boa Vista', slug: 'boa-vista-rr', principal: true},
     {country_id: 23, name: 'Bonfim', slug: 'bonfim-rr'},
     {country_id: 23, name: 'Cantá', slug: 'canta-rr'},
     {country_id: 23, name: 'Caracaraí', slug: 'caracarai-rr'},
@@ -4409,7 +4385,6 @@ if not Country.any?
     {country_id: 23, name: 'São João da Baliza', slug: 'sao-joao-da-baliza-rr'},
     {country_id: 23, name: 'São Luiz', slug: 'sao-luiz-rr'},
     {country_id: 23, name: 'Uiramutã', slug: 'uiramuta-rr'},
-    {country_id: 24, name: 'Florianópolis', slug: 'florianopolis-sc', principal: true},
     {country_id: 24, name: 'Abdon Batista', slug: 'abdon-batista-sc'},
     {country_id: 24, name: 'Abelardo Luz', slug: 'abelardo-luz-sc'},
     {country_id: 24, name: 'Agrolândia', slug: 'agrolandia-sc'},
@@ -4497,6 +4472,7 @@ if not Country.any?
     {country_id: 24, name: 'Erval Velho', slug: 'erval-velho-sc'},
     {country_id: 24, name: 'Faxinal dos Guedes', slug: 'faxinal-dos-guedes-sc'},
     {country_id: 24, name: 'Flor do Sertão', slug: 'flor-do-sertao-sc'},
+    {country_id: 24, name: 'Florianópolis', slug: 'florianopolis-sc', principal: true},
     {country_id: 24, name: 'Formosa do Sul', slug: 'formosa-do-sul-sc'},
     {country_id: 24, name: 'Forquilhinha', slug: 'forquilhinha-sc'},
     {country_id: 24, name: 'Fraiburgo', slug: 'fraiburgo-sc'},
@@ -4702,7 +4678,6 @@ if not Country.any?
     {country_id: 24, name: 'Xavantina', slug: 'xavantina-sc'},
     {country_id: 24, name: 'Xaxim', slug: 'xaxim-sc'},
     {country_id: 24, name: 'Zortéa', slug: 'zortea-sc'},
-    {country_id: 25, name: 'São Paulo', slug: 'sao-paulo-sp', principal: true},
     {country_id: 25, name: 'Adamantina', slug: 'adamantina-sp'},
     {country_id: 25, name: 'Adolfo', slug: 'adolfo-sp'},
     {country_id: 25, name: 'Aguaí', slug: 'aguai-sp'},
@@ -5267,6 +5242,7 @@ if not Country.any?
     {country_id: 25, name: 'São Luís do Paraitinga', slug: 'sao-luis-do-paraitinga-sp'},
     {country_id: 25, name: 'São Manuel', slug: 'sao-manuel-sp'},
     {country_id: 25, name: 'São Miguel Arcanjo', slug: 'sao-miguel-arcanjo-sp'},
+    {country_id: 25, name: 'São Paulo', slug: 'sao-paulo-sp', principal: true},
     {country_id: 25, name: 'São Pedro', slug: 'sao-pedro-sp'},
     {country_id: 25, name: 'São Pedro do Turvo', slug: 'sao-pedro-do-turvo-sp'},
     {country_id: 25, name: 'São Roque', slug: 'sao-roque-sp'},
@@ -5347,9 +5323,9 @@ if not Country.any?
     {country_id: 25, name: 'Votorantim', slug: 'votorantim-sp'},
     {country_id: 25, name: 'Votuporanga', slug: 'votuporanga-sp'},
     {country_id: 25, name: 'Zacarias', slug: 'zacarias-sp'},
-    {country_id: 26, name: 'Aracaju', slug: 'aracaju-se', principal: true},
     {country_id: 26, name: 'Amparo de São Francisco', slug: 'amparo-de-sao-francisco-se'},
     {country_id: 26, name: 'Aquidabã', slug: 'aquidaba-se'},
+    {country_id: 26, name: 'Aracaju', slug: 'aracaju-se', principal: true},
     {country_id: 26, name: 'Arauá', slug: 'araua-se'},
     {country_id: 26, name: 'Areia Branca', slug: 'areia-branca-se'},
     {country_id: 26, name: 'Barra dos Coqueiros', slug: 'barra-dos-coqueiros-se'},
@@ -5422,7 +5398,6 @@ if not Country.any?
     {country_id: 26, name: 'Tobias Barreto', slug: 'tobias-barreto-se'},
     {country_id: 26, name: 'Tomar do Geru', slug: 'tomar-do-geru-se'},
     {country_id: 26, name: 'Umbaúba', slug: 'umbauba-se'},
-    {country_id: 27, name: 'Palmas', slug: 'palmas-to', principal: true},
     {country_id: 27, name: 'Abreulândia', slug: 'abreulandia-to'},
     {country_id: 27, name: 'Aguiarnópolis', slug: 'aguiarnopolis-to'},
     {country_id: 27, name: 'Aliança do Tocantins', slug: 'alianca-do-tocantins-to'},
@@ -5511,6 +5486,7 @@ if not Country.any?
     {country_id: 27, name: 'Novo Alegre', slug: 'novo-alegre-to'},
     {country_id: 27, name: 'Novo Jardim', slug: 'novo-jardim-to'},
     {country_id: 27, name: 'Oliveira de Fátima', slug: 'oliveira-de-fatima-to'},
+    {country_id: 27, name: 'Palmas', slug: 'palmas-to', principal: true},
     {country_id: 27, name: 'Palmeirante', slug: 'palmeirante-to'},
     {country_id: 27, name: 'Palmeiras do Tocantins', slug: 'palmeiras-do-tocantins-to'},
     {country_id: 27, name: 'Palmeirópolis', slug: 'palmeiropolis-to'},
@@ -5527,4 +5503,21 @@ if not Country.any?
     {country_id: 27, name: 'Ponte Alta do Tocantins', slug: 'ponte-alta-do-tocantins-to'},
     {country_id: 27, name: 'Porto Alegre do Tocantins', slug: 'porto-alegre-do-tocantins-to'},
   ])
+end
+
+if Rails.env.development?
+  User.destroy_all
+  Realty.destroy_all
+  
+  User.create({
+    username: 'johndoe',
+    password: 'secret'
+  })
+
+  10.times do
+    Realty.create({
+      city_id: rand(1..5472),
+      reference: "key#{rand(1..5472)}"
+    })
+  end
 end

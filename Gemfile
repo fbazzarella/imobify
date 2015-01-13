@@ -11,6 +11,7 @@ gem 'pg'
 gem 'devise'
 gem 'kaminari'
 gem 'responders'
+gem 'actionpack-page_caching'
 
 # Frontend Features
 gem 'rails-assets-jquery'

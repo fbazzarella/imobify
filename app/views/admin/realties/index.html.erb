@@ -1,22 +1,24 @@
 <h1>
   Imóveis
-  <%= link_to new_admin_realty_path, class: 'btn btn-sm btn-primary btn-new' do %>
+  <button type="button" class="btn btn-sm btn-primary btn-new" data-toggle="modal" data-target="#new-realty">
     <%= glyph(:plus) %> Cadastrar Novo
-  <% end %>
+  </button>
 </h1>
+
+<%= render 'new' %>
 
 <% if @realties.any? %>
   <div class="table-responsive">
     <table class="table table-striped">
       <thead>
         <tr>
-          <th>Referência (Código do Imóvel)</th>
+          <th><%= t('activerecord.attributes.realty.reference') %></th>
         </tr>
       </thead>
       <tbody>
-        <% @realties.each do |p| %>
+        <% @realties.each do |r| %>
           <tr>
-            <td><%= p.reference %></td>
+            <td><%= r.reference %></td>
           </tr>
         <% end %>
       </tbody>

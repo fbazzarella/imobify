@@ -20,10 +20,15 @@
         inclusion: 'deve ser selecionada na lista'
     models:
       user: 'Usuário'
+      realty: 'Imóvel'
     attributes:
       user:
         username: 'Nome de Usuário'
         password: 'Senha'
+      realty:
+        country_id: 'Estado'
+        city_id: 'Cidade'
+        reference: 'Referência (Código do Imóvel)'
   date:
     day_names: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado']
     month_names: ['', 'janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro']

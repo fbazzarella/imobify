@@ -1,0 +1,32 @@
+<div class="modal fade" id="new-realty" tabindex="-1" role="dialog" aria-labelledby="nr-title" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <%= form_for [:admin, @realty] do |f| %>
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title" id="nr-title">Cadastrar Novo Imóvel</h4>
+        </div>
+
+        <div class="modal-body">
+          <label>Comece informando o Estado e a Cidade onde se encontra o Imóvel:</label>
+          <small class="help-block">Ao selecionar um Estado, a lista de Cidades será atualizada.</small>
+
+          <div class="row">
+            <%= render partial: 'select', locals: {
+              f: f, field: :country_id, locations: @locations[:countries]} %>
+
+            <%= render partial: 'select', locals: {
+              f: f, field: :city_id, locations: @locations[:cities]} %>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Avançar...</button>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -6,6 +6,6 @@ NewApp::Application.routes.draw do
 
     root to: 'realties#index'
 
-    resources :realties, only: [:index, :new]
+    resources :realties, only: [:index, :create]
   end
 end

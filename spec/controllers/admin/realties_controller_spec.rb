@@ -11,8 +11,15 @@ RSpec.describe Admin::RealtiesController, type: :controller do
 
       before { get :index }
 
+      it { expect(assigns(:realty)).to be_a(Realty) }
+      it { expect(assigns(:realty).country).to be_eql(realty.country) }
+
+      it { expect(assigns(:locations)).to be_a(Hash) }
+      it { expect(assigns(:locations).keys).to include(:countries, :cities) }
+
       it { expect(assigns(:realties)).to be_a(ActiveRecord::Relation) }
       it { expect(assigns(:realties)).to include(realty) }
+
       it { is_expected.to respond_with 200 }
     end
 

@@ -5,4 +5,8 @@ class Country < ActiveRecord::Base
   validates :initial, :name, :slug, presence: true
   validates :initial, length: {is: 2}
   validates :name, :slug, length: {maximum: 255}
+
+  def self.all_with_cities_by(country)
+    {countries: all, cities: country.cities}
+  end
 end

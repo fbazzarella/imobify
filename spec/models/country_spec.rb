@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Country, type: :model do
   it { should have_many(:cities).dependent(:restrict_with_error) }
+  it { should have_many(:realties).dependent(:restrict_with_error) }
 
   it { should validate_presence_of(:initial) }
   it { should validate_presence_of(:name) }

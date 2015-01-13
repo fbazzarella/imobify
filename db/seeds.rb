@@ -5508,16 +5508,17 @@ end
 if Rails.env.development?
   User.destroy_all
   Realty.destroy_all
-  
+
   User.create({
     username: 'johndoe',
     password: 'secret'
   })
 
-  10.times do
+  10.times do |i|
     Realty.create({
-      city_id: rand(1..5472),
-      reference: "key#{rand(1..5472)}"
+      country_id: 19,
+      city_id:    3652,
+      reference: "key#{i * 1}"
     })
   end
 end

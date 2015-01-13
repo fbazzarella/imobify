@@ -21,6 +21,16 @@ RSpec.describe Admin::RealtiesController, type: :controller do
       it { expect(assigns(:realties)).to include(realty) }
 
       it { is_expected.to respond_with 200 }
+
+      context 'when none realty exists' do
+        before do
+          Realty.destroy_all
+          get :index
+        end
+
+        it { expect(assigns(:realty)).to be_a_new(Realty) }
+        it { expect(assigns(:realty).country).to be_nil }
+      end
     end
 
     context 'when logged out' do

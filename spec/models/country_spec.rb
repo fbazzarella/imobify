@@ -19,11 +19,18 @@ RSpec.describe Country, type: :model do
     let!(:country1_city) { create(:city, country: country1) }
     let!(:country2_city) { create(:city, country: country2) }
 
-    subject { described_class.all_with_cities_by(country1) }
+    subject { described_class.all_with_cities_by(country2) }
 
     it { expect(subject).to be_a(Hash) }
     it { expect(subject[:countries]).to include(country1, country2) }
-    it { expect(subject[:cities]).to include(country1_city) }
-    it { expect(subject[:cities]).to_not include(country2_city) }
+    it { expect(subject[:cities]).to include(country2_city) }
+    it { expect(subject[:cities]).to_not include(country1_city) }
+
+    context 'when none country is passed' do
+      subject { described_class.all_with_cities_by(nil) }
+
+      it { expect(subject[:cities]).to include(country1_city) }
+      it { expect(subject[:cities]).to_not include(country2_city) }
+    end
   end
 end

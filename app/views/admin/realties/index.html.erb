@@ -18,7 +18,7 @@
       <tbody>
         <% @realties.each do |r| %>
           <tr>
-            <td><%= r.reference %></td>
+            <td><%= link_to r.reference, edit_admin_realty_path(r) %></td>
           </tr>
         <% end %>
       </tbody>

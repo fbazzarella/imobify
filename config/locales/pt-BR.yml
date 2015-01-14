@@ -1,13 +1,22 @@
 'pt-BR':
   flash:
-    users:
-      create:
-        notice: 'Usuário criado com sucesso.'
-      update:
-        notice: 'Usuário atualizado com sucesso.'
-      destroy:
-        notice: 'Usuário excluído com sucesso.'
-        alert: 'O Usuário não pôde ser excluído.'
+    admin:
+      users:
+        create:
+          notice: 'Usuário cadastrado com sucesso.'
+        update:
+          notice: 'Usuário atualizado com sucesso.'
+        destroy:
+          notice: 'Usuário excluído com sucesso.'
+          alert: 'O Usuário não pôde ser excluído.'
+      realties:
+        create:
+          notice: 'Imóvel cadastrado com sucesso.'
+        update:
+          notice: 'Imóvel atualizado com sucesso.'
+        destroy:
+          notice: 'Imóvel excluído com sucesso.'
+          alert: 'O Imóvel não pôde ser excluído.'
   activerecord:
     errors:
       messages:
@@ -26,9 +35,21 @@
         username: 'Nome de Usuário'
         password: 'Senha'
       realty:
+        reference: 'Código do Imóvel'
         country_id: 'Estado'
         city_id: 'Cidade'
-        reference: 'Referência (Código do Imóvel)'
+        neighborhood: 'Bairro'
+        street: 'Logradouro'
+        business_kind: 'Tipo de Negócio'
+        realty_kind: 'Tipo de Imóvel'
+        rooms: 'Quartos'
+        bathrooms: 'Banheiros'
+        parking_spaces: 'Vagas de Garagem'
+        size: 'Área Útil (m²)'
+        price: 'Valor'
+        taxes: 'Outras Taxas'
+        description: 'Detalhes do Imóvel'
+        published: 'Publicado?'
   date:
     day_names: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado']
     month_names: ['', 'janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro']

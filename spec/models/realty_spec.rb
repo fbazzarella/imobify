@@ -7,5 +7,15 @@ RSpec.describe Realty, type: :model do
   it { should validate_presence_of(:country_id) }
   it { should validate_presence_of(:city_id) }
 
-  it { should ensure_length_of(:reference).is_at_most(255) }
+  %i(rooms bathrooms parking_spaces).each do |field|
+    it { should validate_numericality_of(field).only_integer.allow_nil }
+  end
+
+  %i(size price taxes).each do |field|
+    it { should validate_numericality_of(field).allow_nil }
+  end
+
+  %i(reference neighborhood street business_kind realty_kind).each do |field|
+    it { should ensure_length_of(field).is_at_most(255) }
+  end
 end

@@ -22,6 +22,8 @@
       messages:
         blank: 'não pode ficar em branco'
         invalid: 'não está em um formato válido'
+        not_a_number: 'deve ser um número'
+        not_an_integer: 'deve ser um número inteiro'
         too_short: "deve conter pelo menos #{count} caracteres"
         too_long: "deve conter no máximo #{count} caracteres"
         confirmation: 'não foi confirmada'

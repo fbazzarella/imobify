@@ -11,7 +11,7 @@
           alert: 'O Usuário não pôde ser excluído.'
       realties:
         create:
-          notice: 'Imóvel cadastrado com sucesso.'
+          notice: 'Imóvel cadastrado com sucesso. Continue preenchendo as demais informações e adicione as fotos mais abaixo.'
         update:
           notice: 'Imóvel atualizado com sucesso.'
         destroy:
@@ -47,11 +47,27 @@
         rooms: 'Quartos'
         bathrooms: 'Banheiros'
         parking_spaces: 'Vagas de Garagem'
-        size: 'Área Útil (m²)'
+        size: 'Área Útil'
         price: 'Valor'
         taxes: 'Outras Taxas'
-        description: 'Detalhes do Imóvel'
+        description: 'Descrição do Imóvel'
         published: 'Publicado?'
+    collections:
+      realty:
+        business_kind:
+          sale: 'Venda'
+          rental: 'Aluguel'
+          vacation_rental: 'Temporada'
+        realty_kind:
+          house: 'Casa'
+          apartment: 'Apartamento'
+          kitchenette: 'Kitchenette'
+          room: 'Sala'
+          store: 'Ponto Comercial'
+          terrain: 'Terreno'
+          country_house: 'Chácara'
+          site: 'Sítio'
+          farm: 'Fazenda'
   date:
     day_names: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado']
     month_names: ['', 'janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro']

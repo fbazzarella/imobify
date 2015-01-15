@@ -7,6 +7,18 @@ RSpec.describe Realty, type: :model do
   it { should validate_presence_of(:country_id) }
   it { should validate_presence_of(:city_id) }
 
+  described_class::BUSINESS_KIND.each do |bk|
+    it { should allow_value(bk).for(:business_kind) }
+  end
+
+  it { should_not allow_value('other').for(:business_kind) }
+
+  described_class::REALTY_KIND.each do |rk|
+    it { should allow_value(rk).for(:realty_kind) }
+  end
+
+  it { should_not allow_value('other').for(:realty_kind) }
+
   %i(rooms bathrooms parking_spaces).each do |field|
     it { should validate_numericality_of(field).only_integer.allow_nil }
   end

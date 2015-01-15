@@ -16,3 +16,13 @@
   display: inline-block;
   margin-top: -8px;
 }
+
+.right {
+  text-align: right;
+}
+
+@media (min-width: 992px) {
+  #realty_description {
+    height: 182px !important;
+  }
+}

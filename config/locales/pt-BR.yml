@@ -28,7 +28,7 @@
         too_long: "deve conter no máximo #{count} caracteres"
         confirmation: 'não foi confirmada'
         taken: 'já está cadastrado'
-        inclusion: 'deve ser selecionada na lista'
+        inclusion: 'deve ser selecionado na lista'
     models:
       user: 'Usuário'
       realty: 'Imóvel'

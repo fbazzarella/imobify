@@ -20,4 +20,6 @@ $(function () {
   // $('a[rel~=tooltip], .has-tooltip').tooltip();
 
   $('#realty_country_id').loadCitiesOn('#realty_city_id');
+
+  $('.integer').filter_input({regex:'[0-9]'});
 });

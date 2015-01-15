@@ -10,15 +10,26 @@
         </div>
 
         <div class="modal-body">
-          <label>Comece informando o Estado e a Cidade onde se encontra o Imóvel:</label>
-          <small class="help-block">Ao selecionar um Estado, a lista de Cidades será atualizada.</small>
+          <p>Comece informando a localização do Imóvel.</p>
 
           <div class="row">
-            <%= render partial: 'select', locals: {
-              f: f, field: :country_id, locations: @locations[:countries]} %>
+            <div class="col-xs-12 col-sm-6">
+              <div class="form-group">
+                <%= f.label :country_id %>
+                <%= f.collection_select(
+                  :country_id, @locations[:countries], :id, :name, {}, {class: 'form-control'}) %>
+                <small class="help-block">Ao selecionar um Estado, a lista de Cidades será atualizada.</small>
+              </div>
+            </div>
 
-            <%= render partial: 'select', locals: {
-              f: f, field: :city_id, locations: @locations[:cities]} %>
+            <div class="col-xs-12 col-sm-6">
+              <div class="form-group">
+                <%= f.label :city_id %>
+                <%= f.collection_select(
+                  :city_id, @locations[:cities], :id, :name, {}, {class: 'form-control'}) %>
+                <small class="help-block">A lista de Cidades está em ordem alfabética.</small>
+              </div>
+            </div>
           </div>
         </div>
 

@@ -79,14 +79,56 @@ RSpec.describe Admin::RealtiesController, type: :controller do
 
         it { should respond_with 200 }
       end
-
-      context 'when invalid id' do
-        it { expect{ get :edit, id: 1 }.to raise_error(ActiveRecord::RecordNotFound) }
-      end
     end
 
     context 'when logged out' do
       before { get :edit, id: 1 }
+
+      it { expect(response).to redirect_to(new_admin_user_session_path) }
+    end
+  end
+
+  describe 'PUT #update' do
+    context 'when logged in' do
+      login!
+
+      let!(:country) { create(:country) }
+      let!(:city) { create(:city, country: country) }
+      let!(:realty) { create(:realty) }
+
+      def put_update(params = {})
+        put :update, id: realty.id, realty: attributes_for(:realty).merge!(params)
+        realty.reload
+      end
+
+      context 'when valid id' do
+        context 'when valid attributes' do
+          before { put_update(country_id: country.id, city_id: city.id) }
+
+          it { expect(realty.country_id).to be_eql(country.id) }
+          it { expect(realty.city_id).to be_eql(city.id) }
+
+          it { expect(assigns(:locations)).to be_a(Hash) }
+          it { expect(assigns(:locations).keys).to include(:countries, :cities) }
+
+          it { should respond_with 302 }
+        end
+
+        context 'when invalid attributes' do
+          before { put_update(business_kind: '') }
+
+          it { expect(realty.business_kind).to be_nil }
+
+          it { expect(assigns(:locations)).to be_a(Hash) }
+          it { expect(assigns(:locations).keys).to include(:countries, :cities) }
+
+          it { should respond_with 200 }
+        end
+      end
+    end
+
+    context 'when logged out' do
+      before { put :update, id: 1 }
 
       it { expect(response).to redirect_to(new_admin_user_session_path) }
     end

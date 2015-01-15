@@ -19,12 +19,8 @@ RSpec.describe Realty, type: :model do
 
   it { should_not allow_value('other').for(:realty_kind) }
 
-  %i(rooms bathrooms parking_spaces).each do |field|
+  %i(rooms bathrooms parking_spaces size price taxes).each do |field|
     it { should validate_numericality_of(field).only_integer.allow_nil }
-  end
-
-  %i(size price taxes).each do |field|
-    it { should validate_numericality_of(field).allow_nil }
   end
 
   %i(reference neighborhood street business_kind realty_kind).each do |field|

@@ -12,6 +12,10 @@
  *= require_tree ./admin
  */
 
+body {
+  padding: 66px 0;
+}
+
 .btn-new {
   display: inline-block;
   margin-top: -8px;

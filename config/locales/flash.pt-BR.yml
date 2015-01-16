@@ -1,0 +1,19 @@
+'pt-BR':
+  flash:
+    admin:
+      users:
+        create:
+          notice: 'Usuário cadastrado com sucesso.'
+        update:
+          notice: 'Usuário atualizado com sucesso.'
+        destroy:
+          notice: 'Usuário excluído com sucesso.'
+          alert: 'O Usuário não pôde ser excluído.'
+      realties:
+        create:
+          notice: 'Imóvel cadastrado com sucesso. Continue preenchendo as demais informações e adicione as fotos mais abaixo.'
+        update:
+          notice: 'Imóvel atualizado com sucesso.'
+        destroy:
+          notice: 'Imóvel excluído com sucesso.'
+          alert: 'O Imóvel não pôde ser excluído.'

@@ -1,0 +1,52 @@
+'pt-BR':
+  activerecord:
+    errors:
+      messages:
+        blank: 'não pode ficar em branco'
+        invalid: 'não está em um formato válido'
+        not_a_number: 'deve ser um número'
+        not_an_integer: 'deve ser um número inteiro'
+        too_short: "deve conter pelo menos #{count} caracteres"
+        too_long: "deve conter no máximo #{count} caracteres"
+        confirmation: 'não foi confirmada'
+        taken: 'já está cadastrado'
+        inclusion: 'deve ser selecionado na lista'
+    models:
+      user: 'Usuário'
+      realty: 'Imóvel'
+    attributes:
+      user:
+        username: 'Nome de Usuário'
+        password: 'Senha'
+      realty:
+        reference: 'Código do Imóvel'
+        country_id: 'Estado'
+        city_id: 'Cidade'
+        neighborhood: 'Bairro'
+        street: 'Logradouro'
+        business_kind: 'Tipo de Negócio'
+        realty_kind: 'Tipo de Imóvel'
+        rooms: 'Quartos'
+        bathrooms: 'Banheiros'
+        parking_spaces: 'Vagas de Garagem'
+        size: 'Área Útil'
+        price: 'Valor'
+        taxes: 'Outras Taxas'
+        description: 'Descrição do Imóvel'
+        published: 'Publicado?'
+    collections:
+      realty:
+        business_kind:
+          sale: 'Venda'
+          rental: 'Aluguel'
+          vacation_rental: 'Temporada'
+        realty_kind:
+          house: 'Casa'
+          apartment: 'Apartamento'
+          kitchenette: 'Kitchenette'
+          room: 'Sala'
+          store: 'Ponto Comercial'
+          terrain: 'Terreno'
+          country_house: 'Chácara'
+          site: 'Sítio'
+          farm: 'Fazenda'

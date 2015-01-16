@@ -12,6 +12,7 @@ gem 'devise'
 gem 'kaminari'
 gem 'responders'
 gem 'actionpack-page_caching'
+gem 'jquery-fileupload-rails'
 
 # Frontend Features
 gem 'rails-assets-jquery'

@@ -11,7 +11,7 @@
           alert: 'O Usuário não pôde ser excluído.'
       realties:
         create:
-          notice: 'Imóvel cadastrado com sucesso. Continue preenchendo as demais informações e adicione as fotos mais abaixo.'
+          notice: 'Continue preenchendo as demais informações e adicione as fotos mais abaixo.'
         update:
           notice: 'Imóvel atualizado com sucesso.'
         destroy:

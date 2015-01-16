@@ -1,14 +1,15 @@
-<h1>
-  Imóveis
-  <button type="button" class="btn btn-sm btn-primary btn-new" data-toggle="modal" data-target="#new-realty">
-    <%= glyph(:plus) %> Cadastrar Novo
-  </button>
-</h1>
-<p>Aqui você encontra todos os imóveis cadastrados e pode gerenciá-los com facilidade.</p>
-
 <%= render 'new' %>
 
 <% if @realties.any? %>
+  <h1>
+    Imóveis
+    <button type="button" class="btn btn-sm btn-primary btn-new" data-toggle="modal" data-target="#new-realty">
+      <%= glyph(:plus) %> Novo Imóvel
+    </button>
+  </h1>
+
+  <p>Aqui você encontra todos os imóveis cadastrados e pode gerenciá-los com facilidade.</p>
+
   <div class="table-responsive">
     <table class="table table-striped">
       <thead>
@@ -26,7 +27,13 @@
     </table>
   </div>
 <% else %>
-  <p class="alert alert-info">
-    Você ainda não cadastrou nenhum Imóvel. Para cadastrar um, clique no botão azul acima.
-  </p>
+  <div class="jumbotron">
+    <h1>Seja bem vindo ao <b>Painel de Controle</b> do seu site.</h1>
+
+    <p>Para começar a cadastrar sua coleção de imóveis, clique no botão abaixo e siga as instruções das telas que se seguem. Se você tiver alguma dúvida, não hesite em entrar em contato.</p>
+
+    <button type="button" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#new-realty">
+      <%= glyph(:plus) %> Novo Imóvel
+    </button>
+  </div>
 <% end %>

@@ -6,11 +6,12 @@
         other: "Corrija os erros abaixo antes de continuar:"
   devise:
     failure:
-      already_authenticated: 'Você já está autenticado.'
-      unauthenticated: 'Você precisa se autenticar para acessar o sistema.'
+      already_authenticated: 'Você já está autenticado no Painel de Controle.'
+      unauthenticated: 'Você precisa se autenticar para acessar o Painel de Controle.'
       invalid: 'Este usuário não existe ou a senha está incorreta.'
       user:
         not_found_in_database: 'Este usuário não existe.'
     sessions:
-      signed_in: 'Autenticado com sucesso.'
-      signed_out: 'Sua sessão foi encerrada com sucesso.'
+      signed_in: 'Autenticado com sucesso no Painel de Controle.'
+      signed_out: 'Sua sessão no Painel de Controle foi encerrada com sucesso.'
+      already_signed_out: 'Sua sessão no Painel de Controle já havia sido encerrada.'

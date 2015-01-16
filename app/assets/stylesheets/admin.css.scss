@@ -16,6 +16,12 @@ body {
   padding: 66px 0;
 }
 
+@media (max-width: 767px) {
+  .logged-user {
+    margin-left: 15px;
+  }
+}
+
 .btn-new {
   display: inline-block;
   margin-top: -8px;

@@ -20,6 +20,5 @@ FactoryGirl.define do
   factory :realty do
     country
     city
-    reference 'key123'
   end
 end

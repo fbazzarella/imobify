@@ -5,10 +5,11 @@ RSpec.describe City, type: :model do
 
   it { should have_many(:realties).dependent(:restrict_with_error) }
 
-  it { should validate_presence_of(:country_id) }
-  it { should validate_presence_of(:name) }
-  it { should validate_presence_of(:slug) }
-
-  it { should ensure_length_of(:name).is_at_most(255) }
-  it { should ensure_length_of(:slug).is_at_most(255) }
+  %i(country_id name slug).each do |field|
+    it { should validate_presence_of(field) }
+  end
+    
+  %i(name slug).each do |field|
+    it { should ensure_length_of(field).is_at_most(255) }
+  end
 end

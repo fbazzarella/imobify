@@ -11,26 +11,12 @@ RSpec.describe Admin::RealtiesController, type: :controller do
 
       before { get :index }
 
-      it { expect(assigns(:realty)).to be_a(Realty) }
-      it { expect(assigns(:realty).country).to be_eql(realty.country) }
-
-      it { expect(assigns(:locations)).to be_a(Hash) }
-      it { expect(assigns(:locations).keys).to include(:countries, :cities) }
+      it { expect(assigns(:realty)).to be_a_new(Realty) }
 
       it { expect(assigns(:realties)).to be_a(ActiveRecord::Relation) }
       it { expect(assigns(:realties)).to include(realty) }
 
       it { is_expected.to respond_with 200 }
-
-      context 'when none realty exists' do
-        before do
-          Realty.destroy_all
-          get :index
-        end
-
-        it { expect(assigns(:realty)).to be_a_new(Realty) }
-        it { expect(assigns(:realty).country).to be_nil }
-      end
     end
 
     context 'when logged out' do
@@ -48,12 +34,12 @@ RSpec.describe Admin::RealtiesController, type: :controller do
         post :create, realty: attributes_for(:realty).merge!(params)
       end
 
-      let!(:country) { create(:country) }
-      let!(:city) { create(:city, country: country) }
+      let!(:city) { create(:city) }
 
-      before { post_create(country_id: country.id, city_id: city.id) }
+      before { post_create(country_id: city.country.id, city_id: city.id) }
 
       it { expect(Realty.count).to_not be_zero }
+
       it { should respond_with 302 }
     end
 
@@ -70,12 +56,10 @@ RSpec.describe Admin::RealtiesController, type: :controller do
 
       context 'when valid id' do
         let!(:realty) { create(:realty) }
+
         before { get :edit, id: realty.id }
 
         it { expect(assigns(:realty)).to be_eql(realty) }
-
-        it { expect(assigns(:locations)).to be_a(Hash) }
-        it { expect(assigns(:locations).keys).to include(:countries, :cities) }
 
         it { should respond_with 200 }
       end
@@ -92,38 +76,29 @@ RSpec.describe Admin::RealtiesController, type: :controller do
     context 'when logged in' do
       login!
 
-      let!(:country) { create(:country) }
-      let!(:city) { create(:city, country: country) }
-      let!(:realty) { create(:realty) }
-
       def put_update(params = {})
         put :update, id: realty.id, realty: attributes_for(:realty).merge!(params)
         realty.reload
       end
 
-      context 'when valid id' do
-        context 'when valid attributes' do
-          before { put_update(country_id: country.id, city_id: city.id) }
+      let!(:city)   { create(:city) }
+      let!(:realty) { create(:realty) }
 
-          it { expect(realty.country_id).to be_eql(country.id) }
-          it { expect(realty.city_id).to be_eql(city.id) }
+      context 'when valid attributes' do
+        before { put_update(country_id: city.country.id, city_id: city.id) }
 
-          it { expect(assigns(:locations)).to be_a(Hash) }
-          it { expect(assigns(:locations).keys).to include(:countries, :cities) }
+        it { expect(realty.country).to be_eql(city.country) }
+        it { expect(realty.city).to    be_eql(city) }
 
-          it { should respond_with 302 }
-        end
+        it { should respond_with 302 }
+      end
 
-        context 'when invalid attributes' do
-          before { put_update(business_kind: '') }
+      context 'when invalid attributes' do
+        before { put_update(business_kind: 'other') }
 
-          it { expect(realty.business_kind).to be_nil }
+        it { expect(realty.business_kind).to be_nil }
 
-          it { expect(assigns(:locations)).to be_a(Hash) }
-          it { expect(assigns(:locations).keys).to include(:countries, :cities) }
-
-          it { should respond_with 200 }
-        end
+        it { should respond_with 200 }
       end
     end
 

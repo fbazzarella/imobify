@@ -13,14 +13,14 @@
           <div class="col-xs-12 col-sm-6">
             <div class="form-group">
               <%= f.label :country_id %>
-              <%= f.collection_select(:country_id, @locations[:countries], :id, :name, {}, {class: 'form-control'}) %>
+              <%= f.collection_select(:country_id, @realty.locations[:countries], :id, :name, {}, {class: 'form-control'}) %>
             </div>
           </div>
 
           <div class="col-xs-12 col-sm-6">
             <div class="form-group">
               <%= f.label :city_id %>
-              <%= f.collection_select(:city_id, @locations[:cities], :id, :name, {}, {class: 'form-control'}) %>
+              <%= f.collection_select(:city_id, @realty.locations[:cities], :id, :name, {}, {class: 'form-control'}) %>
             </div>
           </div>
         </div>

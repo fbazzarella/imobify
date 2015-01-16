@@ -17,7 +17,7 @@
               <div class="form-group">
                 <%= f.label :country_id %>
                 <%= f.collection_select(
-                  :country_id, @locations[:countries], :id, :name, {}, {class: 'form-control'}) %>
+                  :country_id, @realty.locations[:countries], :id, :name, {}, {class: 'form-control'}) %>
                 <small class="help-block">Ao selecionar um Estado, a lista de Cidades será atualizada.</small>
               </div>
             </div>
@@ -26,7 +26,7 @@
               <div class="form-group">
                 <%= f.label :city_id %>
                 <%= f.collection_select(
-                  :city_id, @locations[:cities], :id, :name, {}, {class: 'form-control'}) %>
+                  :city_id, @realty.locations[:cities], :id, :name, {}, {class: 'form-control'}) %>
                 <small class="help-block">A lista de Cidades está em ordem alfabética.</small>
               </div>
             </div>

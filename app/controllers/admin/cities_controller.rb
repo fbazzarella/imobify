@@ -6,6 +6,6 @@ class Admin::CitiesController < Admin::AdminController
   respond_to :json
 
   def index
-    respond_with @cities = City.select(:id, :name).where(country_id: params[:country_id])
+    respond_with @cities = City.select(:id, :name).where(country_id: params[:country_id]).order(:name)
   end
 end

@@ -4,10 +4,9 @@ RSpec.describe Admin::CitiesController, type: :controller do
   render_views
 
   describe 'GET #index' do
-    let!(:country) { create(:country) }
-    let!(:city) { create(:city, country: country) }
+    let!(:city) { create(:city) }
 
-    before { get :index, country_id: country.id, format: :json }
+    before { get :index, country_id: city.country_id, format: :json }
 
     it { expect(assigns(:cities)).to be_a(ActiveRecord::Relation) }
     it { expect(assigns(:cities)).to include(city) }

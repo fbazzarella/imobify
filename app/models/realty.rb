@@ -10,6 +10,8 @@ class Realty < ActiveRecord::Base
   validates :business_kind, inclusion: BUSINESS_KIND, allow_nil: true
   validates :realty_kind,   inclusion: REALTY_KIND,   allow_nil: true
 
+  validates :reference, uniqueness: true, allow_nil: true
+
   validates :rooms, :bathrooms, :parking_spaces,
     :size, :price, :taxes, numericality: {only_integer: true}, allow_nil: true
 

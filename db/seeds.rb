@@ -5514,11 +5514,20 @@ if Rails.env.development?
     password: 'secret'
   })
 
-  10.times do |i|
+  5.times do |i|
     Realty.create({
-      country_id: 19,
-      city_id:    3652,
-      reference: "key#{i * 1}"
+      country_id:     19,
+      city_id:        3652,
+      business_kind:  'sale',
+      realty_kind:    'house',
+      reference:      "key#{i*1}",
+      rooms:          2,
+      bathrooms:      1,
+      parking_spaces: 0,
+      size:           100,
+      price:          100000,
+      taxes:          0,
+      published:      true
     })
   end
 end

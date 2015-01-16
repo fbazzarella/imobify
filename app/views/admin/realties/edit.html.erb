@@ -150,9 +150,26 @@
         </div>
       </fieldset>
 
-      <fieldset>
+      <fieldset class="photos">
         <legend>Fotos</legend>
-        Fotos
+
+        <div class="row">
+          <div class="col-xs-12 col-md-4">
+            <p>Para adicionar fotos do Imóvel, clique no botão abaixo e selecione-as de seu computador ou galeria.</p>
+
+            <div class="btn btn-primary fileinput-button">
+              <span>Selecionar Fotos...</span>
+              <input id="realty-photos-fu" type="file" name="photos[]" data-url="photos">
+            </div>
+
+            <small class="help-block"><b>Dica:</b> imagens com resolução alta podem acarretar em um tempo de carregamento maior e também um consumo excessivo da sua franquia de dados caso esteja utilizando uma conexão móvel como a 3G.</small>
+          </div>
+
+          <div class="col-xs-12 col-md-8 photos-container">
+            <p class="alert alert-warning">As fotos aparecerão aqui.</p>
+            <%#= image_tag 'http://placehold.it/84x84', alt: 'Sem Foto', class: 'img-thumbnail' %>
+          </div>
+        </div>
       </fieldset>
 
       <div class="row">

@@ -12,11 +12,11 @@ gem 'devise'
 gem 'kaminari'
 gem 'responders'
 gem 'actionpack-page_caching'
-gem 'jquery-fileupload-rails'
 
 # Frontend Features
 gem 'rails-assets-jquery'
 gem 'rails-assets-jquery-ujs'
+gem 'jquery-fileupload-rails'
 gem 'twitter-bootstrap-rails',
   github: 'seyhunak/twitter-bootstrap-rails',
   branch: 'bootstrap3'

@@ -44,5 +44,7 @@ module NewApp
     config.action_view.field_error_proc = Proc.new do |html_tag|
       html_tag.html_safe
     end
+
+    config.active_record.raise_in_transactional_callbacks = true
   end
 end

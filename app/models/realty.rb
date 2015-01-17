@@ -9,6 +9,8 @@ class Realty < ActiveRecord::Base
   belongs_to :country
   belongs_to :city
 
+  has_many :photos, dependent: :destroy
+
   validates :country_id, :city_id, presence: true
 
   validates :business_kind, inclusion: BUSINESS_KIND, allow_nil: true

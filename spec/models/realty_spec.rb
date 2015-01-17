@@ -5,6 +5,8 @@ RSpec.describe Realty, type: :model do
     it { should belong_to(association) }
   end
 
+  it { should have_many(:photos).dependent(:destroy) }
+
   %i(country_id city_id).each do |field|
     it { should validate_presence_of(field) }
   end

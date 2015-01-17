@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150115040925) do
+ActiveRecord::Schema.define(version: 20150117173820) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,13 @@ ActiveRecord::Schema.define(version: 20150115040925) do
     t.string   "slug",       limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.integer  "realty_id"
+    t.string   "file"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "realties", force: :cascade do |t|
@@ -63,6 +70,7 @@ ActiveRecord::Schema.define(version: 20150115040925) do
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
   add_foreign_key "cities", "countries"
+  add_foreign_key "photos", "realties"
   add_foreign_key "realties", "cities"
   add_foreign_key "realties", "countries"
 end

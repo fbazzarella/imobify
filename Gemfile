@@ -12,6 +12,8 @@ gem 'devise'
 gem 'kaminari'
 gem 'responders'
 gem 'actionpack-page_caching'
+gem 'mini_magick'
+gem 'carrierwave'
 
 # Frontend Features
 gem 'rails-assets-jquery'

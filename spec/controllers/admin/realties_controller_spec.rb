@@ -40,7 +40,7 @@ RSpec.describe Admin::RealtiesController, type: :controller do
 
       it { expect(Realty.count).to_not be_zero }
 
-      it { should respond_with 302 }
+      it { is_expected.to respond_with 302 }
     end
 
     context 'when logged out' do
@@ -61,7 +61,7 @@ RSpec.describe Admin::RealtiesController, type: :controller do
 
         it { expect(assigns(:realty)).to be_eql(realty) }
 
-        it { should respond_with 200 }
+        it { is_expected.to respond_with 200 }
       end
     end
 
@@ -90,7 +90,7 @@ RSpec.describe Admin::RealtiesController, type: :controller do
         it { expect(realty.country).to be_eql(city.country) }
         it { expect(realty.city).to    be_eql(city) }
 
-        it { should respond_with 302 }
+        it { is_expected.to respond_with 302 }
       end
 
       context 'when invalid attributes' do
@@ -98,7 +98,7 @@ RSpec.describe Admin::RealtiesController, type: :controller do
 
         it { expect(realty.business_kind).to be_nil }
 
-        it { should respond_with 200 }
+        it { is_expected.to respond_with 200 }
       end
     end
 

@@ -13,12 +13,15 @@
 //= require jquery
 //= require jquery-ujs
 //= require twitter/bootstrap
+//= require jquery-fileupload/basic
 //= require_tree ./admin
 
 $(function () {
   initLocations('#realty_country_id', '#realty_city_id');
 
   $('.integer').filter_input({regex:'[0-9]'});
+
+  $('#photos-upload').fileupload();
 
   // $('a[rel~=popover], .has-popover').popover();
   // $('a[rel~=tooltip], .has-tooltip').tooltip();

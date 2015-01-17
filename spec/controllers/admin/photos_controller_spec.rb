@@ -15,9 +15,10 @@ RSpec.describe Admin::PhotosController, type: :controller do
 
       before { post_create }
 
-      it { expect(Photo.count).to_not be_zero }
+      it { expect(Photo.last.realty).to be_eql(realty) }
 
       it { expect(response.body).to match("\"id\":#{Photo.last.id}") }
+
       it { is_expected.to respond_with 200 }
     end
 

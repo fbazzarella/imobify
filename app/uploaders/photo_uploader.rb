@@ -7,6 +7,8 @@ class PhotoUploader < CarrierWave::Uploader::Base
     "uploads/realty_photos/realty_#{model.realty.id}/photo_#{model.id}"
   end
 
+  process :fix_rotation
+  
   version :admin do
     version :thumb do
       process resize_to_fill: [84, 84]

@@ -18,7 +18,9 @@ gem 'carrierwave'
 # Frontend Features
 gem 'rails-assets-jquery'
 gem 'rails-assets-jquery-ujs'
-gem 'jquery-fileupload-rails'
+gem 'rails-assets-blueimp-load-image'
+gem 'rails-assets-blueimp-canvas-to-blob'
+gem 'rails-assets-blueimp-file-upload'
 gem 'twitter-bootstrap-rails',
   github: 'seyhunak/twitter-bootstrap-rails',
   branch: 'bootstrap3'

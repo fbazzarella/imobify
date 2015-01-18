@@ -9,7 +9,6 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require jquery.fileupload-ui
  *= require_tree ./admin
  */
 
@@ -26,6 +25,10 @@ body {
 .btn-new {
   display: inline-block;
   margin-top: -8px;
+}
+
+.center {
+  text-align: center;
 }
 
 .right {

@@ -7,6 +7,10 @@ class PhotoUploader < CarrierWave::Uploader::Base
     "uploads/realty_photos/realty_#{model.realty.id}/photo_#{model.id}"
   end
 
+  def extension_white_list
+    %w(jpg jpeg gif png)
+  end
+
   process :fix_rotation
   
   version :admin do

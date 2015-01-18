@@ -159,7 +159,7 @@
 
             <div class="btn btn-primary fileinput-button">
               <span>Selecionar Fotos...</span>
-              <input id="photos-upload" type="file" name="photo[]" data-url="photos" multiple>
+              <input id="photos-upload" type="file" name="photo[]" data-url="photos" accept="image/*" multiple>
             </div>
 
             <small class="help-block"><b>Dica:</b> imagens com resolução alta podem acarretar em um tempo de carregamento maior e também um consumo excessivo da sua franquia de dados caso esteja utilizando uma conexão móvel como a 3G.</small>
@@ -171,7 +171,7 @@
                 <%= image_tag photo.file.admin.thumb.url, alt: "Foto #{i+1}", class: 'img-thumbnail' %>
               <% end %>
             <% else %>
-              <p class="alert alert-warning">As fotos aparecerão aqui.</p>
+              <p class="alert alert-warning center">Ao adicionar as fotos, elas aparecerão aqui.</p>
             <% end %>
           </div>
         </div>

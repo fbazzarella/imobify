@@ -34,6 +34,8 @@ $(function () {
     .bind('fileuploadsend', uploadSend)
     .bind('fileuploaddone', uploadDone);
 
+  $('.photos-container').magnificPopup(galleryOptions);
+
   // $('a[rel~=popover], .has-popover').popover();
   // $('a[rel~=tooltip], .has-tooltip').tooltip();
 });

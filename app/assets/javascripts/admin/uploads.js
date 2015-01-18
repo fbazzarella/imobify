@@ -24,8 +24,9 @@ var uploadSend = function (e, data) {
 var uploadDone = function (e, data) {
   var photo = data._response.result;
 
-  $('.loading:first')
+  $('.photos-container .loading:first')
     .removeClass('loading')
     .attr('src', photo.thumb_url)
+    .attr('data-mfp-src', photo.normal_url)
     .attr('data-photo-id', photo.id);
 };

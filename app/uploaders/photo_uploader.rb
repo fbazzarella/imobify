@@ -17,5 +17,13 @@ class PhotoUploader < CarrierWave::Uploader::Base
     version :thumb do
       process resize_to_fill: [84, 84]
     end
+
+    version :normal do
+      process resize_to_fill: [960, 540]
+    end
+
+    version :normal_2x do
+      process resize_to_fill: [1920, 1080]
+    end
   end
 end

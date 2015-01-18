@@ -10,7 +10,8 @@ RSpec.describe Photo, type: :model do
 
     subject { photo.to_json }
 
-    it { expect(subject[:id]).to        be_eql(photo.id) }
-    it { expect(subject[:thumb_url]).to be_eql(photo.file.admin.thumb.url) }
+    it { expect(subject[:id]).to         be_eql(photo.id) }
+    it { expect(subject[:thumb_url]).to  be_eql(photo.file.admin.thumb.url) }
+    it { expect(subject[:normal_url]).to be_eql(photo.file.admin.normal.url) }
   end
 end

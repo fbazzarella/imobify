@@ -8,6 +8,10 @@ class Photo < ActiveRecord::Base
   mount_uploader :file, PhotoUploader
 
   def to_json
-    {id: id, thumb_url: file.admin.thumb.url}
+    {
+      id:         id,
+      thumb_url:  file.admin.thumb.url,
+      normal_url: file.admin.normal.url
+    }
   end
 end

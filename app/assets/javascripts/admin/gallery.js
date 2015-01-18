@@ -1,5 +1,5 @@
 var galleryOptions = {
-  delegate: 'img',
+  delegate: '.gallery',
   type:     'image',
   tClose:   'Fechar Galeria (Esc)',
   tLoading: 'Carregando Foto...',

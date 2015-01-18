@@ -1,4 +1,4 @@
-var uploadOptions = {
+var uploadsOptions = {
   disableImageResize: /Android(?!.*Chrome)|Opera/
     .test(window.navigator && navigator.userAgent),
   imageMaxWidth:   1920,
@@ -8,6 +8,10 @@ var uploadOptions = {
 
 var uploadStart = function (e, data) {
   $('.photos-container .alert').remove();
+};
+
+var uploadStop = function (e, data) {
+  $('.photos-container .loading').remove();
 };
 
 var uploadSend = function (e, data) {
@@ -26,6 +30,7 @@ var uploadDone = function (e, data) {
 
   $('.photos-container .loading:first')
     .removeClass('loading')
+    .addClass('gallery')
     .attr('src', photo.thumb_url)
     .attr('data-mfp-src', photo.normal_url)
     .attr('data-photo-id', photo.id);

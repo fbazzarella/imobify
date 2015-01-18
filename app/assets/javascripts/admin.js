@@ -28,9 +28,9 @@ $(function () {
 
   $('.integer').filter_input({regex: '[0-9]'});
 
-  $('#photos-upload')
-    .fileupload(uploadOptions)
+  $('#photos-upload').fileupload(uploadsOptions)
     .bind('fileuploadstart', uploadStart)
+    .bind('fileuploadstop', uploadStop)
     .bind('fileuploadsend', uploadSend)
     .bind('fileuploaddone', uploadDone);
 

@@ -167,8 +167,8 @@
 
           <div class="col-xs-12 col-md-8 photos-container">
             <% if @realty.photos.any? %>
-              <% @realty.photos.each_with_index do |photo, i| %>
-                <%= image_tag photo.file.admin.thumb.url, alt: "Foto #{i+1}", class: 'img-thumbnail' %>
+              <% @realty.photos.each do |photo| %>
+                <%= image_tag photo.file.admin.thumb.url, alt: "Foto", class: 'img-thumbnail', data: {:'photo-id' => photo.id} %>
               <% end %>
             <% else %>
               <p class="alert alert-warning center">Ao adicionar as fotos, elas aparecerão aqui.</p>

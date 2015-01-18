@@ -28,13 +28,11 @@ $(function () {
 
   $('.integer').filter_input({regex: '[0-9]'});
 
-  $('#photos-upload').fileupload({
-    disableImageResize: /Android(?!.*Chrome)|Opera/
-      .test(window.navigator && navigator.userAgent),
-    imageMaxWidth: 1920,
-    imageMaxHeight: 1080,
-    acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i
-  });
+  $('#photos-upload')
+    .fileupload(uploadOptions)
+    .bind('fileuploadstart', uploadStart)
+    .bind('fileuploadsend', uploadSend)
+    .bind('fileuploaddone', uploadDone);
 
   // $('a[rel~=popover], .has-popover').popover();
   // $('a[rel~=tooltip], .has-tooltip').tooltip();

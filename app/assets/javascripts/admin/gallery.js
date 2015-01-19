@@ -30,8 +30,8 @@ var galleryOptions = {
 };
 
 var loadGalleryTrash = function () {
-  var gallery = $('.photos-container .gallery');
-  var trash   = $('.photos-container .trash');
+  var gallery = $('.photos-container .gallery'),
+      trash   = $('.photos-container .trash');
 
   gallery.draggable({
     revert: 'invalid',

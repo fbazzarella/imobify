@@ -1,6 +1,6 @@
 var initLocations = function (countriesSelect, citiesSelect) {
-  var countriesSelect = $(countriesSelect);
-  var citiesSelect    = $(citiesSelect);
+  var countriesSelect = $(countriesSelect),
+      citiesSelect    = $(citiesSelect);
 
   countriesSelect.on('change', function () {
     var citiesUrl = '/admin/countries/' + this.value + '/cities.json';

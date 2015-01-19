@@ -1,8 +1,24 @@
 var uploadsOptions = {
+  formData: function (form) {
+    var formFields     = form.serializeArray(),
+        filteredFields = [];
+
+    $.each(formFields, function (i, field) {
+      var utf8      = field.name == 'utf8',
+          authToken = field.name == 'authenticity_token';
+
+      if (utf8 || authToken) filteredFields.push(field);
+    });
+
+    return filteredFields;
+  },
+
   disableImageResize: /Android(?!.*Chrome)|Opera/
     .test(window.navigator && navigator.userAgent),
+
   imageMaxWidth:   1920,
   imageMaxHeight:  1080,
+
   acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i
 };
 
@@ -44,8 +60,8 @@ var uploadDone = function (e, data) {
 };
 
 var verifyPhotoQty = function () {
-  var alert = $('.photos-container .text-muted');
-  var trash = $('.photos-container .trash');
+  var alert = $('.photos-container .text-muted'),
+      trash = $('.photos-container .trash');
 
   if ($('.photos-container .gallery')[0]) {
     trash.removeClass('hide');

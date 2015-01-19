@@ -1,5 +1,5 @@
 <h1>Editar Imóvel</h1>
-<p>Aqui você pode preencher a localização, dados básicos, detalhes e adicionar imagens ao imóvel.</p>
+<p>Aqui você pode preencher a localização, dados básicos, detalhes e adicionar fotos ao imóvel.</p>
 
 <div class="row">
   <div class="col-xs-12 col-md-9 col-lg-8">
@@ -155,20 +155,18 @@
 
         <div class="row">
           <div class="col-xs-12 col-md-4">
-            <p>Para adicionar fotos do Imóvel, clique no botão abaixo e selecione-as de seu computador ou galeria.</p>
+            <p>Para adicionar as fotos do Imóvel, clique no botão abaixo e selecione-as de seu computador ou galeria.</p>
 
             <div class="btn btn-primary fileinput-button">
               <span>Selecionar Fotos...</span>
               <input id="photos-upload" type="file" name="photo[]" data-url="photos" accept="image/*" multiple>
             </div>
-
-            <small class="help-block"><b>Dica:</b> imagens com resolução alta podem acarretar em um tempo de carregamento maior e também um consumo excessivo da sua franquia de dados caso esteja utilizando uma conexão móvel como a 3G.</small>
           </div>
 
           <div class="col-xs-12 col-md-8 photos-container">
             <% if @realty.photos.any? %>
               <% @realty.photos.each do |photo| %>
-                <%= image_tag photo.file.admin.thumb.url, alt: "Foto", class: 'img-thumbnail gallery', data: {:'mfp-src' => photo.file.admin.normal.url, :'photo-id' => photo.id} %>
+                <%= image_tag photo.file.admin.thumb.url, alt: 'Foto', class: 'img-thumbnail gallery', data: {:'mfp-src' => photo.file.admin.normal.url, :'photo-id' => photo.id} %>
               <% end %>
             <% else %>
               <p class="alert alert-warning center">Ao adicionar as fotos, elas aparecerão aqui.</p>
@@ -178,9 +176,9 @@
       </fieldset>
 
       <div class="row">
-        <div class="col-xs-12 col-md-6">
+        <div class="col-xs-12">
           <fieldset>
-            <legend>Publicar Imóvel</legend>
+            <legend>Publicar no Site</legend>
 
             <p>Ao publicar o Imóvel, ele ficará visível no seu Site. Para mantê-lo apenas cadastrado no Painel de Controle e sem aparecer no Site, desmarque a caixa de seleção abaixo.</p>
 
@@ -189,20 +187,38 @@
             </div>
           </fieldset>
         </div>
+      </div>
 
-        <div class="col-xs-12 col-md-6">
+      <div class="row">
+        <div class="col-xs-12">
           <fieldset>
             <legend>Finalizar</legend>
-              <p>Para concluir o preenchimento dos dados do Imóvel, basta clicar no botão abaixo e todas as informações estarão salvas e prontas para serem exibidas no Site.</p>
 
-              <%= f.submit 'Salvar Todas as Alterações', class: 'btn btn-lg btn-primary btn-block' %>
+            <p>Para concluir o preenchimento dos dados do Imóvel, basta clicar no botão abaixo e todas as informações estarão salvas e prontas para serem exibidas no Site assim que forem publicadas.</p>
+
+            <%= f.submit 'Concluir Edição', class: 'btn btn-lg btn-primary btn-block' %>
           </fieldset>
         </div>
       </div>
     <% end %>
   </div>
 
-  <div class="col-md-3 col-lg-offset-1 hidden-xs hidden-sm">
-    Sidebar
+  <div class="col-md-3 col-lg-4 hidden-xs hidden-sm">
+    <h4>Veja Algumas Dicas</h4>
+
+    <p>Localização</p>
+    <small class="help-block">É interessante o preenchimento dos campos Bairro e Logradouro para que o cliente tenha a oportunidade de procurar mais sobre as proximidades. Contudo, não é recomendado dispor do endereço completo do Imóvel por questões de segurança.</small>
+
+    <p>Código do Imóvel</p>
+    <small class="help-block">Opcional. Apenas uma referência interna para fácil organização.</small>
+
+    <p>Valor e Outras Taxas</p>
+    <small class="help-block">O campo Valor serve tanto para quantias de aluguel mensal quanto de vendas. Use o campo Outras Taxas para especificar despesas como Condomínio, IPTU e etc.</small>
+
+    <p>Descrição do Imóvel</p>
+    <small class="help-block">Seja bem detalhista aqui. Mesmo havendo campos para informações específicas, é importante repetí-las na descrição para que os sites de busca (como o Google) consigam listar seus imóveis com maior eficiência.</small>
+
+    <p>Fotos</p>
+    <small class="help-block">Escolha fotos com uma boa qualidade, mas tome cuidado com fotos em alta resolução, pois podem acarretar em um tempo de carregamento maior e também consumir excessivamente sua franquia de dados caso esteja utilizando uma conexão móvel como a 3G.</small>
   </div>
 </div>

@@ -8,6 +8,11 @@ class Country < ActiveRecord::Base
   validates :name, :slug, length: {maximum: 255}
 
   def self.all_with_cities_by(country)
-    {countries: all, cities: (country || first).cities}
+    country ||= first
+
+    {
+      countries: all,
+      cities:    country.cities
+    }
   end
 end

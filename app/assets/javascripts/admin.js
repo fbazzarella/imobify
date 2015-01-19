@@ -11,12 +11,16 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery-ui/ui/core
+//= require jquery-ui/ui/widget
+//= require jquery-ui/ui/mouse
+//= require jquery-ui/ui/draggable
+//= require jquery-ui/ui/droppable
 //= require jquery-ujs
 //= require twitter/bootstrap/transition
 //= require twitter/bootstrap/alert
 //= require twitter/bootstrap/modal
 //= require twitter/bootstrap/collapse
-//= require blueimp-file-upload/vendor/jquery.ui.widget
 //= require blueimp-load-image
 //= require blueimp-canvas-to-blob
 //= require blueimp-file-upload/jquery.iframe-transport
@@ -38,4 +42,6 @@ $(function () {
     .bind('fileuploaddone', uploadDone);
 
   $('.photos-container').magnificPopup(galleryOptions);
+
+  loadGalleryTrash();
 });

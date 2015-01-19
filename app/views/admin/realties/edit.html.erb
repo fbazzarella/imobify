@@ -164,12 +164,16 @@
           </div>
 
           <div class="col-xs-12 col-md-8 photos-container">
-            <% if @realty.photos.any? %>
-              <% @realty.photos.each do |photo| %>
-                <%= image_tag photo.file.admin.thumb.url, alt: 'Foto', class: 'img-thumbnail gallery', data: {:'mfp-src' => photo.file.admin.normal.url, :'photo-id' => photo.id} %>
-              <% end %>
-            <% else %>
-              <p class="alert alert-warning center">Ao adicionar as fotos, elas aparecerão aqui.</p>
+            <p class="alert alert-warning trash<%= ' hide' if @realty.photos.none? %>">
+              <%= glyph :trash %> Para excluir uma foto, arraste-a para cá.
+            </p>
+
+            <h4 class="text-muted<%= ' hide' if @realty.photos.any? %>">
+              Você ainda não adicionou fotos.
+            </h4>
+
+            <% @realty.photos.each do |photo| %>
+              <%= image_tag photo.file.admin.thumb.url, alt: 'Foto', class: 'img-thumbnail gallery', data: {:'mfp-src' => photo.file.admin.normal.url, :'photo-id' => photo.id} %>
             <% end %>
           </div>
         </div>

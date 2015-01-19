@@ -7,11 +7,16 @@ var uploadsOptions = {
 };
 
 var uploadStart = function (e, data) {
-  $('.photos-container .alert').remove();
+  $('.photos-container .text-muted').addClass('hide');
+  $('.photos-container .trash').removeClass('hide');
 };
 
 var uploadStop = function (e, data) {
-  $('.photos-container .loading').remove();
+  $('.photos-container .loading').fadeOut(function () {
+    $(this).remove();
+  });
+
+  verifyPhotoQty();
 };
 
 var uploadSend = function (e, data) {
@@ -34,4 +39,19 @@ var uploadDone = function (e, data) {
     .attr('src', photo.thumb_url)
     .attr('data-mfp-src', photo.normal_url)
     .attr('data-photo-id', photo.id);
+
+  loadGalleryTrash();
+};
+
+var verifyPhotoQty = function () {
+  var alert = $('.photos-container .text-muted');
+  var trash = $('.photos-container .trash');
+
+  if ($('.photos-container .gallery')[0]) {
+    trash.removeClass('hide');
+    alert.addClass('hide');
+  } else {
+    alert.removeClass('hide');
+    trash.addClass('hide');
+  };
 };

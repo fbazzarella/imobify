@@ -28,3 +28,23 @@ var galleryOptions = {
     enabled: true
   }
 };
+
+var loadGalleryTrash = function () {
+  var gallery = $('.photos-container .gallery');
+  var trash   = $('.photos-container .trash');
+
+  gallery.draggable({
+    revert: 'invalid',
+    cursor: 'move'
+  });
+
+  trash.droppable({
+    accept: '.photos-container > .gallery',
+    hoverClass: 'trash-hover',
+
+    drop: function( event, ui ) {
+      ui.draggable.remove(); // Criar função para excluir a imagem :D
+      verifyPhotoQty();
+    }
+  });
+};

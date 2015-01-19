@@ -184,7 +184,7 @@
           <fieldset>
             <legend>Publicar no Site</legend>
 
-            <p>Ao publicar o Imóvel, ele ficará visível no seu Site. Para mantê-lo apenas cadastrado no Painel de Controle e sem aparecer no Site, desmarque a caixa de seleção abaixo.</p>
+            <p>Ao publicar o Imóvel, ele ficará visível no seu Site. Para mantê-lo apenas cadastrado no Painel de Controle e sem aparecer no Site, desmarque a caixa abaixo.</p>
 
             <div class="checkbox">
               <label><%= f.check_box :published, data: {:'new-record' => @realty.really_new?} %>Publicar Imóvel no Site</label>
@@ -207,7 +207,7 @@
     <% end %>
   </div>
 
-  <div class="col-md-3 col-lg-4 hidden-xs hidden-sm">
+  <div class="col-md-3 col-lg-4 hide">
     <h4>Veja Algumas Dicas</h4>
 
     <p>Localização</p>

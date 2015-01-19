@@ -37,6 +37,12 @@ body {
   text-align: right;
 }
 
+@media (max-width: 991px) {
+  #realty_description {
+    height: 100px !important;
+  }
+}
+
 @media (min-width: 992px) {
   #realty_description {
     height: 182px !important;

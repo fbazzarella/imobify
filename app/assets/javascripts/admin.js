@@ -12,7 +12,10 @@
 //
 //= require jquery
 //= require jquery-ujs
-//= require twitter/bootstrap
+//= require twitter/bootstrap/transition
+//= require twitter/bootstrap/alert
+//= require twitter/bootstrap/modal
+//= require twitter/bootstrap/collapse
 //= require blueimp-file-upload/vendor/jquery.ui.widget
 //= require blueimp-load-image
 //= require blueimp-canvas-to-blob
@@ -35,7 +38,4 @@ $(function () {
     .bind('fileuploaddone', uploadDone);
 
   $('.photos-container').magnificPopup(galleryOptions);
-
-  // $('a[rel~=popover], .has-popover').popover();
-  // $('a[rel~=tooltip], .has-tooltip').tooltip();
 });

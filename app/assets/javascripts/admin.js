@@ -44,4 +44,8 @@ $(function () {
   $('.photos-container').magnificPopup(galleryOptions);
 
   loadGalleryTrash();
+
+  if ($('#realty_published').data('new-record')) {
+    $('#realty_published').attr('checked', true);
+  };
 });

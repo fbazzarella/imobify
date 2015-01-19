@@ -27,4 +27,8 @@ class Realty < ActiveRecord::Base
   def locations
     Country.all_with_cities_by(country)
   end
+
+  def really_new?
+    created_at == updated_at
+  end
 end

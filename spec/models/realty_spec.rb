@@ -60,4 +60,18 @@ RSpec.describe Realty, type: :model do
     it { expect(subject[:countries]).to include(realty.country) }
     it { expect(subject[:cities]).to    include(realty.city) }
   end
+
+  describe '.really_new?' do
+    let!(:realty) { create(:realty) }
+
+    context 'yep' do
+      it { expect(realty).to be_really_new }
+    end
+
+    context 'nop' do
+      before { realty.touch(:updated_at) }
+
+      it { expect(realty).to_not be_really_new }
+    end
+  end
 end

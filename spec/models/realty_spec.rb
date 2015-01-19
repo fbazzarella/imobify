@@ -23,8 +23,6 @@ RSpec.describe Realty, type: :model do
     it { should_not allow_value('other').for(field) }
   end
 
-  it { should validate_uniqueness_of(:reference).allow_nil }
-
   described_class::NUMERIC_FIELDS.each do |field|
     it { should validate_numericality_of(field).only_integer.allow_nil }
   end

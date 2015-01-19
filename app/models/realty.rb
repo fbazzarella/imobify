@@ -16,8 +16,6 @@ class Realty < ActiveRecord::Base
   validates :business_kind, inclusion: BUSINESS_KIND, allow_nil: true
   validates :realty_kind,   inclusion: REALTY_KIND,   allow_nil: true
 
-  validates :reference, uniqueness: true, allow_nil: true
-
   validates *NUMERIC_FIELDS, numericality: {only_integer: true}, allow_nil: true
 
   validates *TEXT_FIELDS, length: {maximum: 255}

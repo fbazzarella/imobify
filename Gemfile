@@ -17,6 +17,7 @@ gem 'carrierwave'
 
 # Frontend Features
 gem 'rails-assets-jquery'
+gem 'rails-assets-jquery-ui'
 gem 'rails-assets-jquery-ujs'
 gem 'rails-assets-blueimp-load-image'
 gem 'rails-assets-blueimp-canvas-to-blob'

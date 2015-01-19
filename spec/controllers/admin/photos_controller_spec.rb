@@ -8,7 +8,7 @@ RSpec.describe Admin::PhotosController, type: :controller do
       login!
   
       def post_create(params = {})
-        post :create, {realty_id: realty.id, photo: [attributes_for(:photo)]}.merge!(params)
+        post :create, {realty_id: realty.id, photo: [attributes_for(:photo)]}.merge!(params), format: :json
       end
 
       let!(:realty) { create(:realty) }
@@ -23,9 +23,35 @@ RSpec.describe Admin::PhotosController, type: :controller do
     end
 
     context 'when logged out' do
-      before { post :create, realty_id: 1 }
+      before { post :create, realty_id: 1, format: :json }
 
-      it { expect(response).to redirect_to(new_admin_user_session_path) }
+      it { should respond_with 401 }
+    end
+  end
+
+  describe 'DELETE #destroy' do
+    context 'when logged in' do
+      login!
+
+      context 'when valid id' do
+        let!(:photo) { create(:photo) }
+
+        before { delete :destroy, realty_id: photo.realty.id, id: photo.id, format: :json }
+
+        it { expect(Photo.count).to be_zero }
+
+        it { should respond_with 200 }
+      end
+
+      context 'when invalid id' do
+        it { expect{ delete :destroy, realty_id: 1, id: 1, format: :json }.to raise_error(ActiveRecord::RecordNotFound) }
+      end
+    end
+
+    context 'when logged out' do
+      before { delete :destroy, realty_id: 1, id: 1, format: :json }
+
+      it { should respond_with 401 }
     end
   end
 end

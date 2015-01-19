@@ -42,9 +42,17 @@ var loadGalleryTrash = function () {
     accept: '.photos-container > .gallery',
     hoverClass: 'trash-hover',
 
-    drop: function( event, ui ) {
-      ui.draggable.remove(); // Criar função para excluir a imagem :D
-      verifyPhotoQty();
+    drop: function (e, ui) {
+      var photo    = ui.draggable,
+          photoUrl = 'photos/' + photo.data('photo-id'),
+          formData = {
+            _method: 'DELETE'
+          };
+
+      $.post(photoUrl, formData, function () {
+        photo.remove();
+        verifyPhotoQty();
+      });
     }
   });
 };

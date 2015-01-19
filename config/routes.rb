@@ -7,7 +7,7 @@ NewApp::Application.routes.draw do
     root to: 'realties#index'
 
     resources :realties, only: [:index, :create, :edit, :update] do
-      resources :photos, only: [:create]
+      resources :photos, only: [:create, :destroy]
     end
 
     resources :countries, only: [] do

@@ -1,45 +1,49 @@
-var galleryOptions = {
-  delegate: '.gallery',
-  type:     'image',
-  tClose:   'Fechar Galeria (Esc)',
-  tLoading: 'Carregando Foto...',
+var initGallery = function () {
+  $('.photos-container').magnificPopup({
+    delegate: '.photo',
+    type:     'image',
+    tClose:   'Fechar Galeria (Esc)',
+    tLoading: 'Carregando Foto...',
 
-  image: {
-    tError: 'Houve um problema ao carregar a foto :(',
-    verticalFit: false
-  },
+    image: {
+      tError: 'Houve um problema ao carregar a foto :(',
+      verticalFit: false
+    },
 
-  gallery: {
-    enabled: true,
-    tPrev: 'Foto Anterior (Seta Esquerda)',
-    tNext: 'Próxima Foto (Seta Direita)',
-    tCounter: '<span class="mfp-counter">Foto %curr% de %total%</span>'
-  },
+    gallery: {
+      enabled: true,
+      tPrev: 'Foto Anterior (Seta Esquerda)',
+      tNext: 'Próxima Foto (Seta Direita)',
+      tCounter: '<span class="mfp-counter">Foto %curr% de %total%</span>'
+    },
 
-  retina: {
-    ratio: 2,
+    retina: {
+      ratio: 2,
 
-    replaceSrc: function(item, ratio) {
-      return item.src.replace(/\.\w+$/, function(m) { return '_2x' + m; });
+      replaceSrc: function(item, ratio) {
+        return item.src.replace(/\.\w+$/, function(m) { return '_2x' + m; });
+      }
+    },
+
+    zoom: {
+      enabled: true
     }
-  },
+  });
 
-  zoom: {
-    enabled: true
-  }
-};
+  initGalleryTrash();
+}
 
-var loadGalleryTrash = function () {
-  var gallery = $('.photos-container .gallery'),
-      trash   = $('.photos-container .trash');
+var initGalleryTrash = function () {
+  var photos = '.photos-container .photo',
+      trash  = '.photos .trash';
 
-  gallery.draggable({
+  $(photos).draggable({
     revert: 'invalid',
     cursor: 'move'
   });
 
-  trash.droppable({
-    accept: '.photos-container > .gallery',
+  $(trash).droppable({
+    accept: photos,
     hoverClass: 'trash-hover',
 
     drop: function (e, ui) {
@@ -55,4 +59,17 @@ var loadGalleryTrash = function () {
       });
     }
   });
+};
+
+var verifyPhotoQty = function (force) {
+  var alert = $('.photos .text-muted'),
+      trash = $('.photos .trash');
+
+  if (force || $('.photos-container .photo')[0]) {
+    trash.removeClass('hide');
+    alert.addClass('hide');
+  } else {
+    alert.removeClass('hide');
+    trash.addClass('hide');
+  };
 };

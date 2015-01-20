@@ -1,20 +1,20 @@
-var initLocations = function (countriesSelect, citiesSelect) {
-  var countriesSelect = $(countriesSelect),
-      citiesSelect    = $(citiesSelect);
+var initLocations = function () {
+  var countries = $('#realty_country_id'),
+      cities    = $('#realty_city_id');
 
-  countriesSelect.on('change', function () {
+  countries.on('change', function () {
     var citiesUrl = '/admin/countries/' + this.value + '/cities.json';
 
-    citiesSelect.attr('disabled', true);
+    cities.attr('disabled', true);
 
     $.getJSON(citiesUrl, function (data) {
-      var cities = [];
+      var _cities = [];
 
       $.each(data, function (k, city) {
-        cities.push('<option value="' + city.id + '">' + city.name + '</option>');
+        _cities.push('<option value="' + city.id + '">' + city.name + '</option>');
       });
 
-      citiesSelect.html(cities.join('')).attr('disabled', false);
+      cities.html(_cities.join('')).attr('disabled', false);
     });
   });
 };

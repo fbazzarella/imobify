@@ -36,39 +36,3 @@ body {
 .right {
   text-align: right;
 }
-
-@media (max-width: 991px) {
-  #realty_description {
-    height: 100px !important;
-  }
-}
-
-@media (min-width: 992px) {
-  #realty_description {
-    height: 182px !important;
-  }
-}
-
-.photos {
-  margin-bottom: 11px;
-
-  .trash {
-    border: 1px dotted;
-    text-align: center;
-  }
-
-  .trash-hover {
-    border: 1px dashed;
-    font-weight: bold;
-  }
-
-  .gallery {
-    cursor: pointer;
-  }
-
-  @media (max-width: 991px) {
-    .photos-container {
-      margin-top: 15px;
-    }
-  }
-}

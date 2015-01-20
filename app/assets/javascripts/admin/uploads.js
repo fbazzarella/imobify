@@ -1,30 +1,35 @@
-var uploadsOptions = {
-  formData: function (form) {
-    var formFields     = form.serializeArray(),
-        filteredFields = [];
+var initUploads = function () {
+  $('#photos-upload').fileupload({
+    formData: function (form) {
+      var formFields     = form.serializeArray(),
+          filteredFields = [];
 
-    $.each(formFields, function (i, field) {
-      var utf8      = field.name == 'utf8',
-          authToken = field.name == 'authenticity_token';
+      $.each(formFields, function (i, field) {
+        var utf8      = field.name == 'utf8',
+            authToken = field.name == 'authenticity_token';
 
-      if (utf8 || authToken) filteredFields.push(field);
-    });
+        if (utf8 || authToken) filteredFields.push(field);
+      });
 
-    return filteredFields;
-  },
+      return filteredFields;
+    },
 
-  disableImageResize: /Android(?!.*Chrome)|Opera/
-    .test(window.navigator && navigator.userAgent),
+    disableImageResize: /Android(?!.*Chrome)|Opera/
+      .test(window.navigator && navigator.userAgent),
 
-  imageMaxWidth:   1920,
-  imageMaxHeight:  1080,
+    imageMaxWidth:   1920,
+    imageMaxHeight:  1080,
 
-  acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i
+    acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i
+  })
+  .bind('fileuploadstart', uploadStart)
+  .bind('fileuploadstop', uploadStop)
+  .bind('fileuploadsend', uploadSend)
+  .bind('fileuploaddone', uploadDone);
 };
 
 var uploadStart = function (e, data) {
-  $('.photos-container .text-muted').addClass('hide');
-  $('.photos-container .trash').removeClass('hide');
+  verifyPhotoQty(true);
 };
 
 var uploadStop = function (e, data) {
@@ -51,23 +56,10 @@ var uploadDone = function (e, data) {
 
   $('.photos-container .loading:first')
     .removeClass('loading')
-    .addClass('gallery')
+    .addClass('photo')
     .attr('src', photo.thumb_url)
     .attr('data-mfp-src', photo.normal_url)
     .attr('data-photo-id', photo.id);
 
-  loadGalleryTrash();
-};
-
-var verifyPhotoQty = function () {
-  var alert = $('.photos-container .text-muted'),
-      trash = $('.photos-container .trash');
-
-  if ($('.photos-container .gallery')[0]) {
-    trash.removeClass('hide');
-    alert.addClass('hide');
-  } else {
-    alert.removeClass('hide');
-    trash.addClass('hide');
-  };
+  initGalleryTrash();
 };

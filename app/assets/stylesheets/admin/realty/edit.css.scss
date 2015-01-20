@@ -1,0 +1,35 @@
+@media (max-width: 991px) {
+  #realty_description {
+    height: 100px !important;
+  }
+}
+
+@media (min-width: 992px) {
+  #realty_description {
+    height: 182px !important;
+  }
+}
+
+.photos {
+  margin-bottom: 11px;
+
+  .trash {
+    border: 1px dotted;
+    text-align: center;
+  }
+
+  @media (max-width: 991px) {
+    .trash {
+      margin-top: 15px;
+    }
+  }
+
+  .trash-hover {
+    border: 1px dashed;
+    font-weight: bold;
+  }
+
+  .photo {
+    cursor: pointer;
+  }
+}

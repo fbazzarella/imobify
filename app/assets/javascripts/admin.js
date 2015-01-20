@@ -31,21 +31,5 @@
 //= require_tree ./admin
 
 $(function () {
-  initLocations('#realty_country_id', '#realty_city_id');
-
-  $('.integer').filter_input({regex: '[0-9]'});
-
-  $('#photos-upload').fileupload(uploadsOptions)
-    .bind('fileuploadstart', uploadStart)
-    .bind('fileuploadstop', uploadStop)
-    .bind('fileuploadsend', uploadSend)
-    .bind('fileuploaddone', uploadDone);
-
-  $('.photos-container').magnificPopup(galleryOptions);
-
-  loadGalleryTrash();
-
-  if ($('#realty_published').data('new-record')) {
-    $('#realty_published').attr('checked', true);
-  };
+  initApp();
 });

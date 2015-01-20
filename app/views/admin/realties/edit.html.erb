@@ -163,7 +163,7 @@
             </div>
           </div>
 
-          <div class="col-xs-12 col-md-8 photos-container">
+          <div class="col-xs-12 col-md-8">
             <p class="alert alert-warning trash<%= ' hide' if @realty.photos.none? %>">
               <%= glyph :trash %> Para excluir uma foto, arraste-a para cá.
             </p>
@@ -172,9 +172,11 @@
               Você ainda não adicionou fotos.
             </h4>
 
-            <% @realty.photos.each do |photo| %>
-              <%= image_tag photo.file.admin.thumb.url, alt: 'Foto', class: 'img-thumbnail gallery', data: {:'mfp-src' => photo.file.admin.normal.url, :'photo-id' => photo.id} %>
-            <% end %>
+            <div class="photos-container">
+              <% @realty.photos.each do |photo| %>
+                <%= image_tag photo.file.admin.thumb.url, alt: 'Foto', class: 'img-thumbnail photo', data: {:'mfp-src' => photo.file.admin.normal.url, :'photo-id' => photo.id} %>
+              <% end %>
+            </div>
           </div>
         </div>
       </fieldset>

@@ -30,6 +30,4 @@
 //= require blueimp-file-upload/jquery.fileupload-validate
 //= require_tree ./admin
 
-$(function () {
-  initApp();
-});
+$(initApp);

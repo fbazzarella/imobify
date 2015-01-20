@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe Admin::SessionsController, type: :controller do
   render_views
 
-  
   context 'when sign in' do
     mapping!
 

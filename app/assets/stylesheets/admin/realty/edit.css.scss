@@ -11,11 +11,11 @@
 }
 
 .photos {
-  margin-bottom: 11px;
+  margin-bottom: 15px;
 
   .trash {
+    margin-bottom: 15px;
     border: 1px dotted;
-    text-align: center;
   }
 
   @media (max-width: 991px) {
@@ -29,7 +29,11 @@
     font-weight: bold;
   }
 
-  .photo {
-    cursor: pointer;
+  .photos-container {
+    margin-bottom: -4px;
+
+    .photo {
+      cursor: pointer;
+    }
   }
 }

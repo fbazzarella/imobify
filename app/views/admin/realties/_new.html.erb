@@ -1,4 +1,4 @@
-<div class="modal fade" id="new-realty" tabindex="-1" role="dialog" aria-labelledby="nr-title" aria-hidden="true">
+<div class="modal fade" id="new-realty" tabindex="-1" role="dialog" aria-labelledby="new-realty-title" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <%= form_for [:admin, @realty] do |f| %>
@@ -6,7 +6,7 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
             <span aria-hidden="true">&times;</span>
           </button>
-          <h4 class="modal-title" id="nr-title">Novo Imóvel</h4>
+          <h4 class="modal-title" id="new-realty-title">Novo Imóvel</h4>
         </div>
 
         <div class="modal-body">
@@ -16,8 +16,7 @@
             <div class="col-xs-12 col-sm-6">
               <div class="form-group">
                 <%= f.label :country_id %>
-                <%= f.collection_select(
-                  :country_id, @realty.locations[:countries], :id, :name, {}, {class: 'form-control'}) %>
+                <%= f.collection_select(:country_id, @realty.locations[:countries], :id, :name, {}, {class: 'form-control'}) %>
                 <small class="help-block">Ao selecionar um Estado, a lista de Cidades será atualizada.</small>
               </div>
             </div>
@@ -25,8 +24,7 @@
             <div class="col-xs-12 col-sm-6">
               <div class="form-group">
                 <%= f.label :city_id %>
-                <%= f.collection_select(
-                  :city_id, @realty.locations[:cities], :id, :name, {}, {class: 'form-control'}) %>
+                <%= f.collection_select(:city_id, @realty.locations[:cities], :id, :name, {}, {class: 'form-control'}) %>
                 <small class="help-block">A lista de Cidades está em ordem alfabética.</small>
               </div>
             </div>
@@ -35,7 +33,7 @@
 
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-          <button type="submit" class="btn btn-primary">Avançar para Edição...</button>
+          <%= f.submit 'Avançar para Edição...', class: 'btn btn-primary' %>
         </div>
       <% end %>
     </div>

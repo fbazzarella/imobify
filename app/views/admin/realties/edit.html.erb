@@ -159,18 +159,18 @@
 
             <div class="btn btn-primary fileinput-button">
               <span>Selecionar Fotos...</span>
-              <input id="photos-upload" type="file" name="photo[]" data-url="photos" accept="image/*" multiple>
+              <input type="file" name="photo[]" data-url="photos" accept="image/*" multiple="true">
             </div>
           </div>
 
           <div class="col-xs-12 col-md-8">
-            <p class="alert alert-warning trash<%= ' hide' if @realty.photos.none? %>">
+            <p class="alert alert-warning trash center<%= ' hide' if @realty.photos.none? %>">
               <%= glyph :trash %> Para excluir uma foto, arraste-a para cá.
             </p>
 
-            <h4 class="text-muted<%= ' hide' if @realty.photos.any? %>">
+            <p class="text-muted<%= ' hide' if @realty.photos.any? %>">
               Você ainda não adicionou fotos.
-            </h4>
+            </p>
 
             <div class="photos-container">
               <% @realty.photos.each do |photo| %>

@@ -1,5 +1,5 @@
 var initUploads = function () {
-  $('#photos-upload').fileupload({
+  $('.photos input').fileupload({
     formData: function (form) {
       var formFields     = form.serializeArray(),
           filteredFields = [];

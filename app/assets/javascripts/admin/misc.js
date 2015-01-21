@@ -4,7 +4,7 @@ var initApp = function () {
 };
 
 var initRealtyEdit = function () {
-  if ($('.realty.edit')[0]) {
+  if ($('.realties-edit')[0]) {
     initUploads();
     initGallery();
     verifyInteger();

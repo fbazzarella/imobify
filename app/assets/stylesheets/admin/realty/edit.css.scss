@@ -28,6 +28,19 @@
     }
   }
 
+  @media (max-width: 991px) {
+    .text-muted {
+      margin: 15px 0 0 0;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .text-muted {
+      margin-top: 50px;
+      text-align: center;
+    }
+  }
+
   #photos-container {
     width: 100%;
     margin-bottom: -4px;
@@ -35,6 +48,13 @@
     &.not-empty {
       min-height: 107px;
     }
+
+    .img-thumbnail {
+      float: left;
+      margin: 0 4px 4px 0 !important;
+      width: 93px;
+      height: 93px;
+    }  
 
     .photo {
       cursor: pointer;

@@ -1,5 +1,5 @@
 var initGallery = function () {
-  $('.photos-container').magnificPopup({
+  $('#photos-container').magnificPopup({
     delegate: '.photo',
     type:     'image',
     tClose:   'Fechar Galeria (Esc)',
@@ -34,42 +34,80 @@ var initGallery = function () {
 }
 
 var initGalleryTrash = function () {
-  var photos = '.photos-container .photo',
-      trash  = '.photos .trash';
+  var photos = document.getElementById('photos-container'),
+      trash  = document.getElementById('trash');
 
-  $(photos).draggable({
-    revert: 'invalid',
-    cursor: 'move'
+  new Sortable(photos, {
+    group: {
+      name: 'gallery',
+      pull: true
+    },
+
+    draggable: '.photo',
+    sort:      false
   });
 
-  $(trash).droppable({
-    accept: photos,
-    hoverClass: 'trash-hover',
+  new Sortable(trash, {
+    group: {
+      name: 'gallery',
+      put: true
+    },
 
-    drop: function (e, ui) {
-      var photo    = ui.draggable,
-          photoUrl = 'photos/' + photo.data('photo-id'),
-          formData = {
-            _method: 'DELETE'
-          };
-
-      $.post(photoUrl, formData, function () {
-        photo.remove();
-        verifyPhotoQty();
-      });
-    }
+    onAdd: onAdd
   });
 };
 
-var verifyPhotoQty = function (force) {
-  var alert = $('.photos .text-muted'),
-      trash = $('.photos .trash');
+var onAdd = function (e) {
+  var photo    = $(e.item),
+      photoUrl = 'photos/' + photo.data('photo-id'),
+      formData = {
+        _method: 'DELETE'
+      };
 
-  if (force || $('.photos-container .photo')[0]) {
-    trash.removeClass('hide');
+  $.post(photoUrl, formData)
+    .done(function () {
+      photo.remove();
+    })
+    .fail(function () {
+      var container = $('#photos-container'),
+          photos = $('.photo', container);
+
+      if (photo.data('index') == 0) {
+        photo.prependTo(container);
+      } else {
+        var previous = photos.filter(function() {
+          return $(this).data('index') == photo.data('index') - 1
+        });
+
+        photo.insertAfter(previous);
+      };
+    })
+    .always(function () {
+      verifyPhotoQty();
+    });
+};
+
+var verifyPhotoQty = function (force) {
+  var alert     = $('.photos .text-muted'),
+      trash     = $('.photos #trash'),
+      container = $('#photos-container'),
+      photos    = $('.photo', container);
+
+  if (force || photos[0]) {
     alert.addClass('hide');
+    trash.removeClass('hide');
+    container.addClass('not-empty');
   } else {
     alert.removeClass('hide');
     trash.addClass('hide');
+    container.removeClass('not-empty');
   };
+
+  $('.loading', container).fadeOut(function () {
+    $(this).remove();
+  });
+
+  $.each(photos, function (i, photo) {
+    $(photo).attr('data-index', i);
+  });
 };

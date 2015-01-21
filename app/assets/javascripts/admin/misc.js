@@ -1,9 +1,15 @@
 var initApp = function () {
   initLocations();
-  initUploads();
-  initGallery();
-  verifyInteger();
-  verifyPublication();
+  initRealtyEdit();
+};
+
+var initRealtyEdit = function () {
+  if ($('.realty.edit')[0]) {
+    initUploads();
+    initGallery();
+    verifyInteger();
+    verifyPublication();
+  };
 };
 
 var verifyInteger = function () {

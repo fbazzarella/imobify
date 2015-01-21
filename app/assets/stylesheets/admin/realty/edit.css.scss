@@ -13,24 +13,28 @@
 .photos {
   margin-bottom: 15px;
 
-  .trash {
+  #trash {
     margin-bottom: 15px;
     border: 1px dotted;
+
+    .photo {
+      display: none;
+    }
   }
 
   @media (max-width: 991px) {
-    .trash {
+    #trash {
       margin-top: 15px;
     }
   }
 
-  .trash-hover {
-    border: 1px dashed;
-    font-weight: bold;
-  }
-
-  .photos-container {
+  #photos-container {
+    width: 100%;
     margin-bottom: -4px;
+
+    &.not-empty {
+      min-height: 107px;
+    }
 
     .photo {
       cursor: pointer;

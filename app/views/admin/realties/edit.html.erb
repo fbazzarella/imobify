@@ -29,7 +29,7 @@
           <div class="col-xs-12 col-sm-6">
             <div class="form-group">
               <%= f.label :neighborhood %>
-              <%= f.text_field :neighborhood, class: 'form-control', autofocus: true %>
+              <%= f.text_field :neighborhood, class: 'form-control' %>
             </div>
           </div>
 
@@ -164,7 +164,7 @@
           </div>
 
           <div class="col-xs-12 col-md-8">
-            <p class="alert alert-warning trash center<%= ' hide' if @realty.photos.none? %>">
+            <p id="trash" class="alert alert-warning center<%= ' hide' if @realty.photos.none? %>">
               <%= glyph :trash %> Para excluir uma foto, arraste-a para cá.
             </p>
 
@@ -172,9 +172,9 @@
               Você ainda não adicionou fotos.
             </p>
 
-            <div class="photos-container">
-              <% @realty.photos.each do |photo| %>
-                <%= image_tag photo.file.admin.thumb.url, alt: 'Foto', class: 'img-thumbnail photo', data: {:'mfp-src' => photo.file.admin.normal.url, :'photo-id' => photo.id} %>
+            <div id="photos-container"<%= ' class=not-empty' if @realty.photos.any? %>>
+              <% @realty.photos.each_with_index do |photo, i| %>
+                <%= image_tag photo.file.admin.thumb.url, alt: 'Foto', class: 'img-thumbnail photo', data: {:'mfp-src' => photo.file.admin.normal.url, :'photo-id' => photo.id, index: i} %>
               <% end %>
             </div>
           </div>

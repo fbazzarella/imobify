@@ -22,44 +22,37 @@ var initUploads = function () {
 
     acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i
   })
-  .bind('fileuploadstart', uploadStart)
-  .bind('fileuploadstop', uploadStop)
-  .bind('fileuploadsend', uploadSend)
-  .bind('fileuploaddone', uploadDone);
+    .bind('fileuploadstart', uploadStart)
+    .bind('fileuploadstop', uploadStop)
+    .bind('fileuploadsend', uploadSend)
+    .bind('fileuploaddone', uploadDone);
 };
 
-var uploadStart = function (e, data) {
+var uploadStart = function () {
   verifyPhotoQty(true);
 };
 
-var uploadStop = function (e, data) {
-  $('.photos-container .loading').fadeOut(function () {
-    $(this).remove();
-  });
-
+var uploadStop = function () {
   verifyPhotoQty();
 };
 
-var uploadSend = function (e, data) {
-  var tmpl = $('<img />', {
+var uploadSend = function () {
+  var img = $('<img />', {
     alt:   'Foto',
     class: 'img-thumbnail loading',
-    src:   $('meta[name=image-loading]').attr('content'),
-    style: 'margin: 0 4px 4px 0'
+    src:   $('meta[name=image-loading]').attr('content')
   });
 
-  $('.photos-container').append(tmpl);
+  $('#photos-container').append(img);
 };
 
 var uploadDone = function (e, data) {
   var photo = data._response.result;
 
-  $('.photos-container .loading:first')
+  $('#photos-container .loading:first')
     .removeClass('loading')
     .addClass('photo')
     .attr('src', photo.thumb_url)
     .attr('data-mfp-src', photo.normal_url)
     .attr('data-photo-id', photo.id);
-
-  initGalleryTrash();
 };

@@ -15,7 +15,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
   
   version :admin do
     version :thumb do
-      process resize_to_fill: [84, 84]
+      process resize_to_fill: [93, 93]
     end
 
     version :normal do

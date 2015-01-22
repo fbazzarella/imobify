@@ -86,7 +86,7 @@ NewApp::Application.configure do
   config.middleware.use ExceptionNotification::Rack,
     email: {
       email_prefix:         '[Corretor STAGING] ',
-      sender_address:       '"Corretor" <fbazzarella@gmail.com>',
+      sender_address:       '"Corretor" <felipe@bazzarella.com>',
       exception_recipients: ['fbazzarella@gmail.com']
     }
 end

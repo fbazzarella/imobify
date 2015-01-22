@@ -8,6 +8,8 @@ NewApp::Application.routes.draw do
 
     resources :realties, only: [:index, :create, :edit, :update] do
       resources :photos, only: [:create, :destroy]
+
+      put :deactivate
     end
 
     resources :countries, only: [] do

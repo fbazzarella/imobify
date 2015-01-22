@@ -124,4 +124,40 @@ RSpec.describe Realty, type: :model do
       it { expect(realty).to_not be_really_new }
     end
   end
+
+  describe '.published?' do
+    context 'when published' do
+      let!(:realty) { create(:realty, published: true) }
+
+      it { expect(realty.published?).to be_truthy }
+    end
+
+    context 'when not published' do
+      let!(:realty) { create(:realty) }
+
+      it { expect(realty.published?).to be_falsy }
+    end
+  end
+
+  describe '.deactivate!' do
+    let!(:realty) { create(:realty) }
+
+    before { realty.deactivate! }
+
+    it { expect(realty.deactivated_at).to_not be_nil }
+  end
+
+  describe '.deactivated?' do
+    let!(:realty) { create(:realty) }
+
+    context 'when activated' do
+      it { expect(realty.deactivated?).to be_falsy }
+    end
+
+    context 'when deactivated' do
+      before { realty.touch(:deactivated_at) }
+
+      it { expect(realty.deactivated?).to be_truthy }
+    end
+  end
 end

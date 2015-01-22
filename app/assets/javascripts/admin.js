@@ -15,6 +15,7 @@
 //= require twitter/bootstrap/transition
 //= require twitter/bootstrap/alert
 //= require twitter/bootstrap/modal
+//= require twitter/bootstrap/dropdown
 //= require twitter/bootstrap/collapse
 //= require blueimp-file-upload/vendor/jquery.ui.widget
 //= require blueimp-load-image

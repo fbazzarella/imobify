@@ -51,4 +51,16 @@ class Realty < ActiveRecord::Base
   def really_new?
     created_at == updated_at
   end
+
+  def published?
+    published
+  end
+
+  def deactivate!
+    touch(:deactivated_at)
+  end
+
+  def deactivated?
+    deactivated_at.present?
+  end
 end

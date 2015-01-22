@@ -1,7 +1,7 @@
 class Admin::RealtiesController < Admin::AdminController
   def index
     @realty = Realty.new_with_last_locations
-    respond_with @realties = Realty.all
+    respond_with @realties = Realty.order('created_at DESC')
   end
 
   def create
@@ -14,6 +14,10 @@ class Admin::RealtiesController < Admin::AdminController
 
   def update
     respond_with @realty = Realty.update(params[:id], realty_params), location: admin_realties_path
+  end
+
+  def deactivate
+    respond_with @realty = Realty.find(params[:realty_id]).deactivate!, location: admin_realties_path
   end
 
   private

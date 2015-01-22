@@ -31,10 +31,10 @@
           <% end %>
 
           <div>
-            <% unless r.deactivated? %>
-              <div class="btn-group pull-right">
-                <%= link_to 'Editar', edit_admin_realty_path(r), class: 'btn btn-xs btn-primary' %>
+            <div class="btn-group pull-right">
+              <%= link_to 'Editar', edit_admin_realty_path(r), class: 'btn btn-xs btn-primary' %>
 
+              <% unless r.deactivated? %>
                 <button type="button" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                   <span class="caret"></span>
                   <span class="sr-only">Alternar Menu</span>
@@ -45,8 +45,8 @@
                     <%= link_to 'Desativar Imóvel', admin_realty_deactivate_path(r), data: {method: :put, confirm: 'Tem certeza de que deseja desativar este imóvel? Ele não irá mais aparecer no seu Site.'} %>
                   </li>
                 </ul>
-              </div>
-            <% end %>
+              <% end %>
+            </div>
 
             <% if r.kind.present? %>
               <p><%= r.kind %></p>
@@ -55,7 +55,7 @@
             <p><%= r.location %></p>
 
             <% if r.price.present? %>
-              <p><%= to_currency r.price %></p>
+              <p><%= to_currency(r.price) %></p>
             <% end %>
           </div>
         </div>

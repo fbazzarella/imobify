@@ -29,6 +29,16 @@
     padding: 4px;
     height: 150px;
 
+    .label {
+      float: right;
+      margin-left: 4px;
+
+      &.label-default {
+        float: left;
+        margin-left: 0;
+      }
+    }
+
     & > div {
       background: rgba(0,0,0,0.5);
       position: absolute;

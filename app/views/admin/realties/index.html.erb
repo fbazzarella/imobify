@@ -14,6 +14,20 @@
     <% @realties.each do |r| %>
       <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="realty" style="background-image: url(<%= cover_path_for(r) %>)">
+          <% if r.reference.present? %>
+            <span class="label label-default"><%= r.reference %></span>
+          <% end %>
+
+          <% if r.published %>
+            <span class="label label-success">Publicado</span>
+          <% else %>
+            <span class="label label-info">Rascunho</span>
+          <% end %>
+
+          <% if r.cover_url.blank? %>
+            <span class="label label-danger">Sem Fotos</span>
+          <% end %>
+
           <div>
             <%= link_to 'Editar', edit_admin_realty_path(r), class: 'btn btn-xs btn-primary pull-right' %>
 

@@ -9,3 +9,24 @@
 .jumbotron h1 {
   font-size: 3em;
 }
+
+.realties {
+  & > div {
+    padding: 15px;
+  }
+
+  @media (max-width: 767px) {
+    & > div {
+      padding-bottom: 0;
+    }
+  }
+
+  .realty {
+    background-color: #f8f8f8;
+    position: relative;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 4px;
+    height: 150px;
+  }
+}

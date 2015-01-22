@@ -28,6 +28,11 @@ class Realty < ActiveRecord::Base
     Country.all_with_cities_by(country)
   end
 
+  def cover_url
+    photo = photos.first
+    photo.file.admin.cover.url if photo.present?
+  end
+
   def really_new?
     created_at == updated_at
   end

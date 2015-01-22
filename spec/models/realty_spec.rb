@@ -61,6 +61,21 @@ RSpec.describe Realty, type: :model do
     it { expect(subject[:cities]).to    include(realty.city) }
   end
 
+  describe '.cover_url' do
+    context 'when realty have any photo' do
+      let!(:photo)  { create(:photo) }
+      let!(:realty) { create(:realty, photos: [photo]) }
+
+      it { expect(realty.cover_url).to be_eql(photo.file.admin.cover.url) }
+    end
+
+    context 'when realty have none photo' do
+      let!(:realty) { create(:realty) }
+
+      it { expect(realty.cover_url).to be_nil }
+    end
+  end
+
   describe '.really_new?' do
     let!(:realty) { create(:realty) }
 

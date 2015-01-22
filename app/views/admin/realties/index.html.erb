@@ -10,21 +10,13 @@
 
   <p>Aqui você encontra todos os imóveis cadastrados e pode gerenciá-los com facilidade.</p>
 
-  <div class="table-responsive">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th><%= t('activerecord.attributes.realty.reference') %></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @realties.each do |r| %>
-          <tr>
-            <td><%= link_to r.reference, edit_admin_realty_path(r) %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+  <div class="row realties">
+    <% @realties.each do |r| %>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="realty" style="background-image: url(<%= cover_path_for(r) %>)">
+        </div>
+      </div>
+    <% end %>
   </div>
 <% else %>
   <div class="jumbotron">

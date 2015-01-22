@@ -61,6 +61,20 @@ RSpec.describe Realty, type: :model do
     it { expect(subject[:cities]).to    include(realty.city) }
   end
 
+  describe '.location' do
+    context 'when neighborhood is empty' do
+      let!(:realty) { create(:realty) }
+
+      it { expect(realty.location).to be_eql('Rio de Janeiro, RJ') }
+    end
+
+    context 'when neighborhood is filled' do
+      let!(:realty) { create(:realty, neighborhood: 'Copacabana') }
+
+      it { expect(realty.location).to be_eql('Copacabana, Rio de Janeiro, RJ') }
+    end
+  end
+
   describe '.cover_url' do
     context 'when realty have any photo' do
       let!(:photo)  { create(:photo) }
@@ -73,6 +87,27 @@ RSpec.describe Realty, type: :model do
       let!(:realty) { create(:realty) }
 
       it { expect(realty.cover_url).to be_nil }
+    end
+  end
+
+  describe '.kind' do
+    context 'when kind is empty' do
+      let!(:realty) { create(:realty) }
+
+      it { expect(realty.kind).to be_nil }
+    end
+
+    context 'when kind is filled' do
+      let!(:realty) { create(:realty, business_kind: 'sale', realty_kind: 'house') }
+
+      it do
+        i18n = I18n.t('activerecord.collections.realty')
+
+        bk = i18n[:business_kind][:sale]
+        rk = i18n[:realty_kind][:house]
+
+        expect(realty.kind).to be_eql("#{rk} #{bk}")
+      end
     end
   end
 

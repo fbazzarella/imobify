@@ -20,4 +20,8 @@ RSpec.describe ApplicationHelper, type: :helper do
       it { expect(cover_path_for(realty)).to match(/no_cover_bg.png/) }
     end
   end
+
+  describe 'to_currency' do
+    it { expect(to_currency(1000)).to be_eql('R$1.000,00') }
+  end
 end

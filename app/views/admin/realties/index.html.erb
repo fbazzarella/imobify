@@ -14,6 +14,19 @@
     <% @realties.each do |r| %>
       <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="realty" style="background-image: url(<%= cover_path_for(r) %>)">
+          <div>
+            <%= link_to 'Editar', edit_admin_realty_path(r), class: 'btn btn-xs btn-primary pull-right' %>
+
+            <% if r.kind.present? %>
+              <p><%= r.kind %></p>
+            <% end %>
+
+            <p><%= r.location %></p>
+
+            <% if r.price.present? %>
+              <p><%= to_currency r.price %></p>
+            <% end %>
+          </div>
         </div>
       </div>
     <% end %>

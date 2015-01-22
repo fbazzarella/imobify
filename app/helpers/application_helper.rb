@@ -7,4 +7,8 @@ module ApplicationHelper
   def cover_path_for(realty)
     realty.cover_url || image_path('admin/no_cover_bg.png')
   end
+
+  def to_currency(value)
+    number_to_currency(value, unit: 'R$', delimiter: '.', separator: ',')
+  end
 end

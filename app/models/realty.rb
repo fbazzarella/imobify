@@ -28,9 +28,24 @@ class Realty < ActiveRecord::Base
     Country.all_with_cities_by(country)
   end
 
+  def location
+    [neighborhood, city.name, country.initial].reject(&:blank?).join(', ')
+  end
+
   def cover_url
     photo = photos.first
     photo.file.admin.cover.url if photo.present?
+  end
+
+  def kind
+    return if realty_kind.blank? || business_kind.blank?
+
+    i18n = I18n.t('activerecord.collections.realty')
+
+    bk = i18n[:business_kind][business_kind.to_sym]
+    rk = i18n[:realty_kind][realty_kind.to_sym]
+
+    [rk, bk].join(' ')
   end
 
   def really_new?

@@ -28,5 +28,22 @@
     border-radius: 4px;
     padding: 4px;
     height: 150px;
+
+    & > div {
+      background: rgba(0,0,0,0.5);
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      margin-top: 20px;
+      padding: 4px;
+      padding-left: 8px;
+      width: 100%;
+
+      p {
+        margin: 0;
+        font-weight: bold;
+        color: #fff;
+      }
+    }
   }
 }

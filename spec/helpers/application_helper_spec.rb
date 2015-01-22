@@ -11,7 +11,7 @@ RSpec.describe ApplicationHelper, type: :helper do
 
       subject { cover_path_for(photo.realty) }
 
-      it { expect(subject).to be_eql(photo.file.admin.cover.url) }
+      it { expect(subject).to be_eql(photo.file.admin_cover.url) }
     end
 
     context 'when none cover exists' do

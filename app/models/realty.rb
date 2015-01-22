@@ -34,7 +34,7 @@ class Realty < ActiveRecord::Base
 
   def cover_url
     photo = photos.first
-    photo.file.admin.cover.url if photo.present?
+    photo.file.admin_cover.url if photo.present?
   end
 
   def kind

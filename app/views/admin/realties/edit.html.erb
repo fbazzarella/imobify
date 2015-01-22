@@ -174,7 +174,7 @@
 
             <div id="photos-container"<%= ' class=not-empty' if @realty.photos.any? %>>
               <% @realty.photos.each_with_index do |photo, i| %>
-                <%= image_tag photo.file.admin.thumb.url, alt: 'Foto', class: 'img-thumbnail photo', data: {:'mfp-src' => photo.file.admin.normal.url, :'photo-id' => photo.id, index: i} %>
+                <%= image_tag photo.file.admin_thumb.url, alt: 'Foto', class: 'img-thumbnail photo', data: {:'mfp-src' => photo.file.admin_normal.url, :'photo-id' => photo.id, index: i} %>
               <% end %>
             </div>
           </div>

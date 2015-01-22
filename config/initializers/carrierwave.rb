@@ -14,7 +14,7 @@ module CarrierWave
       private
 
       def full_filename(for_file)
-        [version_name, super(for_file).scan(/\.\w+$/).first].compact.join
+        [version_name || 'original', super(for_file).scan(/\.\w+$/).first].compact.join
       end
     end
   end

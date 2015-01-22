@@ -10,8 +10,8 @@ class Photo < ActiveRecord::Base
   def to_json
     {
       id:         id,
-      thumb_url:  file.admin.thumb.url,
-      normal_url: file.admin.normal.url
+      thumb_url:  file.admin_thumb.url,
+      normal_url: file.admin_normal.url
     }
   end
 end

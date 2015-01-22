@@ -8,7 +8,7 @@ O sistema utiliza a linguagem Ruby em sua versão 2.1.x, o framework Ruby on Rai
 
 Clone o repositório:
 
-    $ git clone git@github.com:fbazzarella/corretor.git
+    $ git clone git@bitbucket.org:fbazzarella/corretor.git
     $ cd corretor
 
 Instale as dependências:

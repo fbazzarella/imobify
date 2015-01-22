@@ -81,4 +81,12 @@ NewApp::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  # Configuration for ExceptionNotifier
+  config.middleware.use ExceptionNotification::Rack,
+    email: {
+      email_prefix:         '[Corretor STAGING] ',
+      sender_address:       '"Corretor" <fbazzarella@gmail.com>',
+      exception_recipients: ['fbazzarella@gmail.com']
+    }
 end

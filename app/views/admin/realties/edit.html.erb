@@ -50,7 +50,7 @@
             <div class="form-group">
               <%= f.label :business_kind %>
               <%= f.select(:business_kind, Realty::BUSINESS_KIND.collect do |bk|
-                [t("activerecord.collections.realty.business_kind.#{bk}"), bk]
+                [t("activerecord.collections.realty.business_kind.#{bk}").split.last, bk]
               end, {}, {class: 'form-control'}) %>
             </div>
           </div>

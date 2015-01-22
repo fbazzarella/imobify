@@ -37,9 +37,9 @@
     collections:
       realty:
         business_kind:
-          sale: 'Venda'
-          rental: 'Aluguel'
-          vacation_rental: 'Temporada'
+          sale: 'à Venda'
+          rental: 'para Aluguel'
+          vacation_rental: 'para Temporada'
         realty_kind:
           house: 'Casa'
           apartment: 'Apartamento'

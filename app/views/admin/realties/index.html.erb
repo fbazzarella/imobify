@@ -13,7 +13,7 @@
   <div class="row realties">
     <% @realties.each do |r| %>
       <div class="col-xs-12 col-sm-6 col-md-4">
-        <div class="realty" style="background-image: url(<%= cover_path_for(r) %>)">
+        <div class="realty" style="background-image: url(<%= cover_path_for(r, :admin_cover) %>)">
           <% if r.reference.present? %>
             <span class="label label-info reference"><%= r.reference %></span>
           <% end %>
@@ -26,7 +26,7 @@
             <span class="label label-info">Rascunho</span>
           <% end %>
 
-          <% if r.cover_url.blank? %>
+          <% if r.cover_url(:admin_cover).blank? %>
             <span class="label label-danger">Sem Fotos</span>
           <% end %>
 

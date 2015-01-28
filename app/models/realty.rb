@@ -32,9 +32,9 @@ class Realty < ActiveRecord::Base
     [neighborhood, city.name, country.initial].reject(&:blank?).join(', ')
   end
 
-  def cover_url
+  def cover_url(version)
     photo = photos.first
-    photo.file.admin_cover.url if photo.present?
+    photo.file.send(version).url if photo.present?
   end
 
   def kind

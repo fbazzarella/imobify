@@ -9,7 +9,7 @@ RSpec.describe ApplicationHelper, type: :helper do
     context 'when any cover exists' do
       let!(:photo) { create(:photo) }
 
-      subject { cover_path_for(photo.realty) }
+      subject { cover_path_for(photo.realty, :admin_cover) }
 
       it { expect(subject).to be_eql(photo.file.admin_cover.url) }
     end
@@ -17,7 +17,7 @@ RSpec.describe ApplicationHelper, type: :helper do
     context 'when none cover exists' do
       let!(:realty) { create(:realty) }
 
-      it { expect(cover_path_for(realty)).to match(/no_cover_bg.png/) }
+      it { expect(cover_path_for(realty, :admin_cover)).to match(/no_cover_bg.png/) }
     end
   end
 

@@ -12,6 +12,10 @@ class PhotoUploader < CarrierWave::Uploader::Base
   end
 
   process :fix_rotation
+
+  version :cover do
+    process resize_to_fill: [440, 330]
+  end
   
   version :admin_thumb do
     process resize_to_fill: [93, 93]

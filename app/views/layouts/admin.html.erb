@@ -37,6 +37,7 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li><p class="navbar-text logged-user">Olá, <%= current_admin_user.username %>!</p></li>
+              <%= menu_link_to 'Ir ao Site', root_path %>
               <%= menu_link_to 'Sair', destroy_admin_user_session_path, data: {method: :delete} %>
             </ul>
           </div>

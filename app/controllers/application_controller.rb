@@ -5,4 +5,15 @@ class ApplicationController < ActionController::Base
 
   responders :flash
   respond_to :html
+
+  private
+
+  def client_template_with(_)
+    namespace = 'zoner'
+
+    template = "#{namespace}/#{controller_name}/#{action_name}"
+    layout   = "#{namespace}/application"
+    
+    render template: template, layout: layout
+  end
 end

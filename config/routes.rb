@@ -1,5 +1,7 @@
 NewApp::Application.routes.draw do
-  root to: 'admin/realties#index'
+  root to: 'realties#index'
+
+  resources :realties, only: [:index]
 
   namespace :admin do
     devise_for :users, controllers: {sessions: 'admin/sessions'}

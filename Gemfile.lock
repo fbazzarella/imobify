@@ -9,6 +9,13 @@ GIT
       rails (>= 3.1)
       railties (>= 3.1)
 
+GIT
+  remote: git@bitbucket.org:fbazzarella/template-zoner.git
+  revision: 07e3bcd836d8e23dffea9b92b607875e4304673c
+  specs:
+    zoner (0.0.1)
+      rails (~> 4.2.0)
+
 GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
@@ -257,3 +264,4 @@ DEPENDENCIES
   thin
   twitter-bootstrap-rails!
   uglifier
+  zoner!

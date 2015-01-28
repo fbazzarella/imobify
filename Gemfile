@@ -50,3 +50,6 @@ group :test do
   gem 'shoulda-matchers'
   gem 'factory_girl_rails'
 end
+
+# Templates
+gem 'zoner', git: 'git@bitbucket.org:fbazzarella/template-zoner.git' #, path: '../templates/zoner'

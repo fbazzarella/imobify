@@ -17,14 +17,6 @@ var initGallery = function () {
       tCounter: '<span class="mfp-counter">Foto %curr% de %total%</span>'
     },
 
-    retina: {
-      ratio: 2,
-
-      replaceSrc: function(item, ratio) {
-        return item.src.replace(/\.\w+$/, function(m) { return '_2x' + m; });
-      }
-    },
-
     zoom: {
       enabled: true
     }

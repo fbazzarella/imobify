@@ -28,8 +28,4 @@ class PhotoUploader < CarrierWave::Uploader::Base
   version :admin_normal do
     process resize_to_fit: [960, 540]
   end
-
-  version :admin_normal_2x do
-    process resize_to_fit: [1920, 1080]
-  end
 end

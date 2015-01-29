@@ -182,25 +182,25 @@
       </fieldset>
 
       <div class="row">
-        <div class="col-xs-12">
+        <div class="col-xs-12 col-md-6">
           <fieldset>
             <legend>Publicar no Site</legend>
 
-            <p>Ao publicar o Imóvel, ele ficará visível no seu Site. Para mantê-lo apenas cadastrado no Painel de Controle e sem aparecer no Site, desmarque a caixa abaixo.</p>
+            <p>Ao publicar o Imóvel, ele ficará visível no seu Site. Para mantê-lo apenas cadastrado no Painel de Controle e sem aparecer no Site, marque-o como <i>Rascunho</i>.</p>
 
-            <div class="checkbox">
-              <label><%= f.check_box :published, data: {:'new-record' => @realty.really_new?} %>Publicar Imóvel no Site</label>
+            <div class="form-group">
+              <%= f.select(:status, Realty::STATUS.collect do |st|
+                [t("activerecord.collections.realty.status.#{st}"), st]
+              end, {}, {class: 'form-control'}) %>
             </div>
           </fieldset>
         </div>
-      </div>
 
-      <div class="row">
-        <div class="col-xs-12">
+        <div class="col-xs-12 col-md-6">
           <fieldset>
             <legend>Finalizar</legend>
 
-            <p>Para concluir o preenchimento dos dados do Imóvel, basta clicar no botão abaixo e todas as informações estarão salvas e prontas para serem exibidas no Site assim que forem publicadas.</p>
+            <p>Ao clicar no botão abaixo, todas as informações estarão salvas e prontas para serem exibidas no Site assim que o Imóvel for publicado.</p>
 
             <%= f.submit 'Concluir Edição', class: 'btn btn-lg btn-primary btn-block' %>
           </fieldset>

@@ -121,7 +121,7 @@ RSpec.describe Admin::RealtiesController, type: :controller do
           realty.reload
         end
 
-        it { expect(realty.deactivated_at).to_not be_nil }
+        it { expect(realty).to be_deactivated }
 
         it { should respond_with 302 }
       end

@@ -1,10 +1,11 @@
 class Realty < ActiveRecord::Base
   BUSINESS_KIND = %w(sale rental vacation_rental)
   REALTY_KIND   = %w(house apartment kitchenette room store terrain country_house site farm)
+  STATUS        = %w(published scratch deactivated)
 
   NUMERIC_FIELDS   = %i(rooms bathrooms parking_spaces size price taxes)
-  TEXT_FIELDS      = %i(neighborhood street business_kind realty_kind reference)
-  PERMITTED_FIELDS = NUMERIC_FIELDS + TEXT_FIELDS + %i(country_id city_id description published)
+  TEXT_FIELDS      = %i(neighborhood street business_kind realty_kind status reference)
+  PERMITTED_FIELDS = NUMERIC_FIELDS + TEXT_FIELDS + %i(country_id city_id description)
 
   belongs_to :country
   belongs_to :city
@@ -15,6 +16,7 @@ class Realty < ActiveRecord::Base
 
   validates :business_kind, inclusion: BUSINESS_KIND, allow_nil: true
   validates :realty_kind,   inclusion: REALTY_KIND,   allow_nil: true
+  validates :status,        inclusion: STATUS,        allow_nil: true
 
   validates *NUMERIC_FIELDS, numericality: {only_integer: true}, allow_nil: true
 
@@ -48,11 +50,7 @@ class Realty < ActiveRecord::Base
     [rk, bk].join(' ')
   end
 
-  def really_new?
-    created_at == updated_at
-  end
-
-  def any_summary_info?
+  def have_summary?
     %i(rooms bathrooms parking_spaces size).each do |field|
       return true if send(field).present?
     end
@@ -61,14 +59,14 @@ class Realty < ActiveRecord::Base
   end
 
   def published?
-    published
+    status == 'published'
   end
 
   def deactivate!
-    touch(:deactivated_at)
+    update_attribute(:status, 'deactivated')
   end
 
   def deactivated?
-    deactivated_at.present?
+    status == 'deactivated'
   end
 end

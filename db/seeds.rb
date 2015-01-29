@@ -5505,7 +5505,7 @@ if not Country.any?
   ])
 end
 
-if Rails.env.development?
+if %w(development staging).include?(Rails.env)
   User.destroy_all
   Realty.destroy_all
 
@@ -5518,8 +5518,9 @@ if Rails.env.development?
     Realty.create({
       country_id:     19,
       city_id:        3652,
-      business_kind:  ['sale', 'rental'].sample,
-      realty_kind:    ['house', 'apartment'].sample,
+      business_kind:  %w(sale rental).sample,
+      realty_kind:    %w(house apartment).sample,
+      status:         %w(published scratch).sample,
       reference:      rand * i,
       rooms:          rand(3),
       bathrooms:      rand(2),

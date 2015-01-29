@@ -50,3 +50,7 @@
           country_house: 'Chácara'
           site: 'Sítio'
           farm: 'Fazenda'
+        status:
+          published: 'Publicar no Site'
+          scratch: 'Salvar como Rascunho'
+          deactivated: 'Inativar Imóvel'

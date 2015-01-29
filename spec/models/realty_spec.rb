@@ -19,7 +19,11 @@ RSpec.describe Realty, type: :model do
     it { should allow_value(rk).for(:realty_kind) }
   end
 
-  %i(business_kind realty_kind).each do |field|
+  described_class::STATUS.each do |st|
+    it { should allow_value(st).for(:status) }
+  end
+
+  %i(business_kind realty_kind status).each do |field|
     it { should_not allow_value('other').for(field) }
   end
 
@@ -111,45 +115,31 @@ RSpec.describe Realty, type: :model do
     end
   end
 
-  describe '.really_new?' do
-    let!(:realty) { create(:realty) }
-
-    context 'yep' do
-      it { expect(realty).to be_really_new }
-    end
-
-    context 'nop' do
-      before { realty.touch(:updated_at) }
-
-      it { expect(realty).to_not be_really_new }
-    end
-  end
-
-  describe '.any_summary_info?' do
+  describe '.have_summary?' do
     let!(:realty) { create(:realty) }
 
     context 'nop' do
-      it { expect(realty).to_not be_any_summary_info }
+      it { expect(realty).to_not be_have_summary }
     end
 
     context 'yep' do
       before { realty.update_attribute(:rooms, 1) }
 
-      it { expect(realty).to be_any_summary_info }
+      it { expect(realty).to be_have_summary }
     end
   end
 
   describe '.published?' do
     context 'when published' do
-      let!(:realty) { create(:realty, published: true) }
+      let!(:realty) { create(:realty, status: 'published') }
 
-      it { expect(realty.published?).to be_truthy }
+      it { expect(realty).to be_published }
     end
 
     context 'when not published' do
       let!(:realty) { create(:realty) }
 
-      it { expect(realty.published?).to be_falsy }
+      it { expect(realty).to_not be_published }
     end
   end
 
@@ -158,20 +148,20 @@ RSpec.describe Realty, type: :model do
 
     before { realty.deactivate! }
 
-    it { expect(realty.deactivated_at).to_not be_nil }
+    it { expect(realty).to be_deactivated }
   end
 
   describe '.deactivated?' do
-    let!(:realty) { create(:realty) }
+    context 'when deactivated' do
+      let!(:realty) { create(:realty, status: 'deactivated') }
 
-    context 'when activated' do
-      it { expect(realty.deactivated?).to be_falsy }
+      it { expect(realty).to be_deactivated }
     end
 
-    context 'when deactivated' do
-      before { realty.touch(:deactivated_at) }
+    context 'when activated' do
+      let!(:realty) { create(:realty) }
 
-      it { expect(realty.deactivated?).to be_truthy }
+      it { expect(realty).to_not be_deactivated }
     end
   end
 end

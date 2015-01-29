@@ -52,6 +52,14 @@ class Realty < ActiveRecord::Base
     created_at == updated_at
   end
 
+  def any_summary_info?
+    %i(rooms bathrooms parking_spaces size).each do |field|
+      return true if send(field).present?
+    end
+
+    false
+  end
+
   def published?
     published
   end

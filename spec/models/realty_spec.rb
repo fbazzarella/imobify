@@ -125,6 +125,20 @@ RSpec.describe Realty, type: :model do
     end
   end
 
+  describe '.any_summary_info?' do
+    let!(:realty) { create(:realty) }
+
+    context 'nop' do
+      it { expect(realty).to_not be_any_summary_info }
+    end
+
+    context 'yep' do
+      before { realty.update_attribute(:rooms, 1) }
+
+      it { expect(realty).to be_any_summary_info }
+    end
+  end
+
   describe '.published?' do
     context 'when published' do
       let!(:realty) { create(:realty, published: true) }

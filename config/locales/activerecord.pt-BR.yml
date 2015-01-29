@@ -28,7 +28,7 @@
         realty_kind: 'Tipo de Imóvel'
         rooms: 'Quartos'
         bathrooms: 'Banheiros'
-        parking_spaces: 'Vagas de Garagem'
+        parking_spaces: 'Garagens'
         size: 'Área Útil'
         price: 'Valor'
         taxes: 'Outras Taxas'

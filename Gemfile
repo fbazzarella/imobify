@@ -52,4 +52,5 @@ group :test do
 end
 
 # Templates
-gem 'zoner', git: 'git@bitbucket.org:fbazzarella/template-zoner.git' #, path: '../templates/zoner'
+gem 'zoner', git: 'git@bitbucket.org:fbazzarella/template-zoner.git'
+# gem 'zoner', path: '../templates/zoner'

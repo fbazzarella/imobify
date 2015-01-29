@@ -11,51 +11,57 @@
   <p>Aqui você encontra todos os imóveis cadastrados e pode gerenciá-los com facilidade.</p>
 
   <div class="row realties">
-    <% @realties.each do |r| %>
+    <% @realties.each do |realty| %>
       <div class="col-xs-12 col-sm-6 col-md-4">
-        <div class="realty" style="background-image: url(<%= cover_path_for(r, :admin_cover) %>)">
-          <% if r.reference.present? %>
-            <span class="label label-info reference"><%= r.reference %></span>
+        <div class="realty" style="background-image: url(<%= cover_path_for(realty, :admin_cover) %>)">
+          <% if realty.reference.present? %>
+            <span class="label label-info reference"><%= realty.reference %></span>
           <% end %>
 
-          <% if r.deactivated? %>
-            <span class="label label-default">Desativado</span>
-          <% elsif r.published? %>
+          <% if realty.published? %>
             <span class="label label-success">Publicado</span>
+          <% elsif realty.deactivated? %>
+            <span class="label label-default">Desativado</span>
           <% else %>
             <span class="label label-info">Rascunho</span>
           <% end %>
 
-          <% if r.cover_url(:admin_cover).blank? %>
+          <% if realty.cover_url(:admin_cover).blank? %>
             <span class="label label-danger">Sem Fotos</span>
           <% end %>
 
           <div>
             <div class="btn-group pull-right">
-              <%= link_to 'Editar', edit_admin_realty_path(r), class: 'btn btn-xs btn-primary' %>
+              <%= link_to 'Editar', edit_admin_realty_path(realty), class: 'btn btn-xs btn-primary' %>
 
-              <% unless r.deactivated? %>
+              <% unless realty.deactivated? %>
                 <button type="button" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                   <span class="caret"></span>
                   <span class="sr-only">Alternar Menu</span>
                 </button>
 
                 <ul class="dropdown-menu" role="menu">
+                  <% unless realty.published? %>
+                    <li>
+                      <%= link_to 'Publicar Imóvel', admin_realty_publish_path(realty), data: {method: :put, confirm: 'Tem certeza de que deseja publicar este Imóvel? Ele irá aparecer no seu Site imediatamente.'} %>
+                    </li>
+                  <% end %>
+
                   <li>
-                    <%= link_to 'Desativar Imóvel', admin_realty_deactivate_path(r), data: {method: :put, confirm: 'Tem certeza de que deseja desativar este imóvel? Ele não irá mais aparecer no seu Site.'} %>
+                    <%= link_to 'Desativar Imóvel', admin_realty_deactivate_path(realty), data: {method: :put, confirm: 'Tem certeza de que deseja desativar este Imóvel? Ele não irá mais aparecer no seu Site.'} %>
                   </li>
                 </ul>
               <% end %>
             </div>
 
-            <% if r.kind.present? %>
-              <p><%= r.kind %></p>
+            <% if realty.kind.present? %>
+              <p><%= realty.kind %></p>
             <% end %>
 
-            <p><%= r.location %></p>
+            <p><%= realty.location %></p>
 
-            <% if r.price.present? %>
-              <p><%= to_currency(r.price) %></p>
+            <% if realty.price.present? %>
+              <p><%= to_currency(realty.price) %></p>
             <% end %>
           </div>
         </div>

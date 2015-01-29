@@ -58,6 +58,10 @@ class Realty < ActiveRecord::Base
     false
   end
 
+  def publish!
+    update_attribute(:status, 'published')
+  end
+
   def published?
     status == 'published'
   end

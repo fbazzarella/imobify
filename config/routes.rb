@@ -11,6 +11,7 @@ NewApp::Application.routes.draw do
     resources :realties, only: [:index, :create, :edit, :update] do
       resources :photos, only: [:create, :destroy]
 
+      put :publish
       put :deactivate
     end
 

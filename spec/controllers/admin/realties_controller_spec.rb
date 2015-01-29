@@ -109,6 +109,35 @@ RSpec.describe Admin::RealtiesController, type: :controller do
     end
   end
 
+  describe 'PUT #publish' do
+    context 'when logged in' do
+      login!
+
+      context 'when valid id' do
+        let!(:realty) { create(:realty) }
+
+        before do
+          put :publish, realty_id: realty.id
+          realty.reload
+        end
+
+        it { expect(realty).to be_published }
+
+        it { should respond_with 302 }
+      end
+
+      context 'when invalid id' do
+        it { expect{ put :publish, realty_id: 1, format: :json }.to raise_error(ActiveRecord::RecordNotFound) }
+      end
+    end
+
+    context 'when logged out' do
+      before { put :publish, realty_id: 1 }
+
+      it { expect(response).to redirect_to(new_admin_user_session_path) }
+    end
+  end
+
   describe 'PUT #deactivate' do
     context 'when logged in' do
       login!

@@ -129,6 +129,14 @@ RSpec.describe Realty, type: :model do
     end
   end
 
+  describe '.publish!' do
+    let!(:realty) { create(:realty) }
+
+    before { realty.publish! }
+
+    it { expect(realty).to be_published }
+  end
+
   describe '.published?' do
     context 'when published' do
       let!(:realty) { create(:realty, status: 'published') }

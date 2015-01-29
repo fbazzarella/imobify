@@ -16,6 +16,10 @@ class Admin::RealtiesController < Admin::AdminController
     respond_with @realty = Realty.update(params[:id], realty_params), location: admin_realties_path
   end
 
+  def publish
+    respond_with @realty = Realty.find(params[:realty_id]).publish!, location: admin_realties_path
+  end
+
   def deactivate
     respond_with @realty = Realty.find(params[:realty_id]).deactivate!, location: admin_realties_path
   end

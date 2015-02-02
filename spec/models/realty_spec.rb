@@ -35,6 +35,19 @@ RSpec.describe Realty, type: :model do
     it { should ensure_length_of(field).is_at_most(255) }
   end
 
+  describe 'scopes' do
+    describe '#published' do
+      let!(:realty1) { create(:realty, status: 'published') }
+      let!(:realty2) { create(:realty, status: 'scratch') }
+      let!(:realty3) { create(:realty, status: 'deactivated') }
+
+      subject { described_class.published }
+
+      it { expect(subject).to include(realty1) }
+      it { expect(subject).to_not include(realty2, realty3) }
+    end
+  end
+
   describe '#new_with_last_locations' do
     subject { described_class.new_with_last_locations }
 

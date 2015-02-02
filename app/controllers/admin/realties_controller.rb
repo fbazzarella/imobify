@@ -1,7 +1,9 @@
 class Admin::RealtiesController < Admin::AdminController
   def index
-    @realty = Realty.new_with_last_locations
-    respond_with @realties = Realty.order('created_at DESC')
+    @realty   = Realty.new_with_last_locations
+    @realties = Realty.order(created_at: :desc)
+
+    respond_with
   end
 
   def create

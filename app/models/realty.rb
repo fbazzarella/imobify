@@ -22,6 +22,8 @@ class Realty < ActiveRecord::Base
 
   validates *TEXT_FIELDS, length: {maximum: 255}
 
+  scope :published, -> { where(status: 'published').order(created_at: :desc) }
+
   def self.new_with_last_locations
     any? ? new(last.attributes.extract!('country_id', 'city_id')) : new
   end

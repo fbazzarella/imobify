@@ -8,12 +8,12 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def client_template_with(_)
-    namespace = 'zoner'
+  def render_theme
+    theme = 'zoner'
 
-    template = "#{namespace}/#{controller_name}/#{action_name}"
-    layout   = "#{namespace}/application"
-    
-    render template: template, layout: layout
+    render(
+      template: "#{theme}/#{controller_name}/#{action_name}",
+      layout:   "#{theme}/application"
+    )
   end
 end

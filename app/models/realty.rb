@@ -33,7 +33,7 @@ class Realty < ActiveRecord::Base
   end
 
   def location
-    [neighborhood, city.name, country.initial].reject(&:blank?).join(', ')
+    [neighborhood, city.full_name].reject(&:blank?).join(' - ')
   end
 
   def cover_url(version)

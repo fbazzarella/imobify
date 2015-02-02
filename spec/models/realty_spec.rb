@@ -82,13 +82,13 @@ RSpec.describe Realty, type: :model do
     context 'when neighborhood is empty' do
       let!(:realty) { create(:realty) }
 
-      it { expect(realty.location).to be_eql('Rio de Janeiro, RJ') }
+      it { expect(realty.location).to be_eql('Rio de Janeiro - RJ') }
     end
 
     context 'when neighborhood is filled' do
       let!(:realty) { create(:realty, neighborhood: 'Copacabana') }
 
-      it { expect(realty.location).to be_eql('Copacabana, Rio de Janeiro, RJ') }
+      it { expect(realty.location).to be_eql('Copacabana - Rio de Janeiro - RJ') }
     end
   end
 

@@ -11,7 +11,7 @@ GIT
 
 GIT
   remote: git@bitbucket.org:fbazzarella/template-zoner.git
-  revision: 4facc5286b5dc9f72603e29561c33c8b7216319d
+  revision: 3f57f45896b58c2ca46c73c9e74c8b719d4b2dd5
   specs:
     zoner (0.0.1)
       rails (~> 4.2.0)

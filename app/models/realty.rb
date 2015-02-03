@@ -33,6 +33,13 @@ class Realty < ActiveRecord::Base
     any? ? new(last.attributes.extract!('country_id', 'city_id')) : new
   end
 
+  def related_realties
+    self.class.published
+      .by_city_id(city_id)
+      .by_business_kind(business_kind)
+      .where.not(id: id)
+  end
+
   def locations
     Country.all_with_cities_by(country)
   end

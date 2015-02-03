@@ -168,6 +168,21 @@ RSpec.describe Realty, type: :model do
     end
   end
 
+  describe '.related_realties' do
+    let!(:city) { create(:city) }
+
+    let!(:realty1) { create(:realty, status: 'published', business_kind: 'sale', city_id: city.id) }
+    let!(:realty2) { create(:realty, status: 'published', business_kind: 'sale', city_id: city.id) }
+    let!(:realty3) { create(:realty, status: 'published', business_kind: 'sale') }
+
+    subject { realty1.related_realties }
+
+    it { expect(subject).to be_a(ActiveRecord::Relation) }
+
+    it { expect(subject).to include(realty2) }
+    it { expect(subject).to_not include(realty1, realty3) }
+  end
+
   describe '.locations' do
     let!(:city)   { create(:city) }
     let!(:realty) { create(:realty, country: city.country, city: city) }

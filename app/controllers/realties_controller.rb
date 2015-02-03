@@ -1,6 +1,7 @@
 class RealtiesController < ApplicationController
   def index
-    @realties = Realty.published
+    @search   = RealtySearch.new(params[:realty_search])
+    @realties = @search.result.order(created_at: :desc)
 
     render_theme
   end

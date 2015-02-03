@@ -22,7 +22,12 @@ class Realty < ActiveRecord::Base
 
   validates *TEXT_FIELDS, length: {maximum: 255}
 
-  scope :published, -> { where(status: 'published').order(created_at: :desc) }
+  scope :published,         ->           { where(status: 'published') }
+  scope :by_business_kind,  -> (bk)      { where(business_kind: bk)  if bk.present? }
+  scope :by_realty_kind,    -> (rk)      { where(realty_kind: rk)    if rk.present? }
+  scope :by_city_id,        -> (city_id) { where(city_id: city_id)   if city_id.present? }
+  scope :by_rooms,          -> (rooms)   { where(rooms: rooms)       if rooms.present? }
+  scope :by_parking_spaces, -> (ps)      { where(parking_spaces: ps) if ps.present? }
 
   def self.new_with_last_locations
     any? ? new(last.attributes.extract!('country_id', 'city_id')) : new

@@ -4,10 +4,13 @@ RSpec.describe RealtiesController, type: :controller do
   render_views
 
   describe 'GET #index' do
-    let!(:realty1) { create(:realty, status: 'published') }
+    let!(:realty1) { create(:realty, status: 'published', rooms: 1) }
     let!(:realty2) { create(:realty) }
 
-    before { get :index }
+    before { get :index, realty_search: {rooms: 1} }
+
+    it { expect(assigns(:search)).to be_a(RealtySearch) }
+    it { expect(assigns(:search).rooms).to be_eql('1') }
 
     it { expect(assigns(:realties)).to be_a(ActiveRecord::Relation) }
     it { expect(assigns(:realties)).to include(realty1) }

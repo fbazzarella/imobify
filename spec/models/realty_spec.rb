@@ -46,6 +46,108 @@ RSpec.describe Realty, type: :model do
       it { expect(subject).to include(realty1) }
       it { expect(subject).to_not include(realty2, realty3) }
     end
+
+    describe '#by_business_kind' do
+      let!(:realty1) { create(:realty, business_kind: 'sale') }
+      let!(:realty2) { create(:realty) }
+
+      context 'when param is passed' do
+        subject { described_class.by_business_kind('sale') }
+
+        it { expect(subject).to be_a(ActiveRecord::Relation) }
+        it { expect(subject).to include(realty1) }
+        it { expect(subject).to_not include(realty2) }
+      end
+
+      context 'when param is not passed' do
+        subject { described_class.by_business_kind(nil) }
+
+        it { expect(subject).to be_a(ActiveRecord::Relation) }
+        it { expect(subject).to include(realty1, realty2) }
+      end
+    end
+
+    describe '#by_realty_kind' do
+      let!(:realty1) { create(:realty, realty_kind: 'house') }
+      let!(:realty2) { create(:realty) }
+
+      context 'when param is passed' do
+        subject { described_class.by_realty_kind('house') }
+
+        it { expect(subject).to be_a(ActiveRecord::Relation) }
+        it { expect(subject).to include(realty1) }
+        it { expect(subject).to_not include(realty2) }
+      end
+
+      context 'when param is not passed' do
+        subject { described_class.by_realty_kind(nil) }
+
+        it { expect(subject).to be_a(ActiveRecord::Relation) }
+        it { expect(subject).to include(realty1, realty2) }
+      end
+    end
+
+    describe '#by_city_id' do
+      let!(:city)    { create(:city) }
+
+      let!(:realty1) { create(:realty, city_id: city.id) }
+      let!(:realty2) { create(:realty) }
+
+      context 'when param is passed' do
+        subject { described_class.by_city_id(city.id.to_s) }
+
+        it { expect(subject).to be_a(ActiveRecord::Relation) }
+        it { expect(subject).to include(realty1) }
+        it { expect(subject).to_not include(realty2) }
+      end
+
+      context 'when param is not passed' do
+        subject { described_class.by_city_id(nil) }
+
+        it { expect(subject).to be_a(ActiveRecord::Relation) }
+        it { expect(subject).to include(realty1, realty2) }
+      end
+    end
+
+    describe '#by_rooms' do
+      let!(:realty1) { create(:realty, rooms: 1) }
+      let!(:realty2) { create(:realty) }
+
+      context 'when param is passed' do
+        subject { described_class.by_rooms('1') }
+
+        it { expect(subject).to be_a(ActiveRecord::Relation) }
+        it { expect(subject).to include(realty1) }
+        it { expect(subject).to_not include(realty2) }
+      end
+
+      context 'when param is not passed' do
+        subject { described_class.by_rooms(nil) }
+
+        it { expect(subject).to be_a(ActiveRecord::Relation) }
+        it { expect(subject).to include(realty1, realty2) }
+      end
+    end
+
+    describe '#by_parking_spaces' do
+      let!(:realty1) { create(:realty, parking_spaces: 1) }
+      let!(:realty2) { create(:realty) }
+
+      context 'when param is passed' do
+        subject { described_class.by_parking_spaces('1') }
+
+        it { expect(subject).to be_a(ActiveRecord::Relation) }
+        it { expect(subject).to include(realty1) }
+        it { expect(subject).to_not include(realty2) }
+      end
+
+      context 'when param is not passed' do
+        subject { described_class.by_parking_spaces(nil) }
+
+        it { expect(subject).to be_a(ActiveRecord::Relation) }
+        it { expect(subject).to include(realty1, realty2) }
+      end
+    end
   end
 
   describe '#new_with_last_locations' do

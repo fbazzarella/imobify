@@ -194,6 +194,20 @@ RSpec.describe Realty, type: :model do
     end
   end
 
+  describe '.full_location' do
+    context 'when street is empty' do
+      let!(:realty) { create(:realty) }
+
+      it { expect(realty.full_location).to be_eql('Rio de Janeiro - RJ') }
+    end
+
+    context 'when street is filled' do
+      let!(:realty) { create(:realty, street: 'Av. Atlântica') }
+
+      it { expect(realty.full_location).to be_eql('Av. Atlântica - Rio de Janeiro - RJ') }
+    end
+  end
+
   describe '.cover_url' do
     context 'when realty have any photo' do
       let!(:photo)  { create(:photo) }

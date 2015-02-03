@@ -41,6 +41,10 @@ class Realty < ActiveRecord::Base
     [neighborhood, city.full_name].reject(&:blank?).join(' - ')
   end
 
+  def full_location
+    [street, location].reject(&:blank?).join(' - ')
+  end
+
   def cover_url(version)
     photo = photos.first
     photo.file.send(version).url if photo.present?

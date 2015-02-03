@@ -9,7 +9,7 @@ if %w(development staging).include?(Rails.env)
     password: 'secret'
   })
 
-  5.times do |i|
+  20.times do |i|
     Realty.create({
       country_id:     19,
       city_id:        3652,
@@ -18,11 +18,11 @@ if %w(development staging).include?(Rails.env)
       status:         %w(published scratch).sample,
       reference:      rand * i,
       rooms:          rand(3),
-      bathrooms:      rand(2),
-      parking_spaces: rand(1),
+      bathrooms:      rand(3),
+      parking_spaces: rand(3),
       size:           rand(300),
-      price:          rand(200) * 1000,
-      taxes:          rand(100)
+      price:          rand(300) * 1000,
+      taxes:          rand(300)
     })
   end
 end

@@ -17,7 +17,7 @@ class Photo < ActiveRecord::Base
     {
       id:         id,
       thumb_url:  file.admin_thumb.url,
-      normal_url: file.admin_normal.url
+      normal_url: file.normal.url
     }
   end
 end

@@ -14,5 +14,7 @@
           notice: 'Continue preenchendo as demais informações e adicione as fotos mais abaixo.'
         update:
           notice: 'Imóvel editado com sucesso.'
+        publish:
+          notice: 'Imóvel publicado com sucesso.'
         deactivate:
           notice: 'Imóvel desativado com sucesso.'

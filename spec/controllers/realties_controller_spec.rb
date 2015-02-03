@@ -18,4 +18,21 @@ RSpec.describe RealtiesController, type: :controller do
 
     it { is_expected.to respond_with 200 }
   end
+
+  describe 'GET #show' do
+    let!(:realty1) { create(:realty, status: 'published') }
+    let!(:realty2) { create(:realty) }
+
+    context 'when valid id' do
+      before { get :show, id: realty1.id }
+
+      it { expect(assigns(:realty)).to be_eql(realty1) }
+
+      it { is_expected.to respond_with 200 }
+    end
+
+    context 'when invalid id' do
+      it { expect{ get :show, id: realty2.id }.to raise_error(ActiveRecord::RecordNotFound) }
+    end
+  end
 end

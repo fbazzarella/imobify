@@ -5,4 +5,10 @@ class RealtiesController < ApplicationController
 
     render_theme
   end
+
+  def show
+    @realty = Realty.published.find(params[:id])
+
+    render_theme
+  end
 end

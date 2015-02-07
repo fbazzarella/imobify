@@ -38,7 +38,7 @@ RSpec.describe Realty, type: :model do
   describe 'scopes' do
     describe '#published' do
       let!(:realty1) { create(:realty, status: 'published') }
-      let!(:realty2) { create(:realty, status: 'scratch') }
+      let!(:realty2) { create(:realty, status: 'draft') }
       let!(:realty3) { create(:realty, status: 'deactivated') }
 
       subject { described_class.published }

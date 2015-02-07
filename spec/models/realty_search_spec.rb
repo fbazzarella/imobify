@@ -4,7 +4,7 @@ RSpec.describe RealtySearch, type: :model do
   describe '.result' do
     let!(:realty1) { create(:realty, status: 'published', rooms: 1) }
     let!(:realty2) { create(:realty, status: 'published', rooms: 2) }
-    let!(:realty3) { create(:realty, status: 'scratch', rooms: 2) }
+    let!(:realty3) { create(:realty, status: 'draft', rooms: 2) }
 
     subject { described_class.new({rooms: 2}).result }
 

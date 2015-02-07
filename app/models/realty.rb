@@ -1,7 +1,7 @@
 class Realty < ActiveRecord::Base
   BUSINESS_KIND = %w(sale rental vacation_rental)
   REALTY_KIND   = %w(house apartment kitchenette room store terrain country_house site farm)
-  STATUS        = %w(published scratch deactivated)
+  STATUS        = %w(published draft deactivated)
 
   NUMERIC_FIELDS   = %i(rooms bathrooms parking_spaces size price taxes)
   TEXT_FIELDS      = %i(neighborhood street business_kind realty_kind status reference)

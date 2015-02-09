@@ -1,1 +1,1 @@
-web: bundle exec puma -e $RAILS_ENV -b unix:///tmp/imobify-$RAILS_ENV.sock --pidfile /tmp/imobify-$RAILS_ENV.pid
+web: bundle exec puma -e $RAILS_ENV -b unix:///tmp/$APP_NAME-$RAILS_ENV.sock --pidfile /tmp/$APP_NAME-$RAILS_ENV.pid

@@ -6,6 +6,10 @@ class ApplicationController < ActionController::Base
   responders :flash
   respond_to :html
 
+  before_filter lambda {
+    authenticate_or_request_with_http_basic { |u, p|
+      u == ENV['APP_USER'] && p == ENV['APP_NAME'] } if Rails.env.staging? }
+
   private
 
   def render_theme

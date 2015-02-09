@@ -1,9 +1,9 @@
 /.bundle
+/.env
 /log/*.log
 /tmp
 
 /config/database.yml
-/config/environment_variables.rb
 /config/mypg.yml
 /config/shuttle.yml
 /public/admin

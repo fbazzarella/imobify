@@ -13,9 +13,9 @@ if %w(development staging).include?(Rails.env)
     Realty.create({
       country_id:     19,
       city_id:        3652,
-      business_kind:  %w(sale rental).sample,
-      realty_kind:    %w(house apartment).sample,
-      status:         %w(published scratch).sample,
+      business_kind:  Realty::BUSINESS_KIND.sample,
+      realty_kind:    Realty::REALTY_KIND.sample,
+      status:         Realty::STATUS.sample,
       reference:      rand * i,
       rooms:          rand(3),
       bathrooms:      rand(3),

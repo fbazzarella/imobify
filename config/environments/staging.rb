@@ -85,8 +85,8 @@ Imobify::Application.configure do
   # Configuration for ExceptionNotifier
   config.middleware.use ExceptionNotification::Rack,
     email: {
-      email_prefix:         '[Corretor STAGING] ',
-      sender_address:       '"Corretor" <felipe@bazzarella.com>',
+      email_prefix:         '[Imobify STAGING] ',
+      sender_address:       'felipe@bazzarella.com',
       exception_recipients: ['fbazzarella@gmail.com']
     }
 end

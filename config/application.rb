@@ -29,7 +29,7 @@ module Imobify
     config.assets.initialize_on_precompile = false
 
     # Authentication configuration for ActionMailer
-    # config.action_mailer.delivery_method = :smtp
+    config.action_mailer.delivery_method = :smtp
 
     config.action_mailer.smtp_settings = {
       address:   'smtp.gmail.com',

@@ -83,10 +83,10 @@ Imobify::Application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   # Configuration for ExceptionNotifier
-  # config.middleware.use ExceptionNotification::Rack,
-  #   email: {
-  #     email_prefix:         '[Imobify PRODUCTION] ',
-  #     sender_address:       '"Imobify" <your@email.com>',
-  #     exception_recipients: ['your@email.com']
-  #   }
+  config.middleware.use ExceptionNotification::Rack,
+    email: {
+      email_prefix:         '[Imobify PRODUCTION] ',
+      sender_address:       'felipe@bazzarella.com',
+      exception_recipients: ['fbazzarella@gmail.com']
+    }
 end

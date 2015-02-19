@@ -9,15 +9,15 @@ local: &local
 
 development:
   <<: *local
-  database: newapp_development
+  database: imobify_development
 
 test:
   <<: *local
-  database: newapp_test
+  database: imobify_test
 
 staging:
   <<: *local
-  database: newapp_staging
+  database: imobify_staging
 
 production:
   <<: *common

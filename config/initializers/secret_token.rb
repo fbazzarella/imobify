@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-NewApp::Application.config.secret_key_base = ENV['APP_SECRET_TOKEN'] || '123456'
+Imobify::Application.config.secret_key_base = ENV['APP_SECRET_TOKEN'] || '123456'

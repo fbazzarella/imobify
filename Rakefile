@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-NewApp::Application.load_tasks
+Imobify::Application.load_tasks

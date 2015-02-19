@@ -1,4 +1,4 @@
-NewApp::Application.configure do
+Imobify::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
@@ -85,8 +85,8 @@ NewApp::Application.configure do
   # Configuration for ExceptionNotifier
   # config.middleware.use ExceptionNotification::Rack,
   #   email: {
-  #     email_prefix:         '[NewApp PRODUCTION] ',
-  #     sender_address:       '"NewApp" <your@email.com>',
+  #     email_prefix:         '[Imobify PRODUCTION] ',
+  #     sender_address:       '"Imobify" <your@email.com>',
   #     exception_recipients: ['your@email.com']
   #   }
 end

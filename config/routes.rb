@@ -1,4 +1,4 @@
-NewApp::Application.routes.draw do
+Imobify::Application.routes.draw do
   root to: 'realties#index'
 
   resources :realties, only: [:index, :show]

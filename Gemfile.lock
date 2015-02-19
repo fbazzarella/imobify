@@ -10,6 +10,13 @@ GIT
       railties (>= 3.1)
 
 GIT
+  remote: git@bitbucket.org:fbazzarella/template-zoner-arminda.git
+  revision: f3d2185d5a2cacf34818506f858e47cf4c6a60aa
+  specs:
+    zoner_arminda (0.0.1)
+      rails (~> 4.2.0)
+
+GIT
   remote: git@bitbucket.org:fbazzarella/template-zoner.git
   revision: 62f151d7f6ccbac450c998d2706f1eddae73dad5
   specs:
@@ -266,3 +273,4 @@ DEPENDENCIES
   twitter-bootstrap-rails!
   uglifier
   zoner!
+  zoner_arminda!

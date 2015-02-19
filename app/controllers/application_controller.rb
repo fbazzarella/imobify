@@ -13,11 +13,15 @@ class ApplicationController < ActionController::Base
   private
 
   def render_theme
-    theme = 'zoner'
+    theme = arminda? ? 'zoner_arminda' : 'zoner'
 
     render(
       template: "#{theme}/#{controller_name}/#{action_name}",
       layout:   "#{theme}/application"
     )
+  end
+
+  def arminda?
+    !!request.host.match(/armindabaptista/)
   end
 end

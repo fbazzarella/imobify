@@ -10,10 +10,10 @@ RSpec.describe Country, type: :model do
   end
 
   %i(name slug).each do |field|
-    it { should ensure_length_of(field).is_at_most(255) }
+    it { should validate_length_of(field).is_at_most(255) }
   end
 
-  it { should ensure_length_of(:initial).is_equal_to(2) }
+  it { should validate_length_of(:initial).is_equal_to(2) }
 
   describe '#all_with_cities_by' do
     let!(:country1) { create(:country) }

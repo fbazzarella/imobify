@@ -10,7 +10,7 @@ RSpec.describe City, type: :model do
   end
     
   %i(name slug).each do |field|
-    it { should ensure_length_of(field).is_at_most(255) }
+    it { should validate_length_of(field).is_at_most(255) }
   end
 
   describe 'scopes' do

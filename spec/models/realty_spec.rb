@@ -32,7 +32,7 @@ RSpec.describe Realty, type: :model do
   end
 
   described_class::TEXT_FIELDS.each do |field|
-    it { should ensure_length_of(field).is_at_most(255) }
+    it { should validate_length_of(field).is_at_most(255) }
   end
 
   describe 'scopes' do

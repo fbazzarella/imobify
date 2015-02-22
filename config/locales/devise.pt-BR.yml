@@ -8,9 +8,9 @@
     failure:
       already_authenticated: 'Você já está autenticado no Painel de Controle.'
       unauthenticated: 'Você precisa se autenticar para acessar o Painel de Controle.'
-      invalid: 'Este usuário não existe ou a senha está incorreta.'
+      invalid: 'Seus dados de acesso estão incorretos. Verifique se os digitou corretamente.'
       admin_user:
-        not_found_in_database: 'Este usuário não existe.'
+        not_found_in_database: 'Seus dados de acesso estão incorretos. Verifique se os digitou corretamente.'
     sessions:
       signed_in: 'Autenticado com sucesso no Painel de Controle.'
       signed_out: 'Sua sessão no Painel de Controle foi encerrada com sucesso.'

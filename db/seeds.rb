@@ -6,32 +6,35 @@ def truncate_tables!
   end
 end
 
+def realty_params
+  {
+    country_id:     19,
+    city_id:        3652,
+    business_kind:  Realty::BUSINESS_KIND.sample,
+    realty_kind:    Realty::REALTY_KIND.sample,
+    status:         Realty::STATUS.sample,
+    reference:      rand,
+    rooms:          rand(3),
+    bathrooms:      rand(3),
+    parking_spaces: rand(3),
+    size:           rand(300),
+    price:          rand(300) * 1000,
+    taxes:          rand(300)
+  }
+end
+
 if %w(development staging).include?(Rails.env)
   truncate_tables!
 
-  account = Account.create(name: 'Real Estate 1')
+  ActsAsTenant.with_tenant Account.create(name: 'Real Estate 1') do
+    User.create(username: 'johndoe', password: 'secret')
 
-  User.create({
-    account_id: account.id,
-    username:   'johndoe',
-    password:   'secret'
-  })
+    4.times { Realty.create(realty_params) }
+  end
 
-  20.times do |i|
-    Realty.create({
-      account_id:     account.id,
-      country_id:     19,
-      city_id:        3652,
-      business_kind:  Realty::BUSINESS_KIND.sample,
-      realty_kind:    Realty::REALTY_KIND.sample,
-      status:         Realty::STATUS.sample,
-      reference:      rand * i,
-      rooms:          rand(3),
-      bathrooms:      rand(3),
-      parking_spaces: rand(3),
-      size:           rand(300),
-      price:          rand(300) * 1000,
-      taxes:          rand(300)
-    })
+  ActsAsTenant.with_tenant Account.create(name: 'Real Estate 2') do
+    User.create(username: 'janedoe', password: 'secret')
+
+    4.times { Realty.create(realty_params) }
   end
 end

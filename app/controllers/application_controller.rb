@@ -6,7 +6,9 @@ class ApplicationController < ActionController::Base
   responders :flash
   respond_to :html
 
-  before_action :authenticate_staging!
+  set_current_tenant_through_filter
+
+  before_action :authenticate_staging!, :set_tenant!
 
   private
 
@@ -14,6 +16,11 @@ class ApplicationController < ActionController::Base
     authenticate_or_request_with_http_basic do |u, p|
       u == ENV['APP_USER'] && p == ENV['APP_NAME']
     end if Rails.env.staging?
+  end
+
+  def set_tenant!
+    # TODO: Adicionar seleção correta de Conta
+    set_current_tenant(Account.find_by_name('Test Account'))
   end
 
   def render_theme

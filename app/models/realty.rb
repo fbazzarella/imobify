@@ -7,7 +7,8 @@ class Realty < ActiveRecord::Base
   TEXT_FIELDS      = %i(neighborhood street business_kind realty_kind status reference)
   PERMITTED_FIELDS = NUMERIC_FIELDS + TEXT_FIELDS + %i(country_id city_id description)
 
-  belongs_to :account
+  acts_as_tenant :account
+
   belongs_to :country
   belongs_to :city
 

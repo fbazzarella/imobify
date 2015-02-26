@@ -13,6 +13,10 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = true
   config.color = true
 
+  config.after(:each) do
+    ActsAsTenant.current_tenant = nil
+  end
+
   config.after(:suite) do
     FileUtils.rm_rf(Dir["#{Rails.root}/tmp/uploads"])
   end

@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   devise :database_authenticatable
 
-  belongs_to :account
+  acts_as_tenant :account
 
   validates :account_id, presence: true
 

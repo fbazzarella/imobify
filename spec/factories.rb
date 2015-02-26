@@ -1,6 +1,7 @@
 FactoryGirl.define do
   factory :account do
-    name 'Real Estate'
+    name  'Real Estate'
+    theme 'zoner'
   end
 
   factory :domain do

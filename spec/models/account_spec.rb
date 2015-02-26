@@ -5,9 +5,13 @@ RSpec.describe Account, type: :model do
     it { should have_many(association).dependent(:restrict_with_error) }
   end
 
-  it { should validate_presence_of(:name) }
+  %i(name theme).each do |field|
+    it { should validate_presence_of(field) }
+  end
 
-  it { should validate_length_of(:name).is_at_most(255) }
+  %i(name theme).each do |field|
+    it { should validate_length_of(field).is_at_most(255) }
+  end
 
   describe '#by_host' do
     context 'when the domain exist' do

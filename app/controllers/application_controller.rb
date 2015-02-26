@@ -23,15 +23,9 @@ class ApplicationController < ActionController::Base
   end
 
   def render_theme
-    theme = arminda? ? 'zoner_arminda' : 'zoner'
+    template = "#{current_tenant.theme}/#{controller_name}/#{action_name}"
+    layout   = "#{current_tenant.theme}/application"
 
-    render(
-      template: "#{theme}/#{controller_name}/#{action_name}",
-      layout:   "#{theme}/application"
-    )
-  end
-
-  def arminda?
-    !!request.host.match(/armindabaptista/)
+    render template: template, layout: layout
   end
 end

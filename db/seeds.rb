@@ -26,19 +26,22 @@ end
 if %w(development staging).include?(Rails.env)
   truncate_tables!
 
-  account1 = Account.create(name: 'John Doe Real Estate')
-  account2 = Account.create(name: 'Jane Doe Real Estate')
+  account1 = Account.create(name: 'John Doe Real Estate', theme: 'zoner')
+  account2 = Account.create(name: 'Jane Doe Real Estate', theme: 'zoner_arminda')
 
   Domain.create(account: account1, host: 'johndoe.lvh.me')
   Domain.create(account: account2, host: 'janedoe.lvh.me')
 
+  Domain.create(account: account1, host: 'johndoe.staging.imobify.com.br')
+  Domain.create(account: account2, host: 'janedoe.staging.imobify.com.br')
+
   ActsAsTenant.with_tenant account1 do
     User.create(username: 'johndoe', password: 'secret')
-    8.times { Realty.create(realty_params) }
+    # 8.times { Realty.create(realty_params) }
   end
 
   ActsAsTenant.with_tenant account2 do
     User.create(username: 'janedoe', password: 'secret')
-    8.times { Realty.create(realty_params) }
+    # 8.times { Realty.create(realty_params) }
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150226133549) do
+ActiveRecord::Schema.define(version: 20150226194609) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,15 @@ ActiveRecord::Schema.define(version: 20150226133549) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "domains", force: :cascade do |t|
+    t.integer  "account_id"
+    t.string   "host"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "domains", ["host"], name: "index_domains_on_host", unique: true, using: :btree
 
   create_table "photos", force: :cascade do |t|
     t.integer  "realty_id"
@@ -79,6 +88,7 @@ ActiveRecord::Schema.define(version: 20150226133549) do
   add_index "users", ["username", "account_id"], name: "index_users_on_username_and_account_id", unique: true, using: :btree
 
   add_foreign_key "cities", "countries"
+  add_foreign_key "domains", "accounts"
   add_foreign_key "photos", "realties"
   add_foreign_key "realties", "accounts"
   add_foreign_key "realties", "cities"

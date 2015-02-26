@@ -6,6 +6,7 @@ source 'https://rubygems.org' do
   gem 'puma'
   gem 'pg'
 
+  gem 'acts_as_tenant'
   gem 'devise'
   gem 'kaminari'
   gem 'responders'

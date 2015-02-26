@@ -3,6 +3,14 @@ FactoryGirl.define do
     name 'Real Estate'
   end
 
+  factory :domain do
+    account
+
+    sequence :host do |n|
+      "#{n}.lvh.me"
+    end
+  end
+
   factory :user do
     account
     username 'johndoe'

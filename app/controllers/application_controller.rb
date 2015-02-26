@@ -19,8 +19,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_tenant!
-    # TODO: Adicionar seleção correta de Conta
-    set_current_tenant(Account.find_by_name('Test Account'))
+    set_current_tenant Account.by_host(request.host)
   end
 
   def render_theme

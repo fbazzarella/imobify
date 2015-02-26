@@ -23,10 +23,10 @@ RSpec.describe RealtiesController, type: :controller do
   end
 
   describe 'GET #show' do
-    let!(:realty1) { create(:realty, status: 'published') }
-    let!(:realty2) { create(:realty) }
-
     context 'when tenant is right' do
+      let!(:realty1) { create(:realty, status: 'published', account: @current_tenant) }
+      let!(:realty2) { create(:realty, account: @current_tenant) }
+
       context 'when valid id' do
         before { get :show, id: realty1.id }
 

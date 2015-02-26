@@ -13,6 +13,11 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = true
   config.color = true
 
+  config.before(:each) do
+    @current_domain = create(:domain, host: 'test.host')
+    @current_tenant = create(:account, domains: [@current_domain])
+  end
+
   config.after(:each) do
     ActsAsTenant.current_tenant = nil
   end

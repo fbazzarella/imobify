@@ -2,7 +2,6 @@ module ControllerMacros
   def mapping!
     before do
       @request.env["devise.mapping"] = Devise.mappings[:admin_user]
-      @current_tenant     = create(:account, name: 'Test Account')
       @current_admin_user = create(:user, account: @current_tenant)
     end
   end

@@ -9,14 +9,17 @@ end
 if %w(development staging).include?(Rails.env)
   truncate_tables!
 
+  account = Account.create(name: 'Real Estate 1')
+
   User.create({
-    account:   Account.create(name: 'Real Estate 1'),
-    username: 'johndoe',
-    password: 'secret'
+    account_id: account.id,
+    username:   'johndoe',
+    password:   'secret'
   })
 
   20.times do |i|
     Realty.create({
+      account_id:     account.id,
       country_id:     19,
       city_id:        3652,
       business_kind:  Realty::BUSINESS_KIND.sample,

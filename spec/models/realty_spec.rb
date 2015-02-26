@@ -1,13 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe Realty, type: :model do
-  %i(country city).each do |association|
+  %i(account country city).each do |association|
     it { should belong_to(association) }
   end
 
   it { should have_many(:photos).dependent(:destroy) }
 
-  %i(country_id city_id).each do |field|
+  %i(account_id country_id city_id).each do |field|
     it { should validate_presence_of(field) }
   end
 

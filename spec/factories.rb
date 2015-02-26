@@ -23,6 +23,7 @@ FactoryGirl.define do
   end
 
   factory :realty do
+    account
     country
     city
   end

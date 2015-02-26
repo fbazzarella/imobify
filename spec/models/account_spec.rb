@@ -1,7 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Account, type: :model do
-  it { should have_many(:users).dependent(:restrict_with_error) }
+  %i(users realties).each do |association|
+    it { should have_many(association).dependent(:restrict_with_error) }
+  end
 
   it { should validate_presence_of(:name) }
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150225192014) do
+ActiveRecord::Schema.define(version: 20150225194816) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,12 +72,14 @@ ActiveRecord::Schema.define(version: 20150225192014) do
     t.string   "encrypted_password", limit: 255, default: "", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "account_id"
   end
 
-  add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
+  add_index "users", ["username", "account_id"], name: "index_users_on_username_and_account_id", unique: true, using: :btree
 
   add_foreign_key "cities", "countries"
   add_foreign_key "photos", "realties"
   add_foreign_key "realties", "cities"
   add_foreign_key "realties", "countries"
+  add_foreign_key "users", "accounts"
 end

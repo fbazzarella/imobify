@@ -1,5 +1,10 @@
 FactoryGirl.define do
+  factory :account do
+    name 'Real Estate'
+  end
+
   factory :user do
+    account
     username 'johndoe'
     password 'secret'
   end

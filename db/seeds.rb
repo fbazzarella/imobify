@@ -1,10 +1,16 @@
 Dir[File.expand_path('../seeds/*', __FILE__)].each { |f| require f }
 
+def truncate_tables!
+  %w(photos realties users accounts).each do |table_name|
+    ActiveRecord::Base.connection.execute("delete from #{table_name}")
+  end
+end
+
 if %w(development staging).include?(Rails.env)
-  User.destroy_all
-  Realty.destroy_all
+  truncate_tables!
 
   User.create({
+    account:   Account.create(name: 'Real Estate 1'),
     username: 'johndoe',
     password: 'secret'
   })

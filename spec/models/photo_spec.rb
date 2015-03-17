@@ -5,16 +5,6 @@ RSpec.describe Photo, type: :model do
 
   it { should validate_presence_of(:realty_id) }
 
-  it { should validate_length_of(:uuid).is_at_most(255) }
-
-  describe 'callbacks' do
-    describe 'before_save' do
-      let!(:photo) { create(:photo) }
-
-      it { expect(photo.uuid).to_not be_nil }
-    end
-  end
-
   describe '.to_json' do
     let!(:photo) { create(:photo) }
 

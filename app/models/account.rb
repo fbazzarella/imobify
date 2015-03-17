@@ -5,7 +5,7 @@ class Account < ActiveRecord::Base
 
   validates :name, :theme, presence: true, length: {maximum: 255}
 
-  def self.by_host(host)
-    joins(:domains).where(domains: {host: host}).first || raise(ActiveRecord::RecordNotFound)
+  def self.find_by_domain!(host)
+    joins(:domains).where(domains: {host: host}).first!
   end
 end

@@ -8,18 +8,18 @@ class ApplicationController < ActionController::Base
 
   set_current_tenant_through_filter
 
-  before_action :authenticate_staging!, :set_tenant!
+  before_action :authenticate_staging, :set_tenant
 
   private
 
-  def authenticate_staging!
+  def authenticate_staging
     authenticate_or_request_with_http_basic do |u, p|
       u == ENV['APP_USER'] && p == ENV['APP_NAME']
     end if Rails.env.staging?
   end
 
-  def set_tenant!
-    set_current_tenant Account.by_host(request.host)
+  def set_tenant
+    set_current_tenant Account.find_by_domain!(request.host)
   end
 
   def render_theme

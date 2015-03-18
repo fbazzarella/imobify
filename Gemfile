@@ -14,6 +14,7 @@ source 'https://rubygems.org' do
   gem 'mini_magick'
   gem 'carrierwave'
 
+  gem 'twitter-bootstrap-rails'
   gem 'less-rails'
   gem 'sass-rails'
   gem 'uglifier'
@@ -48,8 +49,6 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-blueimp-file-upload'
   gem 'rails-assets-Sortable'
 end
-
-gem 'twitter-bootstrap-rails', github: 'seyhunak/twitter-bootstrap-rails', branch: 'bootstrap3'
 
 gem 'zoner',         git: 'git@bitbucket.org:fbazzarella/template-zoner.git'
 gem 'zoner_arminda', git: 'git@bitbucket.org:fbazzarella/template-zoner-arminda.git'

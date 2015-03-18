@@ -165,7 +165,7 @@
 
           <div class="col-xs-12 col-md-8">
             <p id="trash" class="alert alert-warning center<%= ' hide' if @realty.photos.none? %>">
-              <%= glyph :trash %> Para excluir uma foto, arraste-a para cá.
+              <%= glyph(:trash, {}) %> Para excluir uma foto, arraste-a para cá.
             </p>
 
             <p class="text-muted<%= ' hide' if @realty.photos.any? %>">

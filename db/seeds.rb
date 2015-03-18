@@ -27,13 +27,13 @@ if %w(development staging).include?(Rails.env)
   truncate_tables!
 
   account1 = Account.create({
-    name:  'John Doe Real Estate, Inc.',
+    name:  'John Doe Real Estate, Inc',
     phone: '(21) 2255-1111',
     email: 'john@doe.com'
   })
 
   account2 = Account.create({
-    name:  'Jane Doe Real Estate, Co.',
+    name:  'Jane Doe Real Estate, Co',
     phone: '(21) 2255-2222',
     email: 'jane@doe.com'
   })
@@ -41,14 +41,14 @@ if %w(development staging).include?(Rails.env)
   SiteSetting.create({
     account:  account1,
     title:    'John Doe Real Estate',
-    logo:     'logo_sample_1.jpg',
+    logo:     'logo_johndoe.jpg',
     template: 'zoner'
   })
 
   SiteSetting.create({
     account:  account2,
     title:    'Jane Doe Real Estate',
-    logo:     'logo_sample_2.jpg',
+    logo:     'logo_janedoe.jpg',
     template: 'zoner'
   })
 

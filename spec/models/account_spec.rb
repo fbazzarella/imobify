@@ -5,6 +5,8 @@ RSpec.describe Account, type: :model do
     it { should have_many(association).dependent(:restrict_with_error) }
   end
 
+  it { should have_one(:site_settings).dependent(:restrict_with_error) }
+
   %i(name theme).each do |field|
     it { should validate_presence_of(field) }
   end

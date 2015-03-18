@@ -1,7 +1,7 @@
 Dir[File.expand_path('../seeds/*', __FILE__)].each { |f| require f }
 
 def truncate_tables!
-  %w(photos realties users domains accounts).each do |table_name|
+  %w(photos realties users domains site_settings accounts).each do |table_name|
     ActiveRecord::Base.connection.execute("delete from #{table_name}")
   end
 end
@@ -35,13 +35,27 @@ if %w(development staging).include?(Rails.env)
   Domain.create(account: account1, host: 'johndoe.staging.imobify.com.br')
   Domain.create(account: account2, host: 'janedoe.staging.imobify.com.br')
 
+  SiteSetting.create({
+    account:  account1,
+    title:    'Selma Santos Imobiliária',
+    logo:     'logo_selma.jpg',
+    template: 'zoner'
+  })
+
+  SiteSetting.create({
+    account:  account2,
+    title:    'Arminda Baptista Corretora Imobiliária',
+    logo:     'logo_arminda.jpg',
+    template: 'zoner_arminda'
+  })
+
   ActsAsTenant.with_tenant account1 do
     User.create(username: 'johndoe', password: 'secret')
-    # 8.times { Realty.create(realty_params) }
+    8.times { Realty.create(realty_params) }
   end
 
   ActsAsTenant.with_tenant account2 do
     User.create(username: 'janedoe', password: 'secret')
-    # 8.times { Realty.create(realty_params) }
+    8.times { Realty.create(realty_params) }
   end
 end

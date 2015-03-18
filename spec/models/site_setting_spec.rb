@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe SiteSetting, type: :model do
   it { should belong_to(:account) }
 
-  %i(account_id title logo template).each do |field|
+  %i(account title logo template).each do |field|
     it { should validate_presence_of(field) }
   end
 

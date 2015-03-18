@@ -1,9 +1,7 @@
 class Photo < ActiveRecord::Base
-  belongs_to :realty
+  belongs_to :realty, required: true
 
   default_scope { order(:created_at) }
-
-  validates :realty_id, presence: true
 
   mount_uploader :file, PhotoUploader
 

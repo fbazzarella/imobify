@@ -1,7 +1,5 @@
 class SiteSetting < ActiveRecord::Base
-  belongs_to :account
+  belongs_to :account, required: true
 
-  validates :account_id, :title, :logo, :template, presence: true
-
-  validates :title, :logo, :template, length: {maximum: 255}
+  validates :title, :logo, :template, presence: true, length: {maximum: 255}
 end

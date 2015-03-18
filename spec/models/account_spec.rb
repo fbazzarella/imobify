@@ -5,7 +5,7 @@ RSpec.describe Account, type: :model do
     it { should have_many(association).dependent(:restrict_with_error) }
   end
 
-  it { should have_one(:site_settings).dependent(:restrict_with_error) }
+  it { should have_one(:site_settings).dependent(:delete) }
 
   %i(name phone email).each do |field|
     it { should validate_presence_of(field) }

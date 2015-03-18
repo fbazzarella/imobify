@@ -5,7 +5,7 @@ RSpec.describe City, type: :model do
 
   it { should have_many(:realties).dependent(:restrict_with_error) }
 
-  %i(country_id name slug).each do |field|
+  %i(country name slug).each do |field|
     it { should validate_presence_of(field) }
   end
     

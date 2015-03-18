@@ -7,7 +7,7 @@ RSpec.describe Realty, type: :model do
 
   it { should have_many(:photos).dependent(:destroy) }
 
-  %i(account_id country_id city_id).each do |field|
+  %i(account country city).each do |field|
     it { should validate_presence_of(field) }
   end
 

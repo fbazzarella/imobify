@@ -9,20 +9,19 @@ class Realty < ActiveRecord::Base
 
   acts_as_tenant :account
 
-  belongs_to :country
-  belongs_to :city
+  belongs_to :country, required: true
+  belongs_to :city,    required: true
 
   has_many :photos, dependent: :destroy
 
-  validates :account_id, :country_id, :city_id, presence: true
+  validates :account, presence: true
 
   validates :business_kind, inclusion: BUSINESS_KIND, allow_nil: true
   validates :realty_kind,   inclusion: REALTY_KIND,   allow_nil: true
   validates :status,        inclusion: STATUS,        allow_nil: true
 
   validates *NUMERIC_FIELDS, numericality: {only_integer: true}, allow_nil: true
-
-  validates *TEXT_FIELDS, length: {maximum: 255}
+  validates *TEXT_FIELDS,    length: {maximum: 255}
 
   scope :published,         ->           { where(status: 'published') }
   scope :by_business_kind,  -> (bk)      { where(business_kind: bk)  if bk.present? }

@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Domain, type: :model do
   it { should belong_to(:account) }
 
-  %i(account_id host).each do |field|
+  %i(account host).each do |field|
     it { should validate_presence_of(field) }
   end
 

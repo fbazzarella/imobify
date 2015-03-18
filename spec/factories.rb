@@ -2,6 +2,8 @@ FactoryGirl.define do
   factory :account do
     name  'Real Estate'
     theme 'zoner'
+    phone '555 1111'
+    email 'john@doe.com'
   end
 
   factory :domain do

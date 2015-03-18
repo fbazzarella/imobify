@@ -26,8 +26,19 @@ end
 if %w(development staging).include?(Rails.env)
   truncate_tables!
 
-  account1 = Account.create(name: 'John Doe Real Estate', theme: 'zoner')
-  account2 = Account.create(name: 'Jane Doe Real Estate', theme: 'zoner_arminda')
+  account1 = Account.create({
+    name:  'John Doe Real Estate',
+    theme: 'zoner',
+    phone: '(24) 2453-1489',
+    email: 'john@doe.com'
+  })
+
+  account2 = Account.create({
+    name:  'Jane Doe Real Estate',
+    theme: 'zoner_arminda',
+    phone: '(24) 2453-1489',
+    email: 'jane@doe.com'
+  })
 
   Domain.create(account: account1, host: 'johndoe.lvh.me')
   Domain.create(account: account2, host: 'janedoe.lvh.me')

@@ -1,13 +1,6 @@
 GIT
-  remote: git@bitbucket.org:fbazzarella/template-zoner-arminda.git
-  revision: dc255584a3abe0e753e075791cab7edcb8e244bb
-  specs:
-    zoner_arminda (0.0.1)
-      rails (~> 4.2.0)
-
-GIT
   remote: git@bitbucket.org:fbazzarella/template-zoner.git
-  revision: d6857b1c7152f48e01163cb7c2749b7e0b0fab6b
+  revision: c410ed692828d47584b847b075c18733f64f2b98
   specs:
     zoner (0.0.1)
       rails (~> 4.2.0)
@@ -271,4 +264,3 @@ DEPENDENCIES
   twitter-bootstrap-rails!
   uglifier!
   zoner!
-  zoner_arminda!

@@ -27,15 +27,17 @@ if %w(development staging).include?(Rails.env)
   truncate_tables!
 
   account1 = Account.create({
-    name:  'John Doe Real Estate, Inc',
-    phone: '(21) 2255-1111',
-    email: 'john@doe.com'
+    name:   'John Doe Real Estate, Inc',
+    phone:  '(21) 2255-1111',
+    mobile: '(21) 9955-1111',
+    email:  'john@doe.com'
   })
 
   account2 = Account.create({
-    name:  'Jane Doe Real Estate, Co',
-    phone: '(21) 2255-2222',
-    email: 'jane@doe.com'
+    name:   'Jane Doe Real Estate, Co',
+    phone:  '(21) 2255-2222',
+    mobile: '(21) 9955-2222',
+    email:  'jane@doe.com'
   })
 
   SiteSetting.create({

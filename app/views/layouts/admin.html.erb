@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
     <meta name="image-loading" content="<%= image_path 'admin/loading.gif' %>">
-    <title>Painel de Controle - <%= current_tenant.name %></title>
+    <title><%= current_tenant.site_settings.title %> - Painel de Controle</title>
     <%= stylesheet_link_tag "admin", media: "all" %>
     <%= csrf_meta_tags %>
 
@@ -28,7 +28,7 @@
               <span class="icon-bar"></span>
             </button>
           <% end %>
-          <%= link_to current_tenant.name, admin_root_path, class: 'navbar-brand' %>
+          <%= link_to current_tenant.site_settings.title, admin_root_path, class: 'navbar-brand' %>
         </div>
         <% if current_admin_user.present? %>
           <div class="navbar-collapse collapse">

@@ -50,7 +50,5 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-Sortable'
 end
 
-gem 'zoner',         git: 'git@bitbucket.org:fbazzarella/template-zoner.git'
-gem 'zoner_arminda', git: 'git@bitbucket.org:fbazzarella/template-zoner-arminda.git'
-# gem 'zoner',         path: '../templates/zoner'
-# gem 'zoner_arminda', path: '../templates/zoner_arminda'
+gem 'zoner', git: 'git@bitbucket.org:fbazzarella/template-zoner.git'
+# gem 'zoner', path: '../templates/zoner'

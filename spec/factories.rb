@@ -1,9 +1,15 @@
 FactoryGirl.define do
   factory :account do
     name  'Real Estate'
-    theme 'zoner'
     phone '555 1111'
     email 'john@doe.com'
+  end
+
+  factory :site_setting do
+    account
+    title    'Real Estate'
+    logo     'logo_sample_1.jpg'
+    template 'zoner'
   end
 
   factory :domain do

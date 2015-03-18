@@ -22,9 +22,11 @@ class ApplicationController < ActionController::Base
     set_current_tenant Account.find_by_domain!(request.host)
   end
 
-  def render_theme
-    template = "#{current_tenant.theme}/#{controller_name}/#{action_name}"
-    layout   = "#{current_tenant.theme}/application"
+  def render_template
+    template_name = current_tenant.site_settings.template
+
+    template = "#{template_name}/#{controller_name}/#{action_name}"
+    layout   = "#{template_name}/application"
 
     render template: template, layout: layout
   end

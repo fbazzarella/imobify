@@ -7,14 +7,14 @@ RSpec.describe Account, type: :model do
 
   it { should have_one(:site_settings).dependent(:restrict_with_error) }
 
-  %i(name theme phone email).each do |field|
+  %i(name phone email).each do |field|
     it { should validate_presence_of(field) }
   end
 
   it { should allow_value('email@example.com').for(:email) }
   it { should_not allow_value('invalid.email').for(:email) }
 
-  %i(name theme phone mobile email).each do |field|
+  %i(name phone mobile email).each do |field|
     it { should validate_length_of(field).is_at_most(255) }
   end
 

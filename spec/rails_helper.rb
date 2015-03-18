@@ -14,8 +14,10 @@ RSpec.configure do |config|
   config.color = true
 
   config.before(:each) do
-    @current_domain = create(:domain, host: 'test.host')
-    @current_tenant = create(:account, domains: [@current_domain])
+    @current_tenant = create(:account, {
+      site_settings: create(:site_setting),
+      domains:      [create(:domain, host: 'test.host')]
+    })
   end
 
   config.after(:each) do

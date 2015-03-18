@@ -3,12 +3,12 @@ class RealtiesController < ApplicationController
     @search   = RealtySearch.new(params[:realty_search])
     @realties = @search.result.order(created_at: :desc)
 
-    render_theme
+    render_template
   end
 
   def show
     @realty = Realty.published.find(params[:id])
 
-    render_theme
+    render_template
   end
 end

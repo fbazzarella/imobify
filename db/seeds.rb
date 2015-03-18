@@ -27,17 +27,29 @@ if %w(development staging).include?(Rails.env)
   truncate_tables!
 
   account1 = Account.create({
-    name:  'John Doe Real Estate',
-    theme: 'zoner',
-    phone: '(24) 2453-1489',
+    name:  'John Doe Real Estate, Inc.',
+    phone: '(21) 2255-1111',
     email: 'john@doe.com'
   })
 
   account2 = Account.create({
-    name:  'Jane Doe Real Estate',
-    theme: 'zoner_arminda',
-    phone: '(24) 2453-1489',
+    name:  'Jane Doe Real Estate, Co.',
+    phone: '(21) 2255-2222',
     email: 'jane@doe.com'
+  })
+
+  SiteSetting.create({
+    account:  account1,
+    title:    'John Doe Real Estate',
+    logo:     'logo_sample_1.jpg',
+    template: 'zoner'
+  })
+
+  SiteSetting.create({
+    account:  account2,
+    title:    'Jane Doe Real Estate',
+    logo:     'logo_sample_2.jpg',
+    template: 'zoner'
   })
 
   Domain.create(account: account1, host: 'johndoe.lvh.me')
@@ -45,20 +57,6 @@ if %w(development staging).include?(Rails.env)
 
   Domain.create(account: account1, host: 'johndoe.staging.imobify.com.br')
   Domain.create(account: account2, host: 'janedoe.staging.imobify.com.br')
-
-  SiteSetting.create({
-    account:  account1,
-    title:    'Selma Santos Imobiliária',
-    logo:     'logo_selma.jpg',
-    template: 'zoner'
-  })
-
-  SiteSetting.create({
-    account:  account2,
-    title:    'Arminda Baptista Corretora Imobiliária',
-    logo:     'logo_arminda.jpg',
-    template: 'zoner_arminda'
-  })
 
   ActsAsTenant.with_tenant account1 do
     User.create(username: 'johndoe', password: 'secret')

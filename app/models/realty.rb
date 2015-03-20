@@ -23,22 +23,18 @@ class Realty < ActiveRecord::Base
   validates *NUMERIC_FIELDS, numericality: {only_integer: true}, allow_nil: true
   validates *TEXT_FIELDS,    length: {maximum: 255}
 
-  scope :published,         ->           { where(status: 'published') }
-  scope :by_business_kind,  -> (bk)      { where(business_kind: bk)  if bk.present? }
-  scope :by_realty_kind,    -> (rk)      { where(realty_kind: rk)    if rk.present? }
-  scope :by_city_id,        -> (city_id) { where(city_id: city_id)   if city_id.present? }
-  scope :by_rooms,          -> (rooms)   { where(rooms: rooms)       if rooms.present? }
-  scope :by_parking_spaces, -> (ps)      { where(parking_spaces: ps) if ps.present? }
+  scope :published, -> { where(status: 'published') }
+
+  %i(business_kind realty_kind city_id rooms parking_spaces).each do |field|
+    scope "by_#{field}".to_sym, -> (value) { where(field => value) if value.present? }
+  end
 
   def self.new_with_last_locations
     any? ? new(last.attributes.extract!('country_id', 'city_id')) : new
   end
 
   def related_realties
-    self.class.published
-      .by_city_id(city_id)
-      .by_business_kind(business_kind)
-      .where.not(id: id)
+    self.class.published.by_city_id(city_id).by_business_kind(business_kind).where.not(id: id)
   end
 
   def locations

@@ -1,7 +1,7 @@
 Imobify::Application.routes.draw do
   root to: 'realties#index'
 
-  resources :realties, only: [:index, :show]
+  resources :realties, path: 'imoveis', only: :show
 
   namespace :admin do
     devise_for :users, controllers: {sessions: 'admin/sessions'}

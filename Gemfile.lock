@@ -11,7 +11,7 @@ GIT
 
 GIT
   remote: git@bitbucket.org:fbazzarella/template-zoner.git
-  revision: 4bb8a174c397d184b23b607d44139f6b4cf75b28
+  revision: 45a332d092ec70998709b9941d200592016aceb1
   specs:
     zoner (0.0.1)
       rails (~> 4.2.0)
@@ -126,7 +126,7 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
-    pry-rails (0.3.3)
+    pry-rails (0.3.4)
       pry (>= 0.9.10)
     puma (2.11.1)
       rack (>= 1.1, < 2.0)
@@ -199,7 +199,7 @@ GEM
       rspec-support (~> 3.2.0)
     rspec-support (3.2.2)
     sass (3.4.13)
-    sass-rails (5.0.1)
+    sass-rails (5.0.2)
       railties (>= 4.0.0, < 5.0)
       sass (~> 3.1)
       sprockets (>= 2.8, < 4.0)

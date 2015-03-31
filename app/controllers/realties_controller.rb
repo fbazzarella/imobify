@@ -7,7 +7,7 @@ class RealtiesController < ApplicationController
   end
 
   def show
-    @realty = Realty.published.find(params[:id])
+    @realty = Realty.published.find_and_count(params[:id])
 
     render_template
   end

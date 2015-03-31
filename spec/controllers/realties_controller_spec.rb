@@ -4,8 +4,6 @@ RSpec.describe RealtiesController, type: :controller do
   render_views
 
   describe 'GET #index' do
-    mapping!
-
     let!(:realty1) { create(:realty, status: 'published', rooms: 1, account: @current_tenant) }
     let!(:realty2) { create(:realty, status: 'published', rooms: 2, account: @current_tenant) }
     let!(:realty3) { create(:realty, status: 'published', rooms: 1) }
@@ -28,11 +26,18 @@ RSpec.describe RealtiesController, type: :controller do
       let!(:realty2) { create(:realty, account: @current_tenant) }
 
       context 'when valid id' do
-        before { get :show, id: realty1.id }
+        def get_show
+          get :show, id: realty1.id
+          realty1.reload
+        end
+
+        before { get_show }
 
         it { expect(assigns(:realty)).to be_eql(realty1) }
 
         it { is_expected.to respond_with 200 }
+
+        it { expect{ get_show }.to change(realty1, :views).by(1) }
       end
 
       context 'when invalid id' do

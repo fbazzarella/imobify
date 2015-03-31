@@ -7,9 +7,11 @@ RSpec.describe Realty, type: :model do
 
   it { should have_many(:photos).dependent(:destroy) }
 
-  %i(account country city).each do |field|
+  %i(account country city views).each do |field|
     it { should validate_presence_of(field) }
   end
+
+  it { should validate_numericality_of(:views).only_integer }
 
   described_class::BUSINESS_KIND.each do |bk|
     it { should allow_value(bk).for(:business_kind) }
@@ -165,6 +167,22 @@ RSpec.describe Realty, type: :model do
     context 'when none realty exists' do
       it { expect(subject.country_id).to be_nil }
       it { expect(subject.city_id).to be_nil }
+    end
+  end
+
+  describe '#find_and_count' do
+    context 'when record is found' do
+      let!(:realty) { create(:realty) }
+
+      subject { described_class.find_and_count(realty.id) }
+
+      it { expect(subject).to be_a(Realty) }
+      it { expect(subject).to be_eql(realty) }
+      it { expect{ subject; realty.reload }.to change(realty, :views).by(1) }
+    end
+
+    context 'when record is not found' do
+      it { expect{ described_class.find_and_count(1) }.to raise_error(ActiveRecord::RecordNotFound) }
     end
   end
 

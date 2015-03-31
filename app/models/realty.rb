@@ -15,6 +15,7 @@ class Realty < ActiveRecord::Base
   has_many :photos, dependent: :destroy
 
   validates :account, presence: true
+  validates :views,   presence: true, numericality: {only_integer: true}
 
   validates :business_kind, inclusion: BUSINESS_KIND, allow_nil: true
   validates :realty_kind,   inclusion: REALTY_KIND,   allow_nil: true
@@ -23,14 +24,21 @@ class Realty < ActiveRecord::Base
   validates *NUMERIC_FIELDS, numericality: {only_integer: true}, allow_nil: true
   validates *TEXT_FIELDS,    length: {maximum: 255}
 
+
   scope :published, -> { where(status: 'published') }
 
   %i(business_kind realty_kind city_id rooms parking_spaces).each do |field|
     scope "by_#{field}".to_sym, -> (value) { where(field => value) if value.present? }
   end
 
-  def self.new_with_last_locations
-    any? ? new(last.attributes.extract!('country_id', 'city_id')) : new
+  class << self
+    def new_with_last_locations
+      any? ? new(last.attributes.extract!('country_id', 'city_id')) : new
+    end
+
+    def find_and_count(id)
+      find(id).tap { |r| r.increment! :views }
+    end
   end
 
   def related_realties

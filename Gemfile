@@ -1,7 +1,7 @@
-ruby '2.2.0'
+ruby '2.2.3'
 
 source 'https://rubygems.org' do
-  gem 'rails', '4.2.0'
+  gem 'rails', '4.2.4'
   gem 'foreman'
   gem 'puma'
   gem 'pg'
@@ -35,7 +35,7 @@ source 'https://rubygems.org' do
   end
 
   group :test do
-    gem 'shoulda-matchers'
+    gem 'shoulda-matchers', '~> 2.8'
     gem 'factory_girl_rails'
   end
 end

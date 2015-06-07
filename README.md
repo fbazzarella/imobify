@@ -4,7 +4,7 @@ Este guia destina-se apenas à instalação e execução do sistema em modo dese
 
 ## Instalação
 
-O sistema utiliza a linguagem Ruby em sua versão 2.2.x, o framework Ruby on Rails em sua versão 4.2.x e bancos de dados PostgreSQL em sua versão 9.3.x e Redis em sua versão 2.8.x.
+O sistema utiliza a linguagem Ruby em sua versão 2.2.x, o framework Ruby on Rails em sua versão 4.2.x e bancos de dados PostgreSQL em sua versão 9.4.x e Redis em sua versão 3.0.x.
 
 Clone o repositório:
 

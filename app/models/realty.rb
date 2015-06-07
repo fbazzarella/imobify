@@ -24,7 +24,6 @@ class Realty < ActiveRecord::Base
   validates *NUMERIC_FIELDS, numericality: {only_integer: true}, allow_nil: true
   validates *TEXT_FIELDS,    length: {maximum: 255}
 
-
   scope :published, -> { where(status: 'published') }
 
   %i(business_kind realty_kind city_id rooms parking_spaces).each do |field|
